@@ -57,6 +57,7 @@ componentDidMount() {
     )
 
 }
+
 componentWillUnmount() {
   Fire.closeChat();
 }

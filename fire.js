@@ -1,6 +1,20 @@
 import firebase from 'firebase'; 
 
-console.log(firebase)
+const firebaseConfig = {
+  apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
+  authDomain: 'solfium.firebaseapp.com',
+  databaseURL: 'https://solfium.firebaseio.com/',
+  projectId: 'solfium',
+  storageBucket: 'solfium.appspot.com',
+  messagingSenderId: '967493547951',
+
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+export const db = app.database();
+
+
+
 class Fire {
 
   uid = ''
@@ -9,20 +23,15 @@ class Fire {
  
   constructor ()  {
   
-      firebase.initializeApp({
-        apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
-        authDomain: 'solfium.firebaseapp.com',
-        databaseURL: 'https://solfium.firebaseio.com/',
-        projectId: 'solfium',
-        storageBucket: 'solfium.appspot.com',
-        messagingSenderId: '967493547951',
-      });
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
 
       firebase.auth().onAuthStateChanged((user) => {
 
           if (user){
             this.setUid(user.uid)
-           
+                       
           } else {
 
             firebase.auth().signInAnonymously().catch((error) => {
@@ -52,11 +61,11 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('messages');
+    this.messagesRef = firebase.database().ref('Mensajes');
     this.messagesRef.off();
     const onReceive = (data) => {
       const message = data.val()
-      //console.log(message.key)
+      console.warn(message)
       callback({
           _id:  data.key,
           text: message.text,
