@@ -5,11 +5,8 @@ import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-
-
 var {height} = Dimensions.get('window');
 
-export function InfoResultInsta({navigation }) {
 
   return (  
 
