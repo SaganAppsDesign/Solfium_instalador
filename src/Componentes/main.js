@@ -40,7 +40,7 @@ export class Main extends React.Component {
 
     return (
       <View>
-        <Text style={styles.title}>Introduce tu nombre de usuario:</Text>
+        <Text style={styles.title}>Nombre Instalador:</Text>
         <TextInput
           style={styles.nameInput}
           placeHolder="Gandalf El Gris"

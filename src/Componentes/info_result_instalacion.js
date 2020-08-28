@@ -26,19 +26,19 @@ export class InfoResultInsta extends React.Component {
   
   viabilidadTotal() {
 
-    var data,key
+    var key
     LogBox.ignoreLogs(["Setting a timer"]);
 
-     db.ref('/Usuario/').on('child_added', querySnapShot => {
-    key = querySnapShot.key;
+     //db.ref('/Usuario').on('child_added', querySnapShot => {
+     //key = querySnapShot.key;
             
-      console.warn('key: ',key)
+     // console.warn('key: ',key)
      
       //console.warn('todoitems', todoItems)
       
-    });
+    //});
     
-     db.ref('/Usuario/' + key).set({
+     db.ref('/Viabilidad').push({
       Viabilidad: '100%'
       
     })

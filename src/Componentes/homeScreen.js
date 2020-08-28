@@ -92,7 +92,7 @@ return (
                               <TouchableOpacity 
                                 style={styles.boton3}
                                                             
-                                onPress={() => navigation.navigate('Viabilidad')}
+                                onPress={() => navigation.navigate('Calendario')}
                               >
                               
                                 <Text style={{ fontSize:18, fontWeight:'bold', textTransform: "uppercase", color: 'black', textAlign:'center'

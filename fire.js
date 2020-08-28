@@ -65,7 +65,7 @@ class Fire {
     this.messagesRef.off();
     const onReceive = (data) => {
       const message = data.val()
-      console.warn(message)
+   
       callback({
           _id:  data.key,
           text: message.text,
