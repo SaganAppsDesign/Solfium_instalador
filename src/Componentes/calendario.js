@@ -4,22 +4,27 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import {db} from '../../fire';
 
 
-
-
 export const Calendario = () => {
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
+ 
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    console.warn(currentDate)
-    db.ref('/Cita').push({
-        fecha: date
-           });
-    
-    setShow(Platform.OS === 'ios');
     setDate(currentDate);
+    console.warn(fecha)
+    var fecha = JSON.stringify(currentDate)
+    db.ref('/Cita').push({
+    
+    fecha: fecha
+       });
+    
+    // setShow(Platform.OS === 'ios');
+    
+    
+    
+    
   };
 
   const showMode = (currentMode) => {
