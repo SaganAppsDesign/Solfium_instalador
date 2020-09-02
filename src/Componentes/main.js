@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Fire, {db} from '../../fire';
 
 
 
 export class Main extends React.Component {
-
  
   state = {
 
@@ -30,12 +30,19 @@ export class Main extends React.Component {
 
   onChangeText = name => this.setState({ name });
 
+  
+  user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
+    name: this.state.name
+   
+    //fecha: fecha,
+  
+    })
+
  
 
   render() {
 
-    
-
+     
     const { navigate } = this.props.navigation;  
 
     return (
@@ -48,7 +55,9 @@ export class Main extends React.Component {
           value={this.state.name}
           
         />
-        <TouchableOpacity onPress={this.onPress}
+        <TouchableOpacity onPress={
+          () => { this.onPress(); this.user()}
+         }
         >
          <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>

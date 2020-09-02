@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {HomeScreen} from './src/Componentes/homeScreen';  
 import { Chat } from './src/Componentes/chat'; 
 import { Main } from './src/Componentes/main'; 
+import { Usuarios } from './src/Componentes/usuarios'; 
 import { Calendario } from './src/Componentes/calendario'; 
 import { InfoResultInsta } from './src/Componentes/info_result_instalacion'; 
 import 'react-native-gesture-handler';
@@ -36,6 +37,8 @@ class MyStack extends Component {
       <Stack.Screen name="Nombre usuario" component={Main}  />
       <Stack.Screen name="Viabilidad" component={InfoResultInsta}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
+      <Stack.Screen name="Usuarios" component={Usuarios}  />
+
 
     </Stack.Navigator>
   )};

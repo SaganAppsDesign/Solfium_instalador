@@ -3,10 +3,12 @@ import { StyleSheet, Text, View, TouchableOpacity, Dimensions, LogBox} from 'rea
 import tec2 from '../../assets/tec3.jpg'; 
 import ImageOverlay from "react-native-image-overlay";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {db} from '../../fire';
+import Fire, {db} from '../../fire';
 
 
 var {height} = Dimensions.get('window');
+var key
+
 
 export class InfoResultInsta extends React.Component {
 
@@ -17,6 +19,7 @@ export class InfoResultInsta extends React.Component {
     this.state = {
       todos: {},
       presentToDo: '',
+      key:''
       
     };
     
@@ -26,19 +29,19 @@ export class InfoResultInsta extends React.Component {
   
   viabilidadTotal() {
 
-    var key
+   
     LogBox.ignoreLogs(["Setting a timer"]);
 
      //db.ref('/Usuario').on('child_added', querySnapShot => {
      //key = querySnapShot.key;
             
-     // console.warn('key: ',key)
+     console.log('this.state.key: ',this.state.key)
      
       //console.warn('todoitems', todoItems)
       
     //});
     
-     db.ref('/Viabilidad').push({
+     db.ref('/Usuarios/' + this.state.key).update({
       Viabilidad: '100%'
       
     })
@@ -55,7 +58,7 @@ export class InfoResultInsta extends React.Component {
      
 
   viabilidadParcial() {
-    db.ref('/Viabilidad').push({
+    db.ref('/Usuarios/' + this.state.key).update({
       Viabilidad: '50%'
          });
       
@@ -68,8 +71,21 @@ export class InfoResultInsta extends React.Component {
 
 
   noViable() {
-    db.ref('/Viabilidad').push({
-      Viabilidad: '0%'
+    db.ref('/Usuarios/' + this.state.key).update({
+      Viabilidad: '0%',
+      uid: Fire.getUid()
+      
+    });
+       
+    this.setState({
+      presentToDo: '',
+    });
+  }
+
+  
+  evaluando() {
+    db.ref('/Usuarios/' + this.state.key).update({
+      Viabilidad: 'evaluando'
       
     });
        
@@ -80,26 +96,34 @@ export class InfoResultInsta extends React.Component {
 
 
   clearViabilidad() {
-    db.ref('/Viabilidad').remove();
+    db.ref('/Usuarios/' + this.state.key).remove();
   }
 
   componentDidMount() {
     LogBox.ignoreLogs(["Setting a timer"]);
 
-    db.ref('/Usuario').on('value', querySnapShot => {
-      let data = querySnapShot.val() ? querySnapShot.val() : {};
-      //console.warn('data',data)
-      let todoItems = {...data};
-      //console.warn('todoitems', todoItems)
+    db.ref('/Usuarios/').on('child_added', (snapshot) => {
+ 
+      key = snapshot.key;
+      console.log('KEY: ', key)
+      
+      var user = snapshot.val();
+      console.log('Valores: ', user)
+
       this.setState({
-        todos: todoItems,
+        key: key,
       });
-    });
+     
+    
+    })
   } 
+
+
+
 
   render() {
 
-    
+
   
   return (  
        
@@ -107,28 +131,36 @@ export class InfoResultInsta extends React.Component {
          source={tec2}
          height={height}>
 
-        <View>
+        <View style={{flex:1}}>
           <View  style={{marginTop: '0%', marginBottom: '1%'}}>
-                   
-                        
+                       
               <Text style={{color: '#000',
                       backgroundColor: 'white',
                       fontSize: 15,
                       marginHorizontal: 15,
                       textAlign: 'center',
-                      marginTop: 0,
+                      marginTop: '5%',
                       marginBottom: 5,
                       fontWeight: 'bold',
                       padding: 10,
                       borderRadius:0}}>Viabilidad instalación CLIENTE:
 
-
-               </Text>
+              </Text>
 
           </View>
                    
           
-        <View>
+        <View style={{marginTop: '0%', marginBottom: '1%', flex:1}}>
+
+              <TouchableOpacity
+              onPress={() => {this.evaluando()}}
+              >
+              <View
+              style={styles.btnContainer0}>
+                <Text style={styles.btnText}>Evaluando</Text>
+              </View>
+            </TouchableOpacity> 
+
              <TouchableOpacity
               onPress={() => this.viabilidadTotal()}
               >
@@ -186,14 +218,14 @@ export class InfoResultInsta extends React.Component {
               style={{
   
                 justifyContent: 'center',
-                borderRadius: 5,
+                borderRadius: 15,
                 backgroundColor: 'grey',
                 padding: 15,
                 textAlign:'center',
                 alignItems:'center',
                 flexDirection: 'column',
                 width:'100%',
-                height:'30%',
+                height:'25%',
                 marginBottom:'2%', marginTop:'5%'
             
               
@@ -223,6 +255,21 @@ const styles = StyleSheet.create({
     width: '100%'
         
   },
+  btnContainer0: {
+    
+    justifyContent: 'center',
+    borderRadius: 15,
+    backgroundColor: 'grey',
+    padding: 15,
+    textAlign:'center',
+    alignItems:'center',
+    flexDirection: 'column',
+    width:300,
+    height:50,
+    marginBottom:'10%', marginTop:'2%'
+
+  
+  },
   btnContainer1: {
     
     justifyContent: 'center',
@@ -234,7 +281,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width:300,
     height:100,
-    marginBottom:10, marginTop:30
+    marginBottom:'2%', marginTop:'2%'
 
   
   },
@@ -250,7 +297,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width:300,
     height:100,
-    marginBottom:10, marginTop:10
+    marginBottom:'2%', marginTop:'2%'
 
   
   },
@@ -267,7 +314,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width:300,
     height:110,
-    marginBottom:'1%', marginTop:10
+    marginBottom:'2%', marginTop:'2%'
 
   
   },

@@ -27,24 +27,24 @@ class Fire {
       firebase.initializeApp(config);
     }
 
-      firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
 
-          if (user){
-            this.setUid(user.uid)
-                       
-          } else {
+        if (user){
+          this.setUid(user.uid)
+                      
+        } else {
 
-            firebase.auth().signInAnonymously().catch((error) => {
+          firebase.auth().signInAnonymously().catch((error) => {
 
-              alert(error.message)
-            }
-            )
-
+            alert(error.message)
           }
+          )
 
-      }
+        }
+
+    }
            
-      )
+    )
 
    
   }
@@ -61,7 +61,7 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('Mensajes');
+    this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
     const onReceive = (data) => {
       const message = data.val()
