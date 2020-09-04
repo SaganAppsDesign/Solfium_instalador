@@ -77,7 +77,7 @@ return (
                                     <TouchableOpacity 
                                       style={styles.boton2}
                                                                   
-                                      onPress={() => navigation.navigate('Viabilidad')}
+                                      onPress={() => navigation.navigate('Usuarios')}
                                     >
                                     
                                       <Text style={{ fontSize:18, fontWeight:'bold', textTransform: "uppercase", color: 'black', textAlign:'center'

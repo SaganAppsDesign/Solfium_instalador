@@ -46,7 +46,9 @@ export class Main extends React.Component {
     const { navigate } = this.props.navigation;  
 
     return (
-      <View>
+    
+      
+      <View style={{backgroundColor:'orange', height:'100%'}}>
         <Text style={styles.title}>Nombre Instalador:</Text>
         <TextInput
           style={styles.nameInput}
@@ -55,13 +57,15 @@ export class Main extends React.Component {
           value={this.state.name}
           
         />
-        <TouchableOpacity onPress={
+        <TouchableOpacity 
+          onPress={
           () => { this.onPress(); this.user()}
          }
         >
-         <Text style={styles.buttonText}>Siguiente</Text>
+         <Text style={styles.buttonText}>Chat aquí</Text>
         </TouchableOpacity>
       </View>
+   
     );
   }
 }
@@ -73,18 +77,27 @@ const styles = StyleSheet.create({
   title: {
     marginTop: offset,
     marginLeft: offset,
-    fontSize: offset,
+    fontSize: 20,
+    fontWeight:'bold'
   },
   nameInput: {
     height: offset * 2,
     margin: offset,
     paddingHorizontal: offset,
-    borderColor: '#111111',
-    borderWidth: 1,
+    backgroundColor: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    borderRadius: 2,
   },
   buttonText: {
     marginLeft: offset,
-    fontSize: offset,
+    fontSize: 20,
+    fontWeight:'bold',
+    backgroundColor: '#DD650C',
+    width:'30%',
+    height:'22%',
+    borderRadius: 10,
+    textAlign:'center'
   },
 });
 
