@@ -10,7 +10,9 @@ import { Calendario } from './src/Componentes/calendario';
 import { InfoResultInsta } from './src/Componentes/info_result_instalacion'; 
 import 'react-native-gesture-handler';
 
+
 const Stack = createStackNavigator();
+console.disableYellowBox = true;
 
 
 class MyStack extends Component {
@@ -21,9 +23,9 @@ class MyStack extends Component {
   return (
     <Stack.Navigator
 
-        screenOptions={{
+      screenOptions={{
         headerStyle: {
-          backgroundColor: '#2196F3',
+          backgroundColor: 'orange',
         },
         headerTintColor: '#fff',
         
@@ -34,7 +36,7 @@ class MyStack extends Component {
 
       <Stack.Screen name="Solfium Instalador" component={HomeScreen}/>
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen name="Nombre usuario" component={Main}  />
+      <Stack.Screen name="Instalador" component={Main}  />
       <Stack.Screen name="Viabilidad" component={InfoResultInsta}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen name="Usuarios" component={Usuarios}  />

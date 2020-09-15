@@ -6,16 +6,17 @@ import {
   TouchableOpacity,
   LogBox,
   View,
-  Image,ScrollView, SafeAreaView
+  Image,ScrollView, Button
 
 } from 'react-native';
 
 import { Card, CardItem, Text, Body, Icon, Right } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import Fire, {db} from '../../fire';
 import logo from '../../assets/logo.png'; 
-import fondo from '../../assets/tec3.jpg'; 
+import fondo from '../../assets/fondo.jpg'; 
 
 var {height} = Dimensions.get('screen');
 
@@ -93,66 +94,64 @@ export class Usuarios extends React.Component {
    <ImageOverlay 
 
        source={fondo}
-       height={height}
-       resizeMode="stretch"
-       style={styles.fondo} >
-            
-     <View>           
-
-            <View style={[styles.box1]}> 
-
-              <Image 
-
-                  source={logo} style={styles.logo}
-                >
-                
-              </Image>
-                
-            </View>   
-
-
-           
-                    <View style={{flex:10, alignSelf:'center', justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:'85%', height:500, marginTop:'5%'}}>
+       height={hp('100%')}  
+       overlayAlpha={0}             
+       >
+          <View style={{flex:1,  justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:'85%', height:hp('100%'), marginTop:hp('10%')}}>
                       
-                    <ScrollView>           
-                    <FlatList data={this.state.list} 
-                              renderItem={({ item }) => 
-                      
-                     <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:7, height:250, flex:1}}> 
+                        <ScrollView>           
+                        <FlatList data={this.state.list} 
+                                  renderItem={({ item }) => 
+                          
+                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('20%'), flex:1}}> 
                        
-                            <CardItem  bordered> 
-                               <Text style={{fontWeight: 'bold'}}>ID: {item.key}</Text> 
-                            </CardItem> 
+                                                     
+                            <View style={{flexDirection:'row', flex:1, height:hp('1%'), marginTop:hp('1%')}}>
                             
-                            <CardItem bordered> 
-                                <Text style={{fontWeight:'bold', fontSize:15}}>Nombre cliente: {item.name}</Text> 
-                            </CardItem> 
+                                <View style={{flex:4}}>
+                                    <Text style={{fontWeight:'bold', fontSize:hp('3%'), padding:hp('1%'), textAlign:'center'}}>Cliente: {item.name}</Text> 
+                                </View>    
+                               
+                                <View style={{flex:2}}>
                          
+                                    <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Instalador')}></Button>
+                                                                 
+                                </View>
+
+                            </View>
                          
+                           <View style={{flexDirection:'row', flex:1, height:'2%', marginTop:'3%'}}>
                             <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
-                            <CardItem  style={{backgroundColor:'green', height:'2%'}} button onPress={() => this.viabilidadTotal(item.key)} > 
-                                              
-                                <Text style={{textAlign: 'center', alignItems:'center',fontSize:15}}>Viabilidad 100%</Text> 
+                         
+                                <Button  title='100%' color='green' onPress={() => this.viabilidadTotal(item.key)}> 
+                                  
+                                </Button>
+                            </View>
+                            <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
+                                <Button  title='50%' color='orange' onPress={() => this.viabilidadParcial(item.key)}> 
+                                  
+                                </Button>
+                            </View>
+                            <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
+                                <Button  title='0%' color='red' onPress={() => this.noViable(item.key)}> 
+                                  
+                                </Button>
+                             </View>
+                             <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
+                                <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
+                                  
+                                </Button>
+                            </View>
+
+                           
                             
-                            </CardItem>
-
-                            <CardItem  style={{backgroundColor:'orange', height:'2%'}} button onPress={() => this.viabilidadParcial(item.key)}> 
-                                    <Text>Viabilidad a la baja</Text> 
-                            </CardItem>
-
-                            <CardItem style={{backgroundColor:'red', height:'2%'}} button onPress={() => this.noViable(item.key)}> 
-                                <Text>No viable</Text> 
-                            </CardItem>
-
-                            <CardItem bordered style={{backgroundColor:'grey', height:'2%'}} button onPress={() => this.evaluando(item.key)}> 
-                            <Text>Evaluando</Text> 
-                            </CardItem>
-
-                            <CardItem bordered footer style={{ weight: '100',height:'2%', backgroundColor:'yellow', marginTop:'5%', marginBottom:'0%'}}> 
-                            <Text style={{fontWeight:'bold', fontSize:15}}>Evaluación Final: {item.viabilidad}</Text> 
-                        </CardItem> 
                       </View>
 
+                      <View style={{ height:'1%', backgroundColor:'#DDD00C', marginTop:'5%', marginBottom:'5%', flex:1,justifyContent:'center'}}> 
+                                  <Text style={{fontWeight:'bold', fontSize:15, padding:10}}>Evaluación Final: {item.viabilidad}</Text> 
+                      </View>
+                      
+                       
                    
                     </Card> 
 
@@ -167,7 +166,7 @@ export class Usuarios extends React.Component {
           
  
   
-      </View>  
+ 
   </ImageOverlay>
 
   </View>  
@@ -256,8 +255,8 @@ const styles = StyleSheet.create({
 
   logo: {
     
-    width: "50%",
-    height: "50%",
+    width: wp('35%'),
+    height: hp('7%'),
     marginBottom: "0%",
     marginTop: "10%",
     marginLeft: "60%",

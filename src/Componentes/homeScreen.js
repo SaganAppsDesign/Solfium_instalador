@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import logo from '../../assets/logo.png'; 
-import fondo from '../../assets/tec3.jpg'; 
+import fondo from '../../assets/fondo.jpg'; 
 import panel from '../../assets/panel_principal.png'; 
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -92,7 +92,7 @@ return (
                               <TouchableOpacity 
                                 style={styles.boton3}
                                                             
-                                onPress={() => navigation.navigate('Usuarios')}
+                                onPress={() => navigation.navigate('Calendario')}
                               >
                               
                                 <Text style={{ fontSize:18, fontWeight:'bold', textTransform: "uppercase", color: 'black', textAlign:'center'

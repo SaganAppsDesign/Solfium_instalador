@@ -2,12 +2,16 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
+  KeyboardAvoidingView,
   TouchableOpacity,
+  ScrollView,
   View,
 } from 'react-native';
 import Fire, {db} from '../../fire';
+import fondo from '../../assets/fondo.jpg'; 
 
+import { TextInput } from 'react-native-paper';
+import ImageOverlay from "react-native-image-overlay";
 
 
 export class Main extends React.Component {
@@ -40,65 +44,94 @@ export class Main extends React.Component {
 
  
 
-  render() {
+    render() {
 
      
-    const { navigate } = this.props.navigation;  
-
-    return (
-    
-      
-      <View style={{backgroundColor:'orange', height:'100%'}}>
-        <Text style={styles.title}>Nombre Instalador:</Text>
-        <TextInput
-          style={styles.nameInput}
-          placeHolder="Gandalf El Gris"
-          onChangeText={this.onChangeText}
-          value={this.state.name}
+      return (
+        <ImageOverlay 
+  
+        source={fondo}
+        height={"100%"}
+        overlayAlpha={0}
           
-        />
-        <TouchableOpacity 
-          onPress={
-          () => { this.onPress(); this.user()}
-         }
+  
+        //resizeMode="stretch"
+        //style={styles.fondo} 
         >
-         <Text style={styles.buttonText}>Chat aquí</Text>
-        </TouchableOpacity>
-      </View>
-   
-    );
+      
+        <View style={{height:'100%', width:'100%', alignItems:'center', flex:1}}>
+  
+        <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
+        style={{height:'100%', width:'100%', flex:5}}>
+      
+         <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
+         
+                <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
+                  <TextInput
+                    style={styles.nameInput}
+                    label="Instalador"
+                    onChangeText={this.onChangeText}
+                    value={this.state.name}
+                    //mode='outlined'
+                    theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                    
+  
+                    
+                  />
+  
+                  <TouchableOpacity onPress={
+                    () => { this.onPress(); this.user()}
+                  }
+                  >
+                  <Text style={styles.buttonText}>Chat aquí</Text>
+                  </TouchableOpacity>
+  
+                </View>
+            
+  
+           </ScrollView>
+          </KeyboardAvoidingView>
+        </View>
+  
+      
+        </ImageOverlay>
+      );
+    }
   }
-}
-
-
-const offset = 24;
-
-const styles = StyleSheet.create({
-  title: {
-    marginTop: offset,
-    marginLeft: offset,
-    fontSize: 20,
-    fontWeight:'bold'
-  },
-  nameInput: {
-    height: offset * 2,
-    margin: offset,
-    paddingHorizontal: offset,
-    backgroundColor: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-    borderRadius: 2,
-  },
-  buttonText: {
-    marginLeft: offset,
-    fontSize: 20,
-    fontWeight:'bold',
-    backgroundColor: '#DD650C',
-    width:'30%',
-    height:'22%',
-    borderRadius: 10,
-    textAlign:'center'
-  },
-});
-
-
+  
+  
+  
+  
+  const styles = StyleSheet.create({
+   
+    nameInput: {
+      height: 70,
+      marginLeft: '10%',
+      marginTop:'5%',
+      marginBottom:'5%',
+      width:'80%',
+      paddingHorizontal: '25%',
+      backgroundColor: 'white',
+      fontSize:20,
+      fontWeight: 'bold',
+      borderRadius: 2,
+     
+     
+    },
+    buttonText: {
+      marginLeft: '10%',
+      marginTop:'0%',
+      fontSize: 20,
+      marginBottom:'5%',
+      fontWeight:'bold',
+      backgroundColor: '#DD650C',
+      width:'40%',
+      height:'100%',
+      borderRadius: 10,
+      textAlign:'center',
+      flex:1
+    },
+  });
+  
+  
+  

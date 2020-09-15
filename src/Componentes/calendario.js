@@ -13,8 +13,9 @@ export const Calendario = () => {
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);
-    console.warn(fecha)
+    
     var fecha = JSON.stringify(currentDate)
+    
     db.ref('/Cita').push({
     
     fecha: fecha
