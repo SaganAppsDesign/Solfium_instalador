@@ -15,24 +15,34 @@ import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import Fire, {db} from '../../fire';
-import logo from '../../assets/logo.png'; 
 import fondo from '../../assets/fondo.jpg'; 
+import {fecha} from './calendario';
 
-var {height} = Dimensions.get('screen');
 
-//console.warn(ListItem)
-
-var idUsuario
 export class Usuarios extends React.Component {
+
  
     constructor(props) {
         super(props)
         this.state = {
-          list: [] 
-          
+          list: []
+                   
         }
         
       }
+
+     cita(key) {
+
+    
+        
+        db.ref('/Usuarios/' + key).update({
+
+          cita: fecha
+
+           });
+    
+     
+     }
 
       viabilidadTotal(key) {
         
@@ -42,7 +52,7 @@ export class Usuarios extends React.Component {
            });
             
      
-    }
+     }
 
       viabilidadParcial(key) {
         
@@ -75,21 +85,21 @@ export class Usuarios extends React.Component {
       }
     
     
-      clearViabilidad() {
+      clearViabilidad(key) {
         db.ref('/Usuarios/' + key).remove();
       }
  
 
   render() {
 
-        
-        //console.warn(list)
+   
+    console.log(this.state.list)     
+    console.log('fecha usuario',   fecha)
 
     return (
 
-  <View style={styles.container}>
 
-   <View>  
+
 
    <ImageOverlay 
 
@@ -97,7 +107,7 @@ export class Usuarios extends React.Component {
        height={hp('100%')}  
        overlayAlpha={0}             
        >
-          <View style={{flex:1,  justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:'85%', height:hp('100%'), marginTop:hp('10%')}}>
+          <View style={{flex:1,  justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:'85%', height:hp('100%'), marginTop:hp('1%')}}>
                       
                         <ScrollView>           
                         <FlatList data={this.state.list} 
@@ -109,7 +119,7 @@ export class Usuarios extends React.Component {
                             <View style={{flexDirection:'row', flex:1, height:hp('1%'), marginTop:hp('1%')}}>
                             
                                 <View style={{flex:4}}>
-                                    <Text style={{fontWeight:'bold', fontSize:hp('3%'), padding:hp('1%'), textAlign:'center'}}>Cliente: {item.name}</Text> 
+                                    <Text style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
                                
                                 <View style={{flex:2}}>
@@ -117,6 +127,15 @@ export class Usuarios extends React.Component {
                                     <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Instalador')}></Button>
                                                                  
                                 </View>
+
+                                <View style={{flex:3, fontSize:hp('0.5%')}}>
+                         
+                                    <Button  title='Calend' color='#A0E1F7' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                                </View>
+                                <View style={{flex:3, fontSize:hp('0.5%')}}>
+                         
+                                <Button  title='Cita' color='#A0E1F7' onPress={() => this.cita(item.key)}></Button>
+                            </View>
 
                             </View>
                          
@@ -146,10 +165,13 @@ export class Usuarios extends React.Component {
                            
                             
                       </View>
-
-                      <View style={{ height:'1%', backgroundColor:'#DDD00C', marginTop:'5%', marginBottom:'5%', flex:1,justifyContent:'center'}}> 
+                      <View style={{ height:'1%', backgroundColor:'orange', marginTop:'5%', marginBottom:'0%', flex:1,justifyContent:'center'}}> 
+                      <Text style={{fontWeight:'bold', fontSize:15, padding:10}}>Cita: {item.cita}</Text> 
+                     </View>
+                      <View style={{ height:'1%', backgroundColor:'#DDD00C', marginTop:'0%', marginBottom:'0%', flex:1,justifyContent:'center'}}> 
                                   <Text style={{fontWeight:'bold', fontSize:15, padding:10}}>Evaluación Final: {item.viabilidad}</Text> 
                       </View>
+                      
                       
                        
                    
@@ -169,8 +191,6 @@ export class Usuarios extends React.Component {
  
   </ImageOverlay>
 
-  </View>  
-  </View>  
 
 
 
@@ -184,9 +204,7 @@ export class Usuarios extends React.Component {
 
 
   componentDidMount(){
-
-    LogBox.ignoreLogs(["Setting a timer"]);
-         
+           
 
     db.ref('/Usuarios/').on('value', (snapshot) =>{
         var li = []
@@ -195,13 +213,15 @@ export class Usuarios extends React.Component {
          li.push({
                   key: child.key,
                   name:child.val().name,
-                  viabilidad:child.val().Viabilidad
+                  viabilidad:child.val().Viabilidad,
+                  cita:child.val().cita
           
         })
       })
 
 
    this.setState({list:li})
+  
   
   })
  }
@@ -210,170 +230,4 @@ export class Usuarios extends React.Component {
 
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1, 
-    alignSelf:'center', 
-    justifyContent:'center', 
-    backgroundColor:'black', 
-    width:'100%'
-    
-  },
-
-  scrollView: {
-   
-    marginHorizontal: 1,
-    paddingBottom : 5,
-    flex:1,
-    height: '100%'
-  },
-
-  
-    //header
-    box1: {
-    flex: 1,
-    marginTop:'10%',
-    
-        
-    },
-    //content
-    box2: {
-        flex: 4,
-        alignItems: 'center'
-        
-    },
-    //footer
-    box3: {
-        flex: 7,
-        alignItems: 'center',
-        marginBottom:'5%',
-        marginTop:'0%'
-
-        
-    },
-
-  logo: {
-    
-    width: wp('35%'),
-    height: hp('7%'),
-    marginBottom: "0%",
-    marginTop: "10%",
-    marginLeft: "60%",
-    marginRight: "0%"
-    
-    
-  },
-
-  panel: {
-    
-    width: 400,
-    height: 400,
-    marginBottom: "90%",
-    marginTop: "2%",
-    marginLeft: "0%",
-    marginRight: "0%"
-    
-    
-  },
-
-  boton: {
-    
-     
-     height: 40, 
-     width:'40%',
-     marginBottom: "50%", 
-     marginTop: "3%", 
-     marginLeft: '60%', 
-     marginRight: '1%',
-     alignItems: "center",
-     padding: 0, 
-     backgroundColor: 'rgba(255,255,255,0)'
-    
-    
-    
-  },
-  boton2: {
-    
-     
-    height: 40, 
-    width:'40%',
-    marginBottom: "50%", 
-    marginTop: "3%", 
-    marginLeft: '5%', 
-    marginRight: '1%',
-    alignItems: "center",
-    padding: 0, 
-    backgroundColor: 'rgba(255,255,0,0)'
-   
-   
-   
- },
-
- boton3: {
-    
-     
-  height: 40, 
-  width:'40%',
-  marginBottom: "100%", 
-  marginLeft: "75%", 
-  marginTop: "3%", 
-  marginRight: '1%',
-  alignItems: "center",
-  padding: 0, 
-  backgroundColor: 'rgba(0,255,0,0)'
- 
- 
- 
-},
-
-
-  texto: {
-    color: '#fff',
-    fontSize: 20,
-    marginHorizontal: 15,
-    marginBottom: 20,
-    fontWeight: 'bold'
-    
-    
-  },
- 
-  fondo: {
-    width: '100%'
-    
-    
-  },
-  btnContainer3: {
-   
-    justifyContent: 'center',
-    borderRadius: 10,
-    backgroundColor: '#2196F3',
-    padding: 5,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:310,
-    height:180,
-    marginBottom:2, marginTop:0
-  },
-
-  btnContainer4: {
-   
-    justifyContent: 'center',
-    borderRadius: 10,
-    backgroundColor: '#2196F3',
-    padding: 1,
-    textAlign:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    width:'90%',
-    height:'15%',
-    marginBottom:5, 
-    marginTop:0,
-    margin:'5%'
-  }
-  
-
-});
- 
 

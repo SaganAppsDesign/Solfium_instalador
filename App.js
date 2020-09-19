@@ -39,7 +39,7 @@ class MyStack extends Component {
       <Stack.Screen name="Instalador" component={Main}  />
       <Stack.Screen name="Viabilidad" component={InfoResultInsta}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
-      <Stack.Screen name="Usuarios" component={Usuarios}  />
+      <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
 
 
     </Stack.Navigator>

@@ -1,31 +1,22 @@
 import React, {useState} from 'react';
 import {View, Button, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {db} from '../../fire';
+
+export var fecha ="Define cita"
+
+export const Calendario = ({ route, navigation }) => {
 
 
-export const Calendario = () => {
+  
+
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
- 
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
     setDate(currentDate);
-    
-    var fecha = JSON.stringify(currentDate)
-    
-    db.ref('/Cita').push({
-    
-    fecha: fecha
-       });
-    
-    // setShow(Platform.OS === 'ios');
-    
-    
-    
-    
   };
 
   const showMode = (currentMode) => {
@@ -41,15 +32,27 @@ export const Calendario = () => {
     showMode('time');
   };
 
+  fecha = date
+
+  console.log('fecha',fecha)
+
   return (
     <View>
       <View>
-        <Button onPress={showDatepicker} title="Show date picker!" />
+        <Button onPress={showDatepicker} title="Elije fecha" />
       </View>
       <View>
-        <Button onPress={showTimepicker} title="Show time picker!" />
+        <Button onPress={showTimepicker} title="Elije hora" />
       </View>
-      
+      <View>
+        <Button onPress={() => navigation.navigate('Usuarios', {
+
+          fecha: fecha,
+        
+
+        }
+        )} title="Enviar cita!" />
+      </View>
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
