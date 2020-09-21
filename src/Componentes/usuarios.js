@@ -128,7 +128,12 @@ export class Usuarios extends React.Component {
        >
           <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
 
-                        <View style={{flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
+          
+                    <View style={{flex:1}}>
+                          <Text style={{ marginTop:  hp('1%'), fontWeight:'', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
+                   </View>    
+
+                   <View style={{flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
                           
                          }}> 
 
@@ -136,10 +141,11 @@ export class Usuarios extends React.Component {
 
                                         source={logo} style={{
                   
-                                          width: wp('50%'),
-                                          height: hp('10%'),
+                                          width: wp('40%'),
+                                          height: hp('7%'),
                                           marginBottom: hp('0%'),
-                                          marginTop:  hp('1%'),
+                                          marginTop:  hp('0%'),
+                                          borderRadius: 10
                                          
                                                                       
                                         }}
@@ -149,7 +155,7 @@ export class Usuarios extends React.Component {
                         
                       </View> 
                       
-                      <View style={{flex:10, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('2%'),
+                      <View style={{flex:15, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('2%'),
                           
                          }}> 
                       

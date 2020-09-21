@@ -55,9 +55,7 @@ export class PantallaInicial extends React.Component {
     render() {
 
       nombre = this.state.name
-      console.log('nombreee',   nombre)
-
-     
+          
       return (
         <ImageOverlay 
   
