@@ -18,6 +18,7 @@ import Fire, {db} from '../../fire';
 import fondo from '../../assets/fondo.jpg'; 
 import {fecha} from './calendario';
 import {viabilidad} from './viabilidad';
+import {nombre} from './pantalla_inicial';
 
 
 //year = date.slice(0,4)
@@ -27,7 +28,6 @@ var hour = date.slice(11,16) */
 
 //var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
 
-//console.log('fechaFormato' + fechaFormato)
 
 //console.log('fechaFormato: ' + typeof(fecha))
 
@@ -39,7 +39,8 @@ export class Usuarios extends React.Component {
         super(props)
         this.state = {
           list: [],
-          fecha:fecha
+          fecha:fecha,
+          nombre:nombre
                    
         }
         
@@ -51,7 +52,8 @@ export class Usuarios extends React.Component {
         
         db.ref('/Usuarios/' + key).update({
 
-          cita: this.state.fecha
+          cita: this.state.fecha,
+          nombre_instalador: this.state.nombre
 
            });
     
@@ -108,7 +110,9 @@ export class Usuarios extends React.Component {
 
   render() {
 
-   
+
+
+   // console.log(name)
 
 
 
@@ -145,7 +149,7 @@ export class Usuarios extends React.Component {
                         
                       </View> 
                       
-                      <View style={{flex: 10, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('2%'),
+                      <View style={{flex:10, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('2%'),
                           
                          }}> 
                       
@@ -155,10 +159,10 @@ export class Usuarios extends React.Component {
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
                           
-                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('35%'),width:wp('80%'), flex:2}}> 
+                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('30%'),width:wp('80%'), flex:1}}> 
                        
                                                      
-                            <View style={{flexDirection:'row', flex:1, height:hp('1%'), marginTop:hp('1%')}}>
+                            <View style={{flexDirection:'row', flex:0.5, height:hp('1%'), marginTop:hp('1%')}}>
                             
                                 <View style={{flex:2}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}>{item.name}</Text> 
@@ -191,7 +195,7 @@ export class Usuarios extends React.Component {
 
                           {/*Viabilidad*/}
                          
-                           <View style={{flexDirection:'row', flex:1, height:'2%', marginTop:'3%'}}>
+                           <View style={{flexDirection:'row', flex:0.5, height:'2%', marginTop:'3%'}}>
                            
                               <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
                          
@@ -216,7 +220,7 @@ export class Usuarios extends React.Component {
                             </View>
                             <View style={{flex:1}}>
                          
-                            <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Instalador')}></Button>
+                            <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Chat')}></Button>
                                                        
                           </View>
                             
@@ -226,17 +230,40 @@ export class Usuarios extends React.Component {
 
                       
 
-                     <View style={{backgroundColor:'red', height:'1%', marginTop:'5%', marginBottom:'0%', flex:1, justifyContent:'center'}}> 
-                         <Text style={{backgroundColor:'red', fontWeight:'bold', fontSize:12, padding:0, textAlign:'left'}}>Fecha cita: {item.cita}</Text> 
+                     <View style={{height:hp('0%'), width:wp('70%'), marginTop:hp('1.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                         <Text>
+                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha cita:</Text> 
+                              <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.cita} </Text> 
+                         </Text> 
                      </View>
-                     <View style={{ height:'1%', backgroundColor:'', marginTop:'0%', marginBottom:'0%', flex:1,justifyContent:'center'}}> 
-                        <Text style={{fontWeight:'bold', fontSize:12, padding:0}}>Estado visita: {item.visita}</Text> 
+
+
+                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                          <Text>
+                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Estado visita: </Text> 
+                              <Text style={{fontWeight:'', fontSize:hp('2%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
+                         </Text> 
                      </View>
-                     <View style={{ height:'1%', backgroundColor:'', marginTop:'0%', marginBottom:'0%', flex:1,justifyContent:'center'}}> 
-                        <Text style={{fontWeight:'bold', fontSize:12, padding:0}}>Fecha Instalación: {item.fechaInstalacion}</Text> 
+
+
+                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}>  
+                       
+                        <Text>
+                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha Instalación: </Text> 
+                              <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.fechaInstalacion} </Text> 
+                        </Text> 
                      </View>
-                     <View style={{ height:'1%', backgroundColor:'#DDD00C', marginTop:'0%', marginBottom:'0%', flex:1,justifyContent:'center'}}> 
-                        <Text style={{fontWeight:'bold', fontSize:12, padding:10}}>Viabilidad: {item.viabilidad}</Text> 
+
+
+                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                      
+                        <Text>
+                            <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Viabilidad:</Text> 
+                            <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.viabilidad} </Text> 
+                        </Text> 
+
+
+
                      </View>
                       
                    

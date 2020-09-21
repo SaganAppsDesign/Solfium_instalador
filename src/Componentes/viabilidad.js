@@ -14,7 +14,7 @@ import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 
 export var viabilidad ="Viabilidad por concretar"
-console.log('viabilidad: ',viabilidad)
+
 
 export class Viabilidad extends React.Component {
  
@@ -79,7 +79,7 @@ export class Viabilidad extends React.Component {
                   />
   
                   <TouchableOpacity onPress={
-                    () => { this.onPress(); this.viabilidad()}
+                    () => { this.onPress()}
                   }
                   >
                   <Text style={styles.buttonText}>Confirma viabilidad</Text>

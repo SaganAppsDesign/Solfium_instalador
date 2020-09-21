@@ -4,13 +4,15 @@ import Fire from '../../fire';
 import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { IconButton } from 'react-native-paper';
+import {nombre} from './pantalla_inicial';
 
 export class Chat extends React.Component {
 
 
 state = {
 
-    messages: []
+    messages: [],
+    nombre:nombre
     
 };
 
@@ -18,7 +20,7 @@ state = {
   render() {
    
 
-    const { name } = this.props.route.params;
+    //const { name } = this.props.route.params;
 
    
     return (
@@ -40,10 +42,10 @@ state = {
           scrollToBottom
           showAvatarForEveryMessage = {true}
           renderUsernameOnMessage  = {true}
-          placeholder={"Chatea aquí " + name}
+          placeholder={"Chatea aquí " + this.state.nombre}
           user={{
             _id: Fire.getUid(),
-            name: name,
+            name: this.state.nombre,
            
         }}
       />

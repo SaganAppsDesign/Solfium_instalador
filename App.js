@@ -4,10 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {HomeScreen} from './src/Componentes/homeScreen';  
 import { Chat } from './src/Componentes/chat'; 
-import { Main } from './src/Componentes/main'; 
+import { PantallaInicial } from './src/Componentes/pantalla_inicial'; 
 import { Usuarios } from './src/Componentes/usuarios'; 
 import { Calendario } from './src/Componentes/calendario'; 
-
 import { Viabilidad } from './src/Componentes/viabilidad'; 
 import 'react-native-gesture-handler';
 
@@ -35,9 +34,9 @@ class MyStack extends Component {
         }
       }}>
 
+      <Stack.Screen options={{headerShown: false}} name="Home" component={PantallaInicial}  />
       <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen name="Instalador" component={Main}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen options={{headerShown: false}}  name="Viabilidad" component={Viabilidad}  />
 
