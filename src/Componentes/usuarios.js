@@ -44,6 +44,32 @@ export class Usuarios extends React.Component {
      
      }
 
+     insta(key) {
+
+    
+        
+      db.ref('/Usuarios/' + key).update({
+
+        fechaInstalacion: fecha
+
+         });
+  
+   
+   }
+
+     visita(key) {
+
+    
+        
+      db.ref('/Usuarios/' + key).update({
+
+        visita: "En curso"
+
+         });
+  
+   
+   }
+
       viabilidadTotal(key) {
         
         
@@ -122,7 +148,7 @@ export class Usuarios extends React.Component {
                                     <Text style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
                                
-                                <View style={{flex:2}}>
+                                <View style={{flex:3}}>
                          
                                     <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Instalador')}></Button>
                                                                  
@@ -130,12 +156,18 @@ export class Usuarios extends React.Component {
 
                                 <View style={{flex:3, fontSize:hp('0.5%')}}>
                          
-                                    <Button  title='Calend' color='#A0E1F7' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                                    <Button  title='Cal' color='#A0E1F7' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
                                 </View>
+                                
                                 <View style={{flex:3, fontSize:hp('0.5%')}}>
                          
                                 <Button  title='Cita' color='#A0E1F7' onPress={() => this.cita(item.key)}></Button>
-                            </View>
+                               </View>
+
+                               <View style={{flex:3, fontSize:hp('0.5%')}}>
+                         
+                                <Button  title='Insta' color='#A0E1F7' onPress={() => this.insta(item.key)}></Button>
+                               </View>
 
                             </View>
                          
@@ -160,6 +192,10 @@ export class Usuarios extends React.Component {
                                 <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
                                   
                                 </Button>
+                            </View>
+                            <View style={{flex:1, fontSize:hp('0.5%')}}>
+                         
+                                <Button  title='Visita' color='#A0E1F7' onPress={() => this.visita(item.key)}></Button>
                             </View>
 
                            

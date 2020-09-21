@@ -49,16 +49,10 @@ state = {
       />
 
       <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'5%'}}>
-      <Button title="  Establecer cita con cliente   " 
-              onPress={() =>  this.props.navigation.navigate('Próxima visita')}
-              icon={
-                     <Icon
-                       name="wrench"
-                       size={25}
-                       color="black"
-                     />
-                   }
-
+      <Button title="Menú pricipal" 
+              color='orange'
+              onPress={() =>  this.props.navigation.navigate('Usuarios')}
+            
 
             />
       </View>
@@ -73,7 +67,6 @@ state = {
 
 componentDidMount() {
 
-  LogBox.ignoreLogs(["Setting a timer"]);
   
     Fire.loadMessages((message) => {
         
@@ -92,6 +85,8 @@ componentDidMount() {
     )
 
 }
+
+
 componentWillUnmount() {
   Fire.closeChat();
 }
@@ -118,10 +113,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center'
     }
-
-  
-    
-    
+ 
   
 });
 

@@ -14,11 +14,12 @@ const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
 
 
-
 class Fire {
 
   uid = ''
   messagesRef = null
+
+  
   
  
   constructor ()  {
@@ -46,6 +47,8 @@ class Fire {
            
     )
 
+
+
    
   }
 
@@ -63,7 +66,9 @@ class Fire {
 
     this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
+
     const onReceive = (data) => {
+      
       const message = data.val()
    
       callback({
@@ -79,6 +84,8 @@ class Fire {
       })
       
     }
+
+   
 
     this.messagesRef.limitToLast(20).on('child_added', onReceive)
     
@@ -105,3 +112,4 @@ class Fire {
 }
 
 export default new Fire()
+

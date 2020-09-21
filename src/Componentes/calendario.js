@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import {View, Button, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import ImageOverlay from "react-native-image-overlay";
+import fondo from '../../assets/fondo.jpg'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export var fecha ="Define cita"
+export var fecha ="Cita por concretar"
 
 export const Calendario = ({ route, navigation }) => {
+ 
 
-
-  
-
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(Date.now());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
@@ -37,21 +38,35 @@ export const Calendario = ({ route, navigation }) => {
   console.log('fecha',fecha)
 
   return (
+
+
+    <ImageOverlay 
+  
+        source={fondo}
+        height={"100%"}
+        overlayAlpha={0}
+          
+  
+        //resizeMode="stretch"
+        //style={styles.fondo} 
+        >
+
+
     <View>
-      <View>
-        <Button onPress={showDatepicker} title="Elije fecha" />
+      <View style={{marginTop:hp('2%')}}>
+        <Button onPress={showDatepicker} title="Elige fecha" color='orange'/>
       </View>
-      <View>
-        <Button onPress={showTimepicker} title="Elije hora" />
+      <View style={{marginTop:hp('2%')}}>
+        <Button onPress={showTimepicker} title="Elige hora" color='orange'/>
       </View>
-      <View>
+      <View style={{marginTop:hp('2%')}}>
         <Button onPress={() => navigation.navigate('Usuarios', {
 
           fecha: fecha,
         
 
         }
-        )} title="Enviar cita!" />
+        )} title="Aceptar" />
       </View>
       {show && (
         <DateTimePicker
@@ -64,5 +79,7 @@ export const Calendario = ({ route, navigation }) => {
         />
       )}
     </View>
+
+    </ImageOverlay>
   );
 };
