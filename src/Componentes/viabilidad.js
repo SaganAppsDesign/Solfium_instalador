@@ -13,38 +13,38 @@ import fondo from '../../assets/fondo.jpg';
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 
+export var viabilidad ="Viabilidad por concretar"
+console.log('viabilidad: ',viabilidad)
 
-export class Main extends React.Component {
+export class Viabilidad extends React.Component {
  
   state = {
 
-    name: '',
+    viabilidad: '',
 
   }
 
   onPress = () =>
   
-    this.props.navigation.navigate('Chat', { 
-        
-        name: this.state.name 
-           
-    }
-    
-    );
+    this.props.navigation.navigate('Usuarios');
 
-  onChangeText = name => this.setState({ name });
+  onChangeText = viabilidad => this.setState({ viabilidad });
 
   
-  user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
-    name: this.state.name
+  viabilidad = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
+    viabilidad: this.state.viabilidad
    
     //fecha: fecha,
   
     })
 
+   
+
  
 
     render() {
+
+        viabilidad = this.state.viabilidad
 
      
       return (
@@ -69,21 +69,20 @@ export class Main extends React.Component {
                 <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
                   <TextInput
                     style={styles.nameInput}
-                    label="Nombre"
+                    label="Viabilidad"
                     onChangeText={this.onChangeText}
-                    value={this.state.name}
+                    value={this.state.viabilidad}
                     //mode='outlined'
                     theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                    
-  
+                      
                     
                   />
   
                   <TouchableOpacity onPress={
-                    () => { this.onPress(); this.user()}
+                    () => { this.onPress(); this.viabilidad()}
                   }
                   >
-                  <Text style={styles.buttonText}>Chat aquí</Text>
+                  <Text style={styles.buttonText}>Confirma viabilidad</Text>
                   </TouchableOpacity>
   
                 </View>

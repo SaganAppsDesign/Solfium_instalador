@@ -7,7 +7,8 @@ import { Chat } from './src/Componentes/chat';
 import { Main } from './src/Componentes/main'; 
 import { Usuarios } from './src/Componentes/usuarios'; 
 import { Calendario } from './src/Componentes/calendario'; 
-import { InfoResultInsta } from './src/Componentes/info_result_instalacion'; 
+
+import { Viabilidad } from './src/Componentes/viabilidad'; 
 import 'react-native-gesture-handler';
 
 
@@ -34,12 +35,11 @@ class MyStack extends Component {
         }
       }}>
 
-      <Stack.Screen name="Solfium Instalador" component={HomeScreen}/>
+      <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Instalador" component={Main}  />
-      <Stack.Screen name="Viabilidad" component={InfoResultInsta}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
-      <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
+      <Stack.Screen options={{headerShown: false}}  name="Viabilidad" component={Viabilidad}  />
 
 
     </Stack.Navigator>
