@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Component, Fragment} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {HomeScreen} from './src/Componentes/homeScreen';  
 import { Chat } from './src/Componentes/chat'; 
 import { PantallaInicial } from './src/Componentes/pantalla_inicial'; 
 import { Usuarios } from './src/Componentes/usuarios'; 

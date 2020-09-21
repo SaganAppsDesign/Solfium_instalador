@@ -99,7 +99,7 @@ export class PantallaInicial extends React.Component {
       
          <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
          
-                <View style={{marginTop:'30%', height:'100%', width:'100%', flex:8,  alignItems:'center'}}>
+                <View style={{marginTop:'30%', height:'100%', width:'100%', flex:6,  alignItems:'center'}}>
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -145,7 +145,7 @@ export class PantallaInicial extends React.Component {
   const styles = StyleSheet.create({
    
     nameInput: {
-      height: '65%',
+      height: '50%',
       marginLeft: '0%',
       marginTop:'5%',
       marginBottom:'5%',
@@ -166,7 +166,7 @@ export class PantallaInicial extends React.Component {
       fontWeight:'bold',
       backgroundColor: '#DD650C',
       width:'40%',
-      height:'80%',
+      height:'60%',
       borderRadius: 10,
       textAlign:'center',
       padding:'3%'
