@@ -1,5 +1,6 @@
 import firebase from 'firebase'; 
 
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
   authDomain: 'solfium.firebaseapp.com',
@@ -10,8 +11,12 @@ const firebaseConfig = {
 
 };
 
+
+
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
+
+  
 
 
 class Fire {
@@ -19,9 +24,8 @@ class Fire {
   uid = ''
   messagesRef = null
 
+   
   
-  
- 
   constructor ()  {
   
     if (!firebase.apps.length) {
@@ -32,6 +36,7 @@ class Fire {
 
         if (user){
           this.setUid(user.uid)
+          uid = user.uid
                       
         } else {
 
@@ -46,11 +51,9 @@ class Fire {
     }
            
     )
-
-
-
    
   }
+
 
   setUid(value){
       this.uid = value;
@@ -64,7 +67,7 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Mensajes/');
+    this.messagesRef = firebase.database().ref('/Mensajes/' + uid);
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -84,7 +87,6 @@ class Fire {
       })
       
     }
-
    
 
     this.messagesRef.limitToLast(20).on('child_added', onReceive)

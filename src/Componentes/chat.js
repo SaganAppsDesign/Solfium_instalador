@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { GiftedChat, Bubble, Send, MessageText } from 'react-native-gifted-chat';
-import Fire from '../../fire';
-import { StyleSheet, Text, View, Image, TouchableOpacity, LogBox, Button, ActivityIndicator} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
+import Fire, {db} from '../../fire';
+import { StyleSheet, View, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {nombre} from './pantalla_inicial';
 
@@ -12,21 +11,22 @@ export class Chat extends React.Component {
 state = {
 
     messages: [],
-    nombre:nombre
+    nombre:nombre,
+    list: []
     
 };
 
 
   render() {
    
-
-    //const { name } = this.props.route.params;
+    //export var key = JSON.stringify(this.state.list).slice(9,37)
+    
+ 
 
    
     return (
      
-     
-    <View style={styles.container}>
+    
    
      
     <View style={styles.container}>	
@@ -60,7 +60,7 @@ state = {
       </View>
     </View>
 
-    </View>
+
 
     
 )
@@ -83,8 +83,11 @@ componentDidMount() {
         })
       
     }
-        
+       
     )
+
+
+  
 
 }
 
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#fff',
+  	backgroundColor: '#EEF0ED',
     marginTop: "0%"},
     
    sendingContainer: {

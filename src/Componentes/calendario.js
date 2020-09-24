@@ -36,7 +36,7 @@ export const Calendario = ({ navigation }) => {
 
   fecha = date
 
-  console.log('fecha',fecha)
+  console.log('fecha Calendario',fecha)
 
   return (
 
@@ -84,7 +84,22 @@ export const Calendario = ({ navigation }) => {
 
         <Text style={styles.btnText}>HORA</Text>
       </View>
-</TouchableOpacity>
+    </TouchableOpacity>
+
+      <TouchableOpacity
+      onPress={() => navigation.navigate('Usuarios')}
+      >
+      <View
+        style={styles.btnContainer2}>
+        <Icon
+          name="thumbs-up"
+          size={50}
+          color="black"
+          style={styles.btnIcon}/>
+
+        <Text style={styles.btnText}>ACEPTAR</Text>
+      </View>
+    </TouchableOpacity>
 
 {/* 
       <View style={{marginTop:hp('2%')}}>
@@ -134,6 +149,23 @@ const styles = StyleSheet.create({
 
   
   },
+  
+
+  btnContainer2: {
+    
+    justifyContent: 'center',
+    borderRadius: 15,
+    backgroundColor: 'green',
+    padding: 15,
+    textAlign:'center',
+    alignItems:'center',
+    flexDirection: 'column',
+    width:300,
+    height:100,
+    marginBottom:'2%', marginTop:'2%'
+
+  
+  },
   btnIcon: {
     height: 50,
     width: 50,
@@ -147,5 +179,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
 
   }
+ 
 
 });

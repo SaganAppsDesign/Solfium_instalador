@@ -7,6 +7,7 @@ import { PantallaInicial } from './src/Componentes/pantalla_inicial';
 import { Usuarios } from './src/Componentes/usuarios'; 
 import { Calendario } from './src/Componentes/calendario'; 
 import { Viabilidad } from './src/Componentes/viabilidad'; 
+import {SplashScreen } from './src/Componentes/splash_screen'; 
 import 'react-native-gesture-handler';
 
 
@@ -33,10 +34,11 @@ class MyStack extends Component {
         }
       }}>
 
+      <Stack.Screen options={{headerShown: false}}  name="SplashScreen" component={SplashScreen}/>
       <Stack.Screen options={{headerShown: false}} name="Home" component={PantallaInicial}  />
       <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen name="Calendario" component={Calendario}  />
+      <Stack.Screen options={{headerShown: false}}name="Calendario" component={Calendario}  />
       <Stack.Screen options={{headerShown: false}}  name="Viabilidad" component={Viabilidad}  />
 
 

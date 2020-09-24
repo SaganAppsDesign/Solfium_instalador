@@ -29,7 +29,7 @@ var hour = date.slice(11,16) */
 //var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
 
 
-//console.log('fechaFormato: ' + typeof(fecha))
+console.log('fechaFormato: ' + fecha)
 
 
 export class Usuarios extends React.Component {
@@ -39,8 +39,8 @@ export class Usuarios extends React.Component {
         super(props)
         this.state = {
           list: [],
-          fecha:fecha,
-          nombre:nombre
+         
+          nombre:''
                    
         }
         
@@ -52,7 +52,7 @@ export class Usuarios extends React.Component {
         
         db.ref('/Usuarios/' + key).update({
 
-          cita: this.state.fecha,
+          cita: fecha,
           nombre_instalador: this.state.nombre
 
            });
@@ -103,7 +103,15 @@ export class Usuarios extends React.Component {
 
           Viabilidad: viabilidad
         });
+        
+      }
 
+
+      chat(key) {
+        db.ref('/Usuarios/' + key).update({
+
+          Viabilidad: viabilidad
+        });
         
       }
  
@@ -130,7 +138,7 @@ export class Usuarios extends React.Component {
 
           
                     <View style={{flex:1}}>
-                          <Text style={{ marginTop:  hp('1%'), fontWeight:'', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
+                          <Text style={{ marginTop:  hp('1%'), color:'white',  fontWeight:'bold', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
                    </View>    
 
                    <View style={{flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
@@ -171,7 +179,7 @@ export class Usuarios extends React.Component {
                             <View style={{flexDirection:'row', flex:0.5, height:hp('1%'), marginTop:hp('1%')}}>
                             
                                 <View style={{flex:2}}>
-                                    <Text style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}>{item.name}</Text> 
+                                    <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
                                
 
@@ -288,12 +296,6 @@ export class Usuarios extends React.Component {
   
  
   </ImageOverlay>
-
-
-
-
-
-
       
     );
 
@@ -321,7 +323,7 @@ export class Usuarios extends React.Component {
       })
 
 
-   this.setState({list:li, fecha:fecha})
+   this.setState({list:li, nombre:nombre})
   
   
   })
