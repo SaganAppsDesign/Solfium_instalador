@@ -29,7 +29,6 @@ var hour = date.slice(11,16) */
 //var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
 
 
-console.log('fechaFormato: ' + fecha)
 
 
 export class Usuarios extends React.Component {
@@ -120,7 +119,7 @@ export class Usuarios extends React.Component {
 
 
 
-   // console.log(name)
+    console.log(this.state.list)
 
 
 
@@ -173,7 +172,7 @@ export class Usuarios extends React.Component {
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
                           
-                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('30%'),width:wp('80%'), flex:1}}> 
+                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('35%'),width:wp('80%'), flex:1}}> 
                        
                                                      
                             <View style={{flexDirection:'row', flex:0.5, height:hp('1%'), marginTop:hp('1%')}}>
@@ -244,10 +243,10 @@ export class Usuarios extends React.Component {
 
                       
 
-                     <View style={{height:hp('0%'), width:wp('70%'), marginTop:hp('1.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                     <View style={{height:hp('0%'), width:wp('70%'), marginTop:hp('2.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
                          <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha cita:</Text> 
-                              <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.cita} </Text> 
+                              <Text style={{fontSize:hp('2%')}}> {item.cita} </Text> 
                          </Text> 
                      </View>
 
@@ -255,7 +254,7 @@ export class Usuarios extends React.Component {
                      <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
                           <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Estado visita: </Text> 
-                              <Text style={{fontWeight:'', fontSize:hp('2%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
+                              <Text style={{ fontSize:hp('2%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
                          </Text> 
                      </View>
 
@@ -264,7 +263,7 @@ export class Usuarios extends React.Component {
                        
                         <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha Instalación: </Text> 
-                              <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.fechaInstalacion} </Text> 
+                              <Text style={{ fontSize:hp('2%')}}> {item.fechaInstalacion} </Text> 
                         </Text> 
                      </View>
 
@@ -273,12 +272,28 @@ export class Usuarios extends React.Component {
                       
                         <Text>
                             <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Viabilidad:</Text> 
-                            <Text style={{fontWeight:'', fontSize:hp('2%')}}> {item.viabilidad} </Text> 
+                            <Text style={{ fontSize:hp('2%')}}> {item.viabilidad} </Text> 
                         </Text> 
 
-
-
                      </View>
+
+                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                      
+                     <Text>
+                         <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Rating cliente:</Text> 
+                         <Text style={{ fontSize:hp('2%')}}> {item.rating} </Text> 
+                     </Text> 
+
+                    </View>
+
+                    <View style={{height:hp('2%'), width:wp('70%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:1.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                      
+                     <Text>
+                         <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Comentarios cliente:</Text> 
+                         <Text style={{ height:hp('0.5%'),fontSize:hp('2%')}}> {item.comentarios} </Text> 
+                     </Text> 
+
+                    </View>
                       
                    
                     </Card> 
@@ -316,7 +331,9 @@ export class Usuarios extends React.Component {
                   viabilidad:child.val().Viabilidad,
                   cita:child.val().cita,
                   visita:child.val().visita,
-                  fechaInstalacion:child.val().fechaInstalacion
+                  fechaInstalacion:child.val().fechaInstalacion,
+                  rating:child.val().rating,
+                  comentarios:child.val().comentarios
 
           
         })

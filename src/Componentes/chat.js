@@ -4,6 +4,21 @@ import Fire, {db} from '../../fire';
 import { StyleSheet, View, Button, ActivityIndicator} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import {nombre} from './pantalla_inicial';
+import icono from '../../assets/icono.png'; 
+
+
+
+var name
+
+
+data = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  name =  snapshot.child("name").val()
+ 
+   
+
+});
+
 
 export class Chat extends React.Component {
 
@@ -18,7 +33,7 @@ state = {
 
 
   render() {
-   
+    data()
     //export var key = JSON.stringify(this.state.list).slice(9,37)
     
  
@@ -38,6 +53,7 @@ state = {
           renderBubble={renderBubble}
           renderLoading={renderLoading}
           showUserAvatar
+          renderAvatarOnTop={true}
           alwaysShowSend
           scrollToBottom
           showAvatarForEveryMessage = {true}
@@ -45,7 +61,9 @@ state = {
           placeholder={"Chatea aquí " + this.state.nombre}
           user={{
             _id: Fire.getUid(),
-            name: this.state.nombre,
+            name: name,
+            avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/5.png'
+           
            
         }}
       />

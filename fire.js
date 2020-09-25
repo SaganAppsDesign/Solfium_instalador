@@ -1,5 +1,5 @@
 import firebase from 'firebase'; 
-
+import icono from './assets/icono.png'; 
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
@@ -67,7 +67,7 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Mensajes/' + uid);
+    this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -81,6 +81,8 @@ class Fire {
           user: {
               id: message.user._id,
               name: message.user.name,
+              avatar:message.user.avatar
+             
               
           },
 

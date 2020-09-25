@@ -6,7 +6,7 @@ import fondo from '../../assets/fondo.jpg';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export var fecha ="Cita por concretar"
+export var fecha;
 
 export const Calendario = ({ navigation }) => {
  

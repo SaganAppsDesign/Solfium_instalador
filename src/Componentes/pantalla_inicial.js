@@ -92,7 +92,7 @@ export class PantallaInicial extends React.Component {
      
    </View> 
   
-        <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
+     <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
         style={{height:'100%', width:'100%', flex:5}}>
       
          <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
