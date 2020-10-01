@@ -137,10 +137,10 @@ export class Usuarios extends React.Component {
 
           
                     <View style={{flex:1}}>
-                          <Text style={{ marginTop:  hp('1%'), color:'white',  fontWeight:'bold', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
+                          <Text style={{ marginTop:  hp('3%'), color:'white',  fontWeight:'bold', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
                    </View>    
 
-                   <View style={{flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
+                   <View style={{marginTop:  hp('2%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
                           
                          }}> 
 
@@ -172,31 +172,33 @@ export class Usuarios extends React.Component {
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
                           
-                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('35%'),width:wp('80%'), flex:1}}> 
+                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('40%'),width:wp('84%'), flex:1}}> 
                        
                                                      
-                            <View style={{flexDirection:'row', flex:0.5, height:hp('1%'), marginTop:hp('1%')}}>
+                            <View style={{flexDirection:'row', flex:1, height:hp('1%'), marginTop:hp('1%')}}>
                             
-                                <View style={{flex:2}}>
+                                <View style={{ backgroundColor:'orange', flex:2, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
                                
 
-                                <View style={{flex:1, fontSize:hp('0.5%')}}>
+                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                    <Button  title='Cal' color='#A0E1F7' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                                    <Button  title='Cal' color='black' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
                                 </View>
                                 
-                                <View style={{flex:1, fontSize:hp('0.5%')}}>
+                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Cita' color='#EA9529' onPress={() => this.cita(item.key)}></Button>
                                </View>
-                               <View style={{flex:1, fontSize:hp('0.5%')}}>
+
+
+                               <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                                <Button  title='Visit' color='#ADEA29' onPress={() => this.visita(item.key)}></Button>
                                </View> 
 
-                               <View style={{flex:1, fontSize:hp('0.5%')}}>
+                               <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Inst' color='#29EA72' onPress={() => this.insta(item.key)}></Button>
                                </View>
@@ -208,16 +210,16 @@ export class Usuarios extends React.Component {
 
                           {/*Viabilidad*/}
                          
-                           <View style={{flexDirection:'row', flex:0.5, height:'2%', marginTop:'3%'}}>
+                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:1, height:'2%', marginTop:'3%'}}>
                            
-                              <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
+                              <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Viab' color='green' onPress={() => this.props.navigation.navigate('Viabilidad')}> 
                                   
                                 </Button>
                             </View>
 
-                            <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
+                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1, borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Env Viab' color='#29CDEA' onPress={() => this.viabilidad(item.key)}> 
                                   
@@ -226,16 +228,16 @@ export class Usuarios extends React.Component {
                             
                               
                             
-                            <View style={{flexDirection:'column', flex:1, height:'2%', marginBottom:0}}>
-                                <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
-                                  
-                                </Button>
+                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
+                                    <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
+                                      
+                                    </Button>
                             </View>
-                            <View style={{flex:1}}>
+                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
                          
-                            <Button  title='chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Chat')}></Button>
+                                <Button  title='Chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Chat')}></Button>
                                                        
-                          </View>
+                           </View>
                             
                             
                       </View>
@@ -243,7 +245,7 @@ export class Usuarios extends React.Component {
 
                       
 
-                     <View style={{height:hp('0%'), width:wp('70%'), marginTop:hp('2.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                     <View style={{height:hp('0%'), width:wp('100%'), marginTop:hp('2.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderTopWidth:1}}> 
                          <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha cita:</Text> 
                               <Text style={{fontSize:hp('2%')}}> {item.cita} </Text> 
@@ -251,7 +253,7 @@ export class Usuarios extends React.Component {
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                           <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Estado visita: </Text> 
                               <Text style={{ fontSize:hp('2%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
@@ -259,7 +261,7 @@ export class Usuarios extends React.Component {
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}>  
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}>  
                        
                         <Text>
                               <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha Instalación: </Text> 
@@ -268,7 +270,7 @@ export class Usuarios extends React.Component {
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                         <Text>
                             <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Viabilidad:</Text> 
@@ -277,7 +279,7 @@ export class Usuarios extends React.Component {
 
                      </View>
 
-                     <View style={{height:hp('0.5%'), width:wp('70%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                      <Text>
                          <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Rating cliente:</Text> 
@@ -286,7 +288,7 @@ export class Usuarios extends React.Component {
 
                     </View>
 
-                    <View style={{height:hp('2%'), width:wp('70%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:1.5, justifyContent:'center', alignItems:'flex-start'}}> 
+                    <View style={{height:hp('3%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('2%'), flex:0.9,alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                      <Text>
                          <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Comentarios cliente:</Text> 

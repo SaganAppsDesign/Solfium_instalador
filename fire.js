@@ -1,5 +1,5 @@
 import firebase from 'firebase'; 
-import icono from './assets/icono.png'; 
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',

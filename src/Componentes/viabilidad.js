@@ -69,7 +69,7 @@ export class Viabilidad extends React.Component {
                 <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
                   <TextInput
                     style={styles.nameInput}
-                    label="Viabilidad"
+                    label="Viabilidad (0-100)"
                     onChangeText={this.onChangeText}
                     value={this.state.viabilidad}
                     //mode='outlined'

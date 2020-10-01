@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
 import Fire, {db} from '../../fire';
-import { StyleSheet, View, Button, ActivityIndicator} from 'react-native';
-import { IconButton } from 'react-native-paper';
+import { StyleSheet, View, Button, ActivityIndicator, Text} from 'react-native';
+//import { IconButton } from 'react-native-paper';
 import {nombre} from './pantalla_inicial';
-import icono from '../../assets/icono.png'; 
+
 
 
 
@@ -49,7 +49,7 @@ state = {
           messages={this.state.messages}
           onSend={(message) => Fire.sendMessage(message)}
          // renderBubble = {this.renderBubble.bind(this) }
-          renderSend={renderSend}
+          //renderSend={renderSend}
           renderBubble={renderBubble}
           renderLoading={renderLoading}
           showUserAvatar
@@ -147,9 +147,7 @@ const styles = StyleSheet.create({
 function renderSend(props) {
   return (
     <Send {...props}>
-      <View style={styles.sendingContainer}>
-        <IconButton icon='send-circle' size={32} color='#2296F3' />
-      </View>
+      <Send {...props} wrapperStyle={{ textStyle: { color: 'red' } }} > </Send>
     </Send>
   );
 }

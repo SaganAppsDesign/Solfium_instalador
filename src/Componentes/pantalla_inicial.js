@@ -78,7 +78,7 @@ export class PantallaInicial extends React.Component {
 
                      source={logo} style={{
 
-                       width: wp('50%'),
+                       width: wp('60%'),
                        height: hp('10%'),
                        marginBottom: hp('0%'),
                        marginTop:  hp('10%'),
