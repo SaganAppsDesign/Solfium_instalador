@@ -72,7 +72,7 @@ export class Viabilidad extends React.Component {
                     label="Viabilidad (0-100)"
                     onChangeText={this.onChangeText}
                     value={this.state.viabilidad}
-                    //mode='outlined'
+                    returnKeyType={ 'done' }
                     theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                       
                     

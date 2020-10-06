@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Button, Platform, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ImageOverlay from "react-native-image-overlay";
@@ -6,20 +6,42 @@ import fondo from '../../assets/fondo.jpg';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export var fecha;
+
+export var fecha = '';
+var opacity = 0.5
+var bool = true
 
 export const Calendario = ({ navigation }) => {
+
+
+  useEffect(function () {
+    console.log('render!')
+    opacity = 0.5
+    bool = true
+  })
  
 
-  const [date, setDate] = useState(Date.now());
+  const [date, setDate] = useState('2020-11-02T11:35:47.000Z');
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
+  const [showTime, setShowTime] = useState(false);
+
+ 
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
+    opacity = 1
+    bool = false
+    //console.log('currentDate:  ', currentDate)
+    //console.log('date dentro de funcion:  ', date)
+    //console.log('fecha:  ', fecha)
+    
+    //console.log(event.actualDuration = '10')
   };
+
+ 
 
   const showMode = (currentMode) => {
     setShow(true);
@@ -28,15 +50,22 @@ export const Calendario = ({ navigation }) => {
 
   const showDatepicker = () => {
     showMode('date');
+    
+    
+    
   };
 
   const showTimepicker = () => {
     showMode('time');
+    opacity = 0.5
+    bool = true
+    
   };
 
   fecha = date
 
-   
+  console.log('date fuera de funcion:  ', date)
+
 
   return (
 
@@ -76,7 +105,7 @@ export const Calendario = ({ navigation }) => {
           
                       <Text style={{
                         fontSize: 18,
-                        color: '#FAFAFA',
+                        color: 'orange',
                         padding:hp('1%'),
                         //width:wp('10%') ,                     
                         textAlign:'center',
@@ -87,8 +116,11 @@ export const Calendario = ({ navigation }) => {
                           
                   </TouchableOpacity>
 
+                  
+                  
                   <TouchableOpacity
-                        // disabled={true}
+                          opacity= {opacity}
+                          disabled={bool}
                           onPress={showTimepicker}
                           >
      
@@ -100,13 +132,15 @@ export const Calendario = ({ navigation }) => {
 
                     <Text style={{
                     fontSize: 18,
-                    color: '#FAFAFA',
+                    color: 'orange',
                     marginLeft: 0,
                     marginTop: hp('1%'),
                     textAlign:'center',
                     fontWeight: 'bold',
                     backgroundColor:'grey',
                     padding:hp('1%'),
+                    opacity:opacity
+                    
 
                   }}>2ª SELECCIONA HORA</Text>
                 
@@ -116,38 +150,32 @@ export const Calendario = ({ navigation }) => {
 
     
 
-{/* 
-      <View style={{marginTop:hp('2%')}}>
-        <Button onPress={() => navigation.navigate('Usuarios', {
-
-          fecha: fecha,
-        
-
-        }
-        )} title="Aceptar" />
-      </View> */}
+      {/* Función DatePicker */}
 
         <View style={{
             
             justifyContent: 'center',
-            
-            
+            backgroundColor:'#F3D3B5',        
             textAlign:'center',
-            flex:5,
-            width:wp('100%'),
+            flex:8,
+            width:wp('80%'),
             height:hp('100%'),
-            marginBottom:hp('10%'), marginTop:hp('10%')
+            marginBottom:hp('10%'), marginTop:hp('10%'),
+            borderRadius:30
                         
           }}>
               {show && (
                 <DateTimePicker
                   testID="dateTimePicker"
                   //dateFormat="dayofweek day month"
+                  //initialValue={date2}
                   value={date}
                   mode={mode}
                   is24Hour={true}
-                  //display="default"
+                  display="default"
                   onChange={onChange}
+                  locale="es-ES"
+                  
                 />
               )}
 

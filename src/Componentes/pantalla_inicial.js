@@ -103,7 +103,7 @@ export class PantallaInicial extends React.Component {
                     label="Nombre"
                     onChangeText={this.onChangeText}
                     value={this.state.name}
-                    //mode='outlined'
+                    returnKeyType={ 'done' }
                     theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
                     
   

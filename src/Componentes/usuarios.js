@@ -29,6 +29,7 @@ var hour = date.slice(11,16) */
 //var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
 
 
+console.log('fecha usuarios.js: ',fecha)
 
 
 export class Usuarios extends React.Component {
@@ -119,7 +120,7 @@ export class Usuarios extends React.Component {
 
 
 
-    console.log(this.state.list)
+    //console.log(this.state.list)
 
 
 
@@ -136,8 +137,8 @@ export class Usuarios extends React.Component {
           <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
 
           
-                    <View style={{flex:1}}>
-                          <Text style={{ marginTop:  hp('3%'), color:'white',  fontWeight:'bold', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
+                    <View style={{flex:2}}>
+                          <Text style={{ marginTop:  hp('7%'), color:'white', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
                    </View>    
 
                    <View style={{marginTop:  hp('2%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
@@ -148,8 +149,8 @@ export class Usuarios extends React.Component {
 
                                         source={logo} style={{
                   
-                                          width: wp('40%'),
-                                          height: hp('7%'),
+                                          aspectRatio:2.8,
+                                          height: hp('5%'),
                                           marginBottom: hp('0%'),
                                           marginTop:  hp('0%'),
                                           borderRadius: 10
@@ -175,7 +176,7 @@ export class Usuarios extends React.Component {
                         <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('40%'),width:wp('84%'), flex:1}}> 
                        
                                                      
-                            <View style={{flexDirection:'row', flex:1, height:hp('1%'), marginTop:hp('1%')}}>
+                            <View style={{flexDirection:'row', flex:0.6, height:hp('1%'), marginTop:hp('0%')}}>
                             
                                 <View style={{ backgroundColor:'orange', flex:2, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
@@ -195,7 +196,7 @@ export class Usuarios extends React.Component {
 
                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                               <Button  title='Visit' color='#ADEA29' onPress={() => this.visita(item.key)}></Button>
+                               <Button  title='Visit' color='red' onPress={() => this.visita(item.key)}></Button>
                                </View> 
 
                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
@@ -210,7 +211,7 @@ export class Usuarios extends React.Component {
 
                           {/*Viabilidad*/}
                          
-                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:1, height:'2%', marginTop:'3%'}}>
+                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.6, height:'2%', marginTop:'0%'}}>
                            
                               <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
                          
@@ -244,55 +245,55 @@ export class Usuarios extends React.Component {
 
 
                       
-
-                     <View style={{height:hp('0%'), width:wp('100%'), marginTop:hp('2.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderTopWidth:1}}> 
+                      {/*Resultados*/}
+                     <View style={{height:hp('0%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderTopWidth:1}}> 
                          <Text>
-                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha cita:</Text> 
-                              <Text style={{fontSize:hp('2%')}}> {item.cita} </Text> 
+                              <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Fecha cita:</Text> 
+                              <Text style={{fontSize:hp('1.5%')}}> {item.cita} </Text> 
                          </Text> 
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                           <Text>
-                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Estado visita: </Text> 
-                              <Text style={{ fontSize:hp('2%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
+                              <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Estado visita: </Text> 
+                              <Text style={{ fontSize:hp('1.5%'), backgroundColor:'#28E10B'}}> {item.visita} </Text> 
                          </Text> 
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}>  
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}>  
                        
                         <Text>
-                              <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Fecha Instalación: </Text> 
-                              <Text style={{ fontSize:hp('2%')}}> {item.fechaInstalacion} </Text> 
+                              <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Fecha Instalación: </Text> 
+                              <Text style={{ fontSize:hp('1.5%')}}> {item.fechaInstalacion} </Text> 
                         </Text> 
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                         <Text>
-                            <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Viabilidad:</Text> 
-                            <Text style={{ fontSize:hp('2%')}}> {item.viabilidad} </Text> 
+                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Viabilidad:</Text> 
+                            <Text style={{ fontSize:hp('1.5%')}}> {item.viabilidad} </Text> 
                         </Text> 
 
                      </View>
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                      <Text>
-                         <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Rating cliente:</Text> 
-                         <Text style={{ fontSize:hp('2%')}}> {item.rating} </Text> 
+                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Rating cliente:</Text> 
+                         <Text style={{ fontSize:hp('1.5%')}}> {item.rating} </Text> 
                      </Text> 
 
                     </View>
 
-                    <View style={{height:hp('3%'), width:wp('100%'), marginTop:hp('0.5%'), marginBottom:hp('2%'), flex:0.9,alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                    <View style={{height:hp('3%'), width:wp('100%'), marginTop:hp('1%'), marginBottom:hp('2%'), flex:0.7,alignItems:'center'}}> 
                       
                      <Text>
-                         <Text style={{fontWeight:'bold', fontSize:hp('2%')}}>Comentarios cliente:</Text> 
-                         <Text style={{ height:hp('0.5%'),fontSize:hp('2%')}}> {item.comentarios} </Text> 
+                         <Text style={{marginTop:hp('2%'), fontWeight:'bold', fontSize:hp('1.5%')}}>Comentarios cliente:</Text> 
+                         <Text style={{ height:hp('0.5%'),fontSize:hp('1.5%')}}> {item.comentarios} </Text> 
                      </Text> 
 
                     </View>
