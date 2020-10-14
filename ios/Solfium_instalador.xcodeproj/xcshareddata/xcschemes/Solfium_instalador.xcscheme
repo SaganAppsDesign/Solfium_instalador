@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Solfium_instalador.app"
+               BuildableName = "SolfiumInst.app"
                BlueprintName = "Solfium_instalador"
                ReferencedContainer = "container:Solfium_instalador.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Solfium_instalador.app"
+            BuildableName = "SolfiumInst.app"
             BlueprintName = "Solfium_instalador"
             ReferencedContainer = "container:Solfium_instalador.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Solfium_instalador.app"
+            BuildableName = "SolfiumInst.app"
             BlueprintName = "Solfium_instalador"
             ReferencedContainer = "container:Solfium_instalador.xcodeproj">
          </BuildableReference>
