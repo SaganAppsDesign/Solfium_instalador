@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+               BlueprintIdentifier = "0329BCA1253DD077007F2F82"
                BuildableName = "Solfium_instalador-tvOS.app"
                BlueprintName = "Solfium_instalador-tvOS"
                ReferencedContainer = "container:Solfium_instalador.xcodeproj">
@@ -32,9 +32,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
+               BlueprintIdentifier = "0329BCB0253DD07A007F2F82"
                BuildableName = "Solfium_instalador-tvOSTests.xctest"
                BlueprintName = "Solfium_instalador-tvOSTests"
+               ReferencedContainer = "container:Solfium_instalador.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0329BCBB253DD07A007F2F82"
+               BuildableName = "Solfium_instalador-tvOSUITests.xctest"
+               BlueprintName = "Solfium_instalador-tvOSUITests"
                ReferencedContainer = "container:Solfium_instalador.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -54,7 +64,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+            BlueprintIdentifier = "0329BCA1253DD077007F2F82"
             BuildableName = "Solfium_instalador-tvOS.app"
             BlueprintName = "Solfium_instalador-tvOS"
             ReferencedContainer = "container:Solfium_instalador.xcodeproj">
@@ -71,7 +81,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+            BlueprintIdentifier = "0329BCA1253DD077007F2F82"
             BuildableName = "Solfium_instalador-tvOS.app"
             BlueprintName = "Solfium_instalador-tvOS"
             ReferencedContainer = "container:Solfium_instalador.xcodeproj">
