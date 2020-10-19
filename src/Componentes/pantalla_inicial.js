@@ -143,7 +143,7 @@ export class PantallaInicial extends React.Component {
   const styles = StyleSheet.create({
    
     nameInput: {
-      height: '50%',
+      height: '40%',
       marginLeft: '0%',
       marginTop:'5%',
       marginBottom:'5%',
@@ -164,7 +164,7 @@ export class PantallaInicial extends React.Component {
       fontWeight:'bold',
       backgroundColor: '#DD650C',
       width:'40%',
-      height:'60%',
+      height:'50%',
       borderRadius: 10,
       textAlign:'center',
       padding:'3%'

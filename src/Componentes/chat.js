@@ -8,15 +8,21 @@ import {nombre} from './pantalla_inicial';
 
 
 
-var name
+var name, uid, name2
 
 
 data = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) => {
   
   name =  snapshot.child("name").val()
  
-   
 
+});
+
+//Nuevo código
+data2 = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+  
+  name2 =  snapshot.child("name").val()
+  
 });
 
 
@@ -27,17 +33,17 @@ state = {
 
     messages: [],
     nombre:nombre,
-    list: []
+    list: [],
+    //Nuevo código
+    name2: name2
     
 };
 
 
   render() {
     data()
-    //export var key = JSON.stringify(this.state.list).slice(9,37)
-    
- 
-
+    //Nuevo código
+    data2()
    
     return (
      

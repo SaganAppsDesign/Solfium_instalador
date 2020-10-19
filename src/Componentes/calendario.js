@@ -3,7 +3,6 @@ import {View, Button, Platform, TouchableOpacity, StyleSheet, Text} from 'react-
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo.jpg'; 
-//import Icon from 'react-native-vector-icons/FontAwesome';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
@@ -15,13 +14,13 @@ export const Calendario = ({ navigation }) => {
 
 
   useEffect(function () {
-    console.log('render!')
+    //console.log('render!')
     opacity = 0.5
     bool = true
   })
  
 
-  const [date, setDate] = useState('2020-11-02T11:35:47.000Z');
+  const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
   const [showTime, setShowTime] = useState(false);
@@ -50,8 +49,7 @@ export const Calendario = ({ navigation }) => {
 
   const showDatepicker = () => {
     showMode('date');
-    
-    
+       
     
   };
 
@@ -155,7 +153,7 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            backgroundColor:'#F3D3B5',        
+            //backgroundColor:'#F3D3B5',        
             textAlign:'center',
             flex:8,
             width:wp('80%'),
@@ -168,7 +166,7 @@ export const Calendario = ({ navigation }) => {
                 <DateTimePicker
                   testID="dateTimePicker"
                   //dateFormat="dayofweek day month"
-                  //initialValue={date2}
+                  initialValue={date}
                   value={date}
                   mode={mode}
                   is24Hour={true}

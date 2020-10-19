@@ -29,7 +29,7 @@ var hour = date.slice(11,16) */
 //var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
 
 
-console.log('fecha usuarios.js: ',fecha)
+//console.log('fecha usuarios.js: ',fecha)
 
 
 export class Usuarios extends React.Component {
@@ -44,6 +44,12 @@ export class Usuarios extends React.Component {
                    
         }
         
+      }
+
+
+      goToChat(key,name) {
+        global.idCliente = key;
+        this.props.navigation.navigate('Chat');
       }
 
      cita(key) {
@@ -173,10 +179,10 @@ export class Usuarios extends React.Component {
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
                           
-                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('40%'),width:wp('84%'), flex:1}}> 
+                        <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('45%'),width:wp('84%'), flex:1}}> 
                        
                                                      
-                            <View style={{flexDirection:'row', flex:0.6, height:hp('1%'), marginTop:hp('0%')}}>
+                            <View style={{flexDirection:'row', flex:0.7, height:hp('1%'), marginTop:hp('0%')}}>
                             
                                 <View style={{ backgroundColor:'orange', flex:2, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
@@ -236,7 +242,7 @@ export class Usuarios extends React.Component {
                             </View>
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Chat' color='#1E3EDE' onPress={() => this.props.navigation.navigate('Chat')}></Button>
+                                <Button  title='Chat' color='#1E3EDE' onPress={() => this.goToChat(item.key)}></Button>
                                                        
                            </View>
                             

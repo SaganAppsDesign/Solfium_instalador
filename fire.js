@@ -67,7 +67,9 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Mensajes/');
+    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + this.uid);
+
+    //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {

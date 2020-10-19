@@ -9,16 +9,6 @@ import loading from '../../assets/loader.gif';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
-const user = () => {
-  ToastAndroid.show("Perfil usuario", ToastAndroid.SHORT);
- 
-};
-
-const settings = () => {
-  ToastAndroid.show("Settings", ToastAndroid.SHORT);
- 
-};
-
 
 
 export class SplashScreen extends React.Component {

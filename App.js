@@ -34,12 +34,12 @@ class MyStack extends Component {
         }
       }}>
 
-      <Stack.Screen options={{headerShown: false}}  name="SplashScreen" component={SplashScreen}/>
-      <Stack.Screen options={{headerShown: false}} name="Home" component={PantallaInicial}  />
-      <Stack.Screen options={{headerShown: false}}  name="Usuarios" component={Usuarios}  />
+      <Stack.Screen  options={{headerShown: false}} name="SplashScreen" component={SplashScreen}/>
+      <Stack.Screen  name="Home" component={PantallaInicial}  />
+      <Stack.Screen name="Usuarios" component={Usuarios}  />
       <Stack.Screen name="Chat" component={Chat}  />
-      <Stack.Screen options={{headerShown: false}}name="Calendario" component={Calendario}  />
-      <Stack.Screen options={{headerShown: false}}  name="Viabilidad" component={Viabilidad}  />
+      <Stack.Screen name="Calendario" component={Calendario}  />
+      <Stack.Screen  name="Viabilidad" component={Viabilidad}  />
 
 
     </Stack.Navigator>
