@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 };
 
-
+export var nombreFire
 
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
@@ -24,10 +24,33 @@ class Fire {
   uid = ''
   messagesRef = null
 
-   
-  
+     
   constructor ()  {
-  
+
+
+    //Nuevo código
+     
+   //Nuevo código
+   const ref = db.ref('Instaladores/Instalador1/');
+ 
+   this.listener = ref.on("value",  (snapshot) =>{
+         
+             
+         //snapshot.forEach((child)=>{
+       
+           //key = child.key
+           nombreFire = snapshot.child("name").val()
+           
+           //name2 = name.name
+               
+       
+      // })
+       
+        console.log("NAME FIREBASE", nombreFire)
+
+     })
+
+      
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
@@ -67,7 +90,8 @@ class Fire {
 
   loadMessages(callback){
 
-    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + this.uid);
+    //this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + this.uid);
+    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
     //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
@@ -93,7 +117,7 @@ class Fire {
     }
    
 
-    this.messagesRef.limitToLast(20).on('child_added', onReceive)
+    this.messagesRef.limitToLast(10).on('child_added', onReceive)
     
   }
 

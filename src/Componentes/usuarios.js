@@ -18,18 +18,8 @@ import Fire, {db} from '../../fire';
 import fondo from '../../assets/fondo.jpg'; 
 import {fecha} from './calendario';
 import {viabilidad} from './viabilidad';
-import {nombre} from './pantalla_inicial';
+import {nombreFire} from '../../fire';
 
-
-//year = date.slice(0,4)
-/*var month = date.slice(5, 7)
-var day = date.slice(8,10)
-var hour = date.slice(11,16) */
-
-//var fechaFormato = day + '-'+ month + '-' + year + ' ' + hour + 'h' 
-
-
-//console.log('fecha usuarios.js: ',fecha)
 
 
 export class Usuarios extends React.Component {
@@ -126,7 +116,7 @@ export class Usuarios extends React.Component {
 
 
 
-    //console.log(this.state.list)
+    console.log("nombre USUARIOS", nombreFire)
 
 
 
@@ -144,7 +134,7 @@ export class Usuarios extends React.Component {
 
           
                     <View style={{flex:2}}>
-                          <Text style={{ marginTop:  hp('7%'), color:'white', fontSize:hp('2%')}}>{nombre}, bienvenido/a a su sesión</Text> 
+                          <Text style={{ marginTop:  hp('7%'), color:'white', fontSize:hp('2%')}}>{nombreFire}, bienvenido/a a su sesión</Text> 
                    </View>    
 
                    <View style={{marginTop:  hp('2%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
@@ -349,7 +339,7 @@ export class Usuarios extends React.Component {
       })
 
 
-   this.setState({list:li, nombre:nombre})
+   this.setState({list:li})
   
   
   })

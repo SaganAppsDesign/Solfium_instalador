@@ -4,16 +4,17 @@ import Fire, {db} from '../../fire';
 import { StyleSheet, View, Button, ActivityIndicator, Text} from 'react-native';
 //import { IconButton } from 'react-native-paper';
 import {nombre} from './pantalla_inicial';
+import {name} from '../../fire';
 
 
 
 
-var name, uid, name2
+var nombreChat, nombreCliente
 
 
-data = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) => {
+data = () => db.ref('/Instaladores/Instalador1/').on('value', (snapshot) => {
   
-  name =  snapshot.child("name").val()
+  nombreChat =  snapshot.child("name").val()
  
 
 });
@@ -21,7 +22,7 @@ data = () => db.ref('/Instaladores/' +  Fire.getUid()).on('value', (snapshot) =>
 //Nuevo código
 data2 = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
-  name2 =  snapshot.child("name").val()
+  nombreCliente =  snapshot.child("name").val()
   
 });
 
@@ -32,10 +33,10 @@ export class Chat extends React.Component {
 state = {
 
     messages: [],
-    nombre:nombre,
+    nombre:nombreChat,
     list: [],
     //Nuevo código
-    name2: name2
+    nombreCliente: nombreCliente
     
 };
 
@@ -64,10 +65,10 @@ state = {
           scrollToBottom
           showAvatarForEveryMessage = {true}
           renderUsernameOnMessage  = {true}
-          placeholder={"Chatea aquí " + this.state.nombre}
+          placeholder={"Chatea aquí " + nombreChat}
           user={{
             _id: Fire.getUid(),
-            name: name,
+            name: nombreCliente,
             avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/5.png'
            
            

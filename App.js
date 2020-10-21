@@ -9,6 +9,7 @@ import { Calendario } from './src/Componentes/calendario';
 import { Viabilidad } from './src/Componentes/viabilidad'; 
 import {SplashScreen } from './src/Componentes/splash_screen'; 
 import 'react-native-gesture-handler';
+import Fire, {db} from './fire';
 
 
 const Stack = createStackNavigator();
@@ -44,6 +45,9 @@ class MyStack extends Component {
 
     </Stack.Navigator>
   )};
+
+
+  
 }
 
 

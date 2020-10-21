@@ -4,46 +4,60 @@ import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
 import logo from '../../assets/logo_blanco.png'; 
 import loading from '../../assets/loader.gif'; 
+import Fire, {db} from '../../fire';
+import {name} from  '../../fire';
 
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
+var screen
+
 
 
 export class SplashScreen extends React.Component {
-
+/* 
   constructor(props){
     super(props)
     setTimeout(()=>{
-      this.props.navigation.replace('Home')
+      this.props.navigation.replace(screen)
 
     },2000
 
     )
 
-  }
-
-
-
+  } */
 
   state = {
 
-    potencia: '',
+    name: '',
    
   }
+
+  
    
-
-
   
-siguiente = () =>  {
-    
-    
-      this.props.navigation.navigate('Home')}
-  
-
 
  render() {
+
+  
+
+  var name = this.state.name
+
+
+  console.log("NOMBREEEEE RENDER name: ", name)
+
+  
+  if (name){
+
+     //var valor
+            
+     screen = 'Usuarios'     
+         
+    } else {
+
+      screen = 'Home'
+    }
 
 
   return (
@@ -69,7 +83,7 @@ siguiente = () =>  {
                 <Image 
                   
                   source={logo}
-                  style={{aspectRatio:4.5, width:wp('100%'), height:hp('9%'), marginTop:hp('30%')}}
+                  style={{aspectRatio:4.5, height:hp('9%'), marginTop:hp('30%')}}
                   
                   >    
                 </Image>  
@@ -82,20 +96,29 @@ siguiente = () =>  {
                             source={loading}
                             />
                 </View>
+
+                <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('15%')}}>
+                      <TouchableOpacity 
+
+                            disabled={false} 
+                                                                                  
+                            onPress={() => this.props.navigation.navigate(screen)}
+                              > 
+                           
+                             
+                              <Text
+                                    
+                                    style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}
+                                    
+                                    > Entra a panel de USUARIOS   </Text>
+
+                       </TouchableOpacity>
+                  </View>
               
        
     </View>
-                
-                 
-
-
-
-          
-          
-        
-
-       
-       </View>
+                   
+  </View>
 
 
     </ImageOverlay> 
@@ -104,64 +127,43 @@ siguiente = () =>  {
 }
 
 
+    componentDidMount() {
+
+
+     /*  const ref = db.ref('/Instaladores/' +  Fire.getUid());
+
+      this.listener = ref.on("value", snapshot => {
+
+      this.setState({ name: snapshot.child("name").val() || '' }) 
+                    
+      console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+      console.log("Fire.getUid(): ", Fire.getUid())
+    
+    }
+    ) */
+
+    const ref = db.ref('/Instaladores/Instalador1/');
+
+    this.listener = ref.on("value", snapshot => {
+
+    this.setState({ name: snapshot.child("name").val() || '' }) 
+                  
+    console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+    //console.log("Fire.getUid(): ", Fire.getUid())
+  
+  }
+  )
+
+
+
+
+
+
+
+
+
+    }
 
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    width:'100%',
-    height:'100%',
-        
-  },
-
-  logo: {
-    
-    width: "20%",
-    height: "50%",
-    marginBottom: "10%",
-    marginTop: "2%",
-    marginLeft: "59%",
-    marginRight: "0%"
-    
-    
-  },
-
-  boton: {
-        
-     height: '55%', 
-     width:'100%',
-     borderRadius:20,
-     fontWeight:'bold',
-     fontSize:15,
-     color: 'white', 
-     marginBottom: "0%", 
-     marginTop: "0%", 
-     marginLeft: "0%", 
-     marginRight: "0%",
-     alignItems: "center",
-     paddingLeft:40, 
-     paddingRight:40,
-     backgroundColor: '#5DCB31',
-     textAlignVertical:'center'
-    
-    
-  },
-
-  checkbox: {
-    alignSelf: "center",
-  },
-  label: {
-    margin: 8,
-  },
-
-
-
- 
-
-
-
-  
-
-});

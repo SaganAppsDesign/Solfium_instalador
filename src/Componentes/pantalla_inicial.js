@@ -40,7 +40,7 @@ export class PantallaInicial extends React.Component {
   onChangeText = name => this.setState({ name });
 
   
-  user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
+  user = () =>  db.ref('/Instaladores/Instalador1/').update({
    
     name: this.state.name
 
@@ -49,6 +49,16 @@ export class PantallaInicial extends React.Component {
     //fecha: fecha,
   
     })
+
+    /* OLD CODE user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
+   
+      name: this.state.name
+  
+     
+     
+      //fecha: fecha,
+    
+      }) */
 
  
 
@@ -78,8 +88,8 @@ export class PantallaInicial extends React.Component {
 
                      source={logo} style={{
 
-                       width: wp('60%'),
-                       height: hp('10%'),
+                      aspectRatio:2.78,
+                       height: hp('12%'),
                        marginBottom: hp('0%'),
                        marginTop:  hp('10%'),
                        borderRadius:10
