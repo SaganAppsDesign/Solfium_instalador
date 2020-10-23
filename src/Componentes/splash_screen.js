@@ -45,7 +45,7 @@ export class SplashScreen extends React.Component {
   var name = this.state.name
 
 
-  console.log("NOMBREEEEE RENDER name: ", name)
+  //console.log("NOMBREEEEE RENDER name: ", name)
 
   
   if (name){
@@ -148,7 +148,7 @@ export class SplashScreen extends React.Component {
 
     this.setState({ name: snapshot.child("name").val() || '' }) 
                   
-    console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+    //console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
     //console.log("Fire.getUid(): ", Fire.getUid())
   
   }

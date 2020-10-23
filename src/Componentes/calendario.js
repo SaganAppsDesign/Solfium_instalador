@@ -153,7 +153,7 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            //backgroundColor:'#F3D3B5',        
+            backgroundColor:'#F3D3B5',        
             textAlign:'center',
             flex:8,
             width:wp('80%'),
@@ -169,10 +169,10 @@ export const Calendario = ({ navigation }) => {
                   initialValue={date}
                   value={date}
                   mode={mode}
-                  is24Hour={true}
+                  is24Hour={false}
                   display="default"
                   onChange={onChange}
-                  locale="es-ES"
+                  locale="es-MX"
                   
                 />
               )}

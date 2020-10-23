@@ -18,9 +18,11 @@ import Fire, {db} from '../../fire';
 import fondo from '../../assets/fondo.jpg'; 
 import {fecha} from './calendario';
 import {viabilidad} from './viabilidad';
+import {potenciaSistema} from './viabilidad';
 import {nombreFire} from '../../fire';
 
 
+//console.log(potenciaSistema)
 
 export class Usuarios extends React.Component {
 
@@ -65,9 +67,21 @@ export class Usuarios extends React.Component {
         fechaInstalacion: fecha
 
          });
-  
-   
+    
    }
+
+
+    potenciaContratada(key) {
+
+              
+      db.ref('/Usuarios/' + key).update({
+
+        potenciaContratada: potenciaSistema
+
+        });
+    
+    }
+
 
      visita(key) {
 
@@ -114,9 +128,9 @@ export class Usuarios extends React.Component {
 
   render() {
 
+ 
 
-
-    console.log("nombre USUARIOS", nombreFire)
+    //console.log("nombre USUARIOS", nombreFire)
 
 
 
@@ -211,14 +225,14 @@ export class Usuarios extends React.Component {
                            
                               <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Viab' color='green' onPress={() => this.props.navigation.navigate('Viabilidad')}> 
+                                <Button  title='Potenc' color='green' onPress={() => this.props.navigation.navigate('Viabilidad')}> 
                                   
                                 </Button>
                             </View>
 
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1, borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Env Viab' color='#29CDEA' onPress={() => this.viabilidad(item.key)}> 
+                                <Button  title='EnvPot' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
                                   
                                 </Button>
                             </View>
@@ -267,23 +281,35 @@ export class Usuarios extends React.Component {
                      </View>
 
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                     
+                     
+                    <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                      
+                     <Text>
+                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Potencia Sistema:</Text> 
+                         <Text style={{ fontSize:hp('1.5%')}}> {item.CalculoPotenciaSistema} </Text> 
+                     </Text> 
+
+                    </View>
+
+                    <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                      
+                     <Text>
+                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Sistema:</Text> 
+                         <Text style={{ fontSize:hp('1.5%')}}> {item.Sistema} </Text> 
+                     </Text> 
+
+                    </View>
+
+                    <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                         <Text>
-                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Viabilidad:</Text> 
-                            <Text style={{ fontSize:hp('1.5%')}}> {item.viabilidad} </Text> 
+                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Potencia contratada:</Text> 
+                            <Text style={{ fontSize:hp('1.5%')}}> {item.potenciaContratada} </Text> 
                         </Text> 
 
                      </View>
 
-                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
-                      
-                     <Text>
-                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Rating cliente:</Text> 
-                         <Text style={{ fontSize:hp('1.5%')}}> {item.rating} </Text> 
-                     </Text> 
-
-                    </View>
 
                     <View style={{height:hp('3%'), width:wp('100%'), marginTop:hp('1%'), marginBottom:hp('2%'), flex:0.7,alignItems:'center'}}> 
                       
@@ -292,7 +318,15 @@ export class Usuarios extends React.Component {
                          <Text style={{ height:hp('0.5%'),fontSize:hp('1.5%')}}> {item.comentarios} </Text> 
                      </Text> 
 
-                    </View>
+                    </View><View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                      
+                      <Text>
+                          <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Rating cliente:</Text> 
+                          <Text style={{ fontSize:hp('1.5%')}}> {item.rating} </Text> 
+                      </Text> 
+ 
+                     </View>
+ 
                       
                    
                     </Card> 
@@ -332,7 +366,10 @@ export class Usuarios extends React.Component {
                   visita:child.val().visita,
                   fechaInstalacion:child.val().fechaInstalacion,
                   rating:child.val().rating,
-                  comentarios:child.val().comentarios
+                  comentarios:child.val().comentarios,
+                  CalculoPotenciaSistema:child.val().CalculoPotenciaSistema,
+                  Sistema:child.val().Sistema,
+                  potenciaContratada:child.val().potenciaContratada
 
           
         })

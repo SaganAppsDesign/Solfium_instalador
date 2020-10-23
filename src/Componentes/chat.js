@@ -69,7 +69,7 @@ state = {
           user={{
             _id: Fire.getUid(),
             name: nombreCliente,
-            avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/5.png'
+            avatar: 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/5.png'
            
            
         }}
