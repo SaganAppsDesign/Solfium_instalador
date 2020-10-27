@@ -232,7 +232,7 @@ export class Usuarios extends React.Component {
 
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1, borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='EnvPot' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
+                                 <Button  title='EnvPot' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
                                   
                                 </Button>
                             </View>

@@ -82,7 +82,7 @@ export class Viabilidad extends React.Component {
         <View style={{height:'100%', width:'100%', alignItems:'center', flex:1}}>
   
         <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
-        style={{height:'100%', width:'100%', flex:5}}>
+        style={{height:'100%', width:'100%', flex:5, marginTop:'10%'}}>
       
          <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
          
@@ -108,29 +108,29 @@ export class Viabilidad extends React.Component {
   
                 </View> */}
 
-                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{backgroundColor:'#E0E62C', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='3Kw' color='black' onPress={() => this.funcionPotencia(3)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{backgroundColor:'#E3557C', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='5Kw' color='black' onPress={() => this.funcionPotencia(5)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{backgroundColor:'#7CA4D9', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='7Kw' color='black' onPress={() => this.funcionPotencia(7)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{backgroundColor:'#63BA6A', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='10Kw' color='black' onPress={() => this.funcionPotencia(10)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'green', flex:1, fontSize:hp('0.5%'), borderColor:'green', borderWidth:1}}>
+                <View style={{marginTop:'10%',backgroundColor:'black', flex:1, fontSize:hp('0.5%'), borderColor:'green', borderWidth:1}}>
                          
-                         <Button  title='Confirma Potencia Sistema' color='white' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                         <Button  title='Atrás' color='white' onPress={() => this.props.navigation.navigate('Usuarios')}></Button>
                 </View>
 
                 
