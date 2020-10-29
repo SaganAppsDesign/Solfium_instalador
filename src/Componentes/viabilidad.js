@@ -79,12 +79,10 @@ export class Viabilidad extends React.Component {
         //style={styles.fondo} 
         >
       
-        <View style={{height:'100%', width:'100%', alignItems:'center', flex:1}}>
+        <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
   
-        <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
-        style={{height:'100%', width:'100%', flex:5, marginTop:'10%'}}>
       
-         <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
+      
          
                 {/* <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
                   <TextInput
@@ -108,37 +106,38 @@ export class Viabilidad extends React.Component {
   
                 </View> */}
 
-                <View style={{backgroundColor:'#E0E62C', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{marginTop:hp('10%'),   width:wp('70%'), height:hp('0.5%'),backgroundColor:'#E0E62C', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='3Kw' color='black' onPress={() => this.funcionPotencia(3)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#E3557C', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{marginTop:hp('5%'),   width:wp('70%'), alignItems:'center', width:wp('70%'), backgroundColor:'#E3557C', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='5Kw' color='black' onPress={() => this.funcionPotencia(5)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#7CA4D9', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{marginTop:hp('5%'),   width:wp('70%'), backgroundColor:'#7CA4D9', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='7Kw' color='black' onPress={() => this.funcionPotencia(7)}></Button>
                 </View>
 
-                <View style={{backgroundColor:'#63BA6A', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                <View style={{marginTop:hp('5%'),   width:wp('70%'), backgroundColor:'#63BA6A', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='10Kw' color='black' onPress={() => this.funcionPotencia(10)}></Button>
                 </View>
 
-                <View style={{marginTop:'10%',backgroundColor:'black', flex:1, fontSize:hp('0.5%'), borderColor:'green', borderWidth:1}}>
+                <View style={{marginTop:hp('5%'), marginBottom:hp('5%'),  width:wp('70%'), backgroundColor:'red', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                         <Button  title='Atrás' color='white' onPress={() => this.props.navigation.navigate('Usuarios')}></Button>
+                         <Button  title='No viable' color='white' onPress={() => this.funcionPotencia(1)}></Button>
                 </View>
+
+              
 
                 
 
             
   
-           </ScrollView>
-          </KeyboardAvoidingView>
+        
         </View>
   
       

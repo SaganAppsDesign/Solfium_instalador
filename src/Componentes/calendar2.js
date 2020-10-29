@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Button, Platform, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ImageOverlay from "react-native-image-overlay";
-import fondo from '../../assets/fondo5.jpg'; 
+import fondo from '../../assets/fondo.jpg'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
@@ -55,7 +55,7 @@ export const Calendario = ({ navigation }) => {
   };
 
   const showDatepicker = () => {
-    showMode('datetime');
+    showMode('date');
        
     
   };
@@ -95,7 +95,7 @@ export const Calendario = ({ navigation }) => {
                         
                         textAlign:'center',
                         flex:1,
-                        width:wp('70%'),
+                        width:wp('60%'),
                         height:hp('7%'),
                         marginBottom:hp('0%'), marginTop:hp('10%')
                                     
@@ -119,10 +119,39 @@ export const Calendario = ({ navigation }) => {
                         fontWeight: 'bold',
                         backgroundColor:'grey'
 
-                      }}>SELECCIONA FECHA Y HORA</Text>
+                      }}>1º SELECCIONA FECHA</Text>
                           
                   </TouchableOpacity>
+
+                  
+                  
+                  <TouchableOpacity
+                          opacity= {opacity}
+                          disabled={bool}
+                          onPress={showTimepicker}
+                          >
      
+                    {/* <Icon
+                      name="hourglass-start"
+                      size={50}
+                      color="black"
+                      style={styles.btnIcon}/> */}
+
+                    <Text style={{
+                    fontSize: 18,
+                    color: 'orange',
+                    marginLeft: 0,
+                    marginTop: hp('1%'),
+                    textAlign:'center',
+                    fontWeight: 'bold',
+                    backgroundColor:'grey',
+                    padding:hp('1%'),
+                    opacity:opacity
+                    
+
+                  }}>2ª SELECCIONA HORA</Text>
+                
+            </TouchableOpacity>
             
           </View>
 
@@ -138,7 +167,7 @@ export const Calendario = ({ navigation }) => {
             flex:8,
             width:wp('80%'),
             height:hp('100%'),
-            marginBottom:hp('10%'), marginTop:hp('5%'),
+            marginBottom:hp('10%'), marginTop:hp('10%'),
             borderRadius:30
                         
           }}>

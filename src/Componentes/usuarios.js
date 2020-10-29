@@ -221,7 +221,7 @@ export class Usuarios extends React.Component {
 
                           {/*Viabilidad*/}
                          
-                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.6, height:'2%', marginTop:'0%'}}>
+                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.7, height:'2%', marginTop:'0%'}}>
                            
                               <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
                          

@@ -75,14 +75,7 @@ state = {
         }}
       />
 
-      <View style={{marginBottom: '5%', marginLeft:'10%',marginRight:'10%', marginTop:'5%'}}>
-      <Button title="Menú pricipal" 
-              color='orange'
-              onPress={() =>  this.props.navigation.navigate('Usuarios')}
-            
-
-            />
-      </View>
+     
     </View>
 
 
@@ -131,7 +124,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#EEF0ED',
+  	backgroundColor: '#000',
     marginTop: "0%"},
     
    sendingContainer: {
@@ -168,7 +161,7 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#DEE9ED'
+          backgroundColor: '#CEF9D9'
         },
         right: {
           // Here is the color change
