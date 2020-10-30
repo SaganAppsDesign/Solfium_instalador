@@ -9,7 +9,7 @@ import {
   Button
 } from 'react-native';
 import Fire, {db} from '../../fire';
-import fondo from '../../assets/fondo.jpg'; 
+import fondo from '../../assets/fondo5.jpg'; 
 
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";

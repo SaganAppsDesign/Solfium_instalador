@@ -90,14 +90,8 @@ export class SplashScreen extends React.Component {
       
                </View> 
                       
-                <View style={{ marginTop: hp('0%'), alignItems: 'center', flex:2}}>
-                        <Image
-                            style={{aspectRatio:1, width:wp('30%'), height:hp('12%'),marginTop: '0%'}}
-                            source={loading}
-                            />
-                </View>
-
-                <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('15%')}}>
+                
+                <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('20%')}}>
                       <TouchableOpacity 
 
                             disabled={false} 
@@ -108,7 +102,7 @@ export class SplashScreen extends React.Component {
                              
                               <Text
                                     
-                                    style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}
+                                    style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}
                                     
                                     > Entra a panel de USUARIOS   </Text>
 

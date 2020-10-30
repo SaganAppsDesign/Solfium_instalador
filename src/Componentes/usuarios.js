@@ -15,14 +15,14 @@ import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
 import Fire, {db} from '../../fire';
-import fondo from '../../assets/fondo.jpg'; 
+import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
 import {viabilidad} from './viabilidad';
 import {potenciaSistema} from './viabilidad';
 import {nombreFire} from '../../fire';
 
 
-//console.log(potenciaSistema)
+console.log(Math.round(potenciaSistema))
 
 export class Usuarios extends React.Component {
 
@@ -147,11 +147,11 @@ export class Usuarios extends React.Component {
           <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
 
           
-                    <View style={{flex:2}}>
-                          <Text style={{ marginTop:  hp('7%'), color:'white', fontSize:hp('2%')}}>{nombreFire}, bienvenido/a a su sesión</Text> 
+                    <View style={{flex:1.5}}>
+                          <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{nombreFire}, bienvenido/a a su sesión</Text> 
                    </View>    
 
-                   <View style={{marginTop:  hp('2%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
+                   <View style={{marginTop:  hp('0%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
                           
                          }}> 
 
@@ -173,12 +173,12 @@ export class Usuarios extends React.Component {
                         
                       </View> 
                       
-                      <View style={{flex:15, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('2%'),
+                      <View style={{flex:15, width:wp('100%'), height:hp('100%'), alignItems:'center',  marginTop:  hp('1%'),
                           
                          }}> 
                       
                             
-                        <FlatList style={{height:hp('100%'), marginBottom: hp('5%') }}
+                        <FlatList style={{height:hp('100%'), marginBottom: hp('15%') }}
                         
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
@@ -186,16 +186,16 @@ export class Usuarios extends React.Component {
                         <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('45%'),width:wp('84%'), flex:1}}> 
                        
                                                      
-                            <View style={{flexDirection:'row', flex:0.7, height:hp('1%'), marginTop:hp('0%')}}>
+                            <View style={{flexDirection:'row', flex:0.8, height:hp('1%'), marginTop:hp('0%')}}>
                             
-                                <View style={{ backgroundColor:'orange', flex:2, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
+                                <View style={{ backgroundColor:'orange', flex:1.5, alignItems:'center', justifyContent:'center', borderColor:'black', borderWidth:1}}>
                                     <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>{item.name}</Text> 
                                 </View>    
                                
 
-                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                                <View style={{backgroundColor:'#EEEBEB', flex:1.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                    <Button  title='Cal' color='black' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                                    <Button  title='Calen' color='black' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
                                 </View>
                                 
                                 <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
@@ -221,29 +221,29 @@ export class Usuarios extends React.Component {
 
                           {/*Viabilidad*/}
                          
-                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.7, height:'2%', marginTop:'0%'}}>
+                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.8, height:'2%', marginTop:'0%'}}>
                            
                               <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Potenc' color='green' onPress={() => this.props.navigation.navigate('Viabilidad')}> 
+                                <Button  title='Potencia' color='green' onPress={() => this.props.navigation.navigate('Potencia Kw')}> 
                                   
                                 </Button>
                             </View>
 
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1, borderColor:'grey', borderWidth:1}}>
                          
-                                 <Button  title='EnvPot' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
+                                 <Button  title='EnvPoten' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
                                   
                                 </Button>
                             </View>
                             
                               
                             
-                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
+                           {/*  <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
                                     <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
                                       
                                     </Button>
-                            </View>
+                            </View> */}
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Chat' color='#1E3EDE' onPress={() => this.goToChat(item.key)}></Button>
@@ -258,7 +258,7 @@ export class Usuarios extends React.Component {
                       {/*Resultados*/}
                      <View style={{height:hp('0%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderTopWidth:1}}> 
                          <Text>
-                              <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Fecha cita:</Text> 
+                              <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Fecha cita evaluación:</Text> 
                               <Text style={{fontSize:hp('1.5%')}}> {item.cita} </Text> 
                          </Text> 
                      </View>
@@ -295,7 +295,7 @@ export class Usuarios extends React.Component {
                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center', alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                      <Text>
-                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Sistema:</Text> 
+                         <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Cálculo del sistema:</Text> 
                          <Text style={{ fontSize:hp('1.5%')}}> {item.Sistema} </Text> 
                      </Text> 
 
@@ -304,7 +304,7 @@ export class Usuarios extends React.Component {
                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
                       
                         <Text>
-                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Potencia contratada:</Text> 
+                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Potencia elegida por instalador:</Text> 
                             <Text style={{ fontSize:hp('1.5%')}}> {item.potenciaContratada} </Text> 
                         </Text> 
 
@@ -367,7 +367,7 @@ export class Usuarios extends React.Component {
                   fechaInstalacion:child.val().fechaInstalacion,
                   rating:child.val().rating,
                   comentarios:child.val().comentarios,
-                  CalculoPotenciaSistema:child.val().CalculoPotenciaSistema,
+                  CalculoPotenciaSistema:child.val().CalculoPotenciaSistema.toFixed(3),
                   Sistema:child.val().Sistema,
                   potenciaContratada:child.val().potenciaContratada
 

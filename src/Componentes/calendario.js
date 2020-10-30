@@ -89,35 +89,28 @@ export const Calendario = ({ navigation }) => {
     <View style={{flex:1, alignItems:'center', width:wp('100%'), height:hp('100%')}}>
     
           <View  style={{
-          
+                        backgroundColor:'grey',
                         justifyContent: 'center',
-                        borderRadius: 15,
-                        
+                        borderRadius:10,
                         textAlign:'center',
                         flex:1,
-                        width:wp('70%'),
-                        height:hp('7%'),
-                        marginBottom:hp('0%'), marginTop:hp('10%')
+                        width:wp('80%'),
+                        height:hp('10%'),
+                        marginBottom:hp('0%'), marginTop:hp('5%')
                                     
                       }}>
             <TouchableOpacity
                     onPress={showDatepicker}
                     >
-                    
-                      {/* <Icon
-                        name="calendar"
-                        size={50}
-                        color="black"
-                        style={styles.btnIcon}/> */}
-          
+                                              
                       <Text style={{
                         fontSize: 18,
                         color: 'orange',
                         padding:hp('1%'),
-                        //width:wp('10%') ,                     
+                        //width:wp('100%') ,                     
                         textAlign:'center',
-                        fontWeight: 'bold',
-                        backgroundColor:'grey'
+                        fontWeight: 'bold'
+                        
 
                       }}>SELECCIONA FECHA Y HORA</Text>
                           
@@ -133,10 +126,10 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            backgroundColor:'#F3D3B5',        
+            backgroundColor:'#000',        
             textAlign:'center',
             flex:8,
-            width:wp('80%'),
+            width:wp('85%'),
             height:hp('100%'),
             marginBottom:hp('10%'), marginTop:hp('5%'),
             borderRadius:30
@@ -153,6 +146,7 @@ export const Calendario = ({ navigation }) => {
                   display="default"
                   onChange={onChange}
                   timeZoneOffsetInMinutes={0}
+                  locale={"es-mx"} 
              
                   
                 />
@@ -170,7 +164,7 @@ export const Calendario = ({ navigation }) => {
             flex:1,
             width:wp('30%'),
             height:hp('5%'),
-            marginBottom:hp('10%'), marginTop:hp('0%')
+            marginBottom:hp('25%'), marginTop:hp('0%')
                         
           }}>
 
@@ -178,7 +172,10 @@ export const Calendario = ({ navigation }) => {
             onPress={() => navigation.navigate('Usuarios')}
             >
 
-            <Text style={styles.btnText}>ACEPTAR</Text>
+            <Text style={{fontSize: 18,
+                          color: '#FAFAFA',
+                          textAlign:'center',
+                          fontWeight: 'bold'}}>ACEPTAR</Text>
 
             </TouchableOpacity>
         </View>
@@ -188,84 +185,3 @@ export const Calendario = ({ navigation }) => {
     </ImageOverlay>
   )
 }
-
-
-const styles = StyleSheet.create({
-
-
-  btnContainer1: {
-    
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: '#E13F0B',
-    
-    textAlign:'center',
-    
-    flex:1,
-    width:wp('45%'),
-    height:hp('8%'),
-    marginBottom:hp('0%'), marginTop:hp('20%')
-
-  
-  },
-
-
-  btnContainer3: {
-    
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: '#E13F0B',
-    
-    textAlign:'center',
-    
-    flex:1,
-    width:wp('45%'),
-    height:hp('8%'),
-    marginBottom:hp('0%'), marginTop:hp('5%')
-
-  
-  },
-
-   
-
-  btnContainer2: {
-    
-    justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: 'green',
-    flex:1,
-    textAlign:'center',
-    
-    flexDirection: 'column',
-    width:wp('45%'),
-    height:hp('8%'),
-    marginBottom:hp('0%'), marginTop:hp('10%')
-
-  
-  },
-  btnIcon: {
-    height: 50,
-    width: 50,
-  },
-  btnText: {
-    fontSize: 18,
-    color: '#FAFAFA',
-    marginLeft: 0,
-    marginTop: 5,
-    textAlign:'center',
-    fontWeight: 'bold'
-
-  },
-
-  btnText2: {
-    fontSize: 15,
-    color: '#FAFAFA',
-    marginLeft: 0,
-   
-    textAlign:'center',
-    fontWeight: 'bold'
-
-  }
- 
-
-});
