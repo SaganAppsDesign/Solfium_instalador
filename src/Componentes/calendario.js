@@ -89,7 +89,7 @@ export const Calendario = ({ navigation }) => {
     <View style={{flex:1, alignItems:'center', width:wp('100%'), height:hp('100%')}}>
     
           <View  style={{
-                        backgroundColor:'grey',
+                        backgroundColor:'orange',
                         justifyContent: 'center',
                         borderRadius:10,
                         textAlign:'center',
@@ -105,7 +105,7 @@ export const Calendario = ({ navigation }) => {
                                               
                       <Text style={{
                         fontSize: 18,
-                        color: 'orange',
+                        color: 'black',
                         padding:hp('1%'),
                         //width:wp('100%') ,                     
                         textAlign:'center',
@@ -126,7 +126,7 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            backgroundColor:'#000',        
+            backgroundColor:'#fff',        
             textAlign:'center',
             flex:8,
             width:wp('85%'),

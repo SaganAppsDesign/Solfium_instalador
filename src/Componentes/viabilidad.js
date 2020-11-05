@@ -39,7 +39,7 @@ export class Viabilidad extends React.Component {
   
   funcionPotencia(potenciaSistema) {
     this.setState({ potenciaSistema })
-    console.log(this.state.potenciaSistema)
+    //console.log(this.state.potenciaSistema)
     
     
   }
@@ -49,9 +49,7 @@ export class Viabilidad extends React.Component {
   
   viabilidad = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
     viabilidad: this.state.viabilidad
-   
-    //fecha: fecha,
-  
+     
     })
 
    
@@ -63,8 +61,7 @@ export class Viabilidad extends React.Component {
         viabilidad = this.state.viabilidad
         potenciaSistema= this.state.potenciaSistema
         
-
-       
+    
 
      
       return (
@@ -75,37 +72,12 @@ export class Viabilidad extends React.Component {
         overlayAlpha={0}
           
   
-        //resizeMode="stretch"
-        //style={styles.fondo} 
         >
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
   
       
       
-         
-                {/* <View style={{marginTop:'30%', height:'100%', width:'100%', flex:1}}>
-                  <TextInput
-                    style={styles.nameInput}
-                    label="Viabilidad (0-100)"
-                    onChangeText={this.onChangeText}
-                    value={this.state.viabilidad}
-                    returnKeyType={ 'done' }
-                    theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                      
-                    
-                  />
-  
-                  <TouchableOpacity onPress={
-                    () => {this.onPress()}
-                  }
-                  >
-                  <Text style={styles.buttonText}>Confirma viabilidad</Text>
-                  </TouchableOpacity>
-             
-  
-                </View> */}
-
                 <View style={{marginTop:hp('10%'),   width:wp('70%'), height:hp('0.5%'),backgroundColor:'#E0E62C', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                          <Button  title='3Kw' color='black' onPress={() => this.funcionPotencia(3)}></Button>
@@ -128,7 +100,7 @@ export class Viabilidad extends React.Component {
 
                 <View style={{marginTop:hp('5%'), marginBottom:hp('5%'),  width:wp('70%'), backgroundColor:'red', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                         <Button  title='No viable' color='white' onPress={() => this.funcionPotencia(1)}></Button>
+                         <Button  title='No viable' color='white' onPress={() => this.funcionPotencia("No viable")}></Button>
                 </View>
 
               
