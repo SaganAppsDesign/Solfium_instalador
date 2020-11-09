@@ -16,17 +16,6 @@ var screen
 
 
 export class SplashScreen extends React.Component {
-/* 
-  constructor(props){
-    super(props)
-    setTimeout(()=>{
-      this.props.navigation.replace(screen)
-
-    },2000
-
-    )
-
-  } */
 
   state = {
 
@@ -34,8 +23,7 @@ export class SplashScreen extends React.Component {
    
   }
 
-  
-   
+    
   
 
  render() {
@@ -48,15 +36,16 @@ export class SplashScreen extends React.Component {
   //console.log("NOMBREEEEE RENDER name: ", name)
 
   
-  if (name){
+  if (name==""){
 
-     //var valor
-            
-     screen = 'Usuarios'     
+    
+     screen = 'Home'
+    
          
     } else {
-
-      screen = 'Home'
+     
+      screen = 'Usuarios'     
+      
     }
 
 
@@ -142,7 +131,7 @@ export class SplashScreen extends React.Component {
 
     this.setState({ name: snapshot.child("name").val() || '' }) 
                   
-    //console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+    console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
     //console.log("Fire.getUid(): ", Fire.getUid())
   
   }

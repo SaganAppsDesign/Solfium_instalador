@@ -367,7 +367,7 @@ export class Usuarios extends React.Component {
                   fechaInstalacion:child.val().fechaInstalacion,
                   rating:child.val().rating,
                   comentarios:child.val().comentarios,
-                  CalculoPotenciaSistema:child.val().CalculoPotenciaSistema.toFixed(3),
+                  CalculoPotenciaSistema:child.val().CalculoPotenciaSistema,
                   Sistema:child.val().Sistema,
                   potenciaContratada:child.val().potenciaContratada
 

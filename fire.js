@@ -93,7 +93,6 @@ class Fire {
     //this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + this.uid);
     this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
-    //this.messagesRef = firebase.database().ref('/Mensajes/');
     this.messagesRef.off();
 
     const onReceive = (data) => {
@@ -105,12 +104,12 @@ class Fire {
           text: message.text,
           createdAt: new Date(message.createdAt),
           user: {
-              id: message.user._id,
+              _id: message.user._id,
               name: message.user.name,
               avatar:message.user.avatar
-             
-              
-          },
+              //avatar:require('./assets/icono2.png')
+                           
+          }
 
       })
       

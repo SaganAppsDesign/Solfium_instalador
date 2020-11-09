@@ -126,7 +126,7 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            backgroundColor:'#fff',        
+            //backgroundColor:'#000',        
             textAlign:'center',
             flex:8,
             width:wp('85%'),
@@ -138,7 +138,6 @@ export const Calendario = ({ navigation }) => {
               {show && (
                 <DateTimePicker
                   testID="dateTimePicker"
-                  //dateFormat="dayofweek day month"
                   initialValue={date}
                   value={date}
                   mode={mode}

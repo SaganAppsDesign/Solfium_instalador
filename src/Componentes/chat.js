@@ -69,7 +69,8 @@ state = {
           user={{
             _id: Fire.getUid(),
             name: nombreCliente,
-            avatar: require('../../assets/icono2.png')
+            avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono2.png?alt=media&token=b0b5e696-f8ce-47e0-b53f-4675af3222f0'
+            //avatar:require('../../assets/icono2.png')
            
            
         }}
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   container:{ 
   	flex: 1,
   	justifyContent: "center",
-  	backgroundColor: '#000',
+  	backgroundColor: '#EBEDEF',
     marginTop: "0%"},
     
    sendingContainer: {
@@ -161,11 +162,11 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#CEF9D9'
+          backgroundColor: '#fff'
         },
         right: {
           // Here is the color change
-          backgroundColor: 'red'
+          backgroundColor: '#DCF8C6'
         }
       }}
       textStyle={{
