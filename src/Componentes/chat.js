@@ -68,7 +68,7 @@ state = {
           placeholder={"Chatea aquí " + nombreChat}
           user={{
             _id: Fire.getUid(),
-            name: nombreCliente,
+            name: nombreChat,
             avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono2.png?alt=media&token=b0b5e696-f8ce-47e0-b53f-4675af3222f0'
             //avatar:require('../../assets/icono2.png')
            
