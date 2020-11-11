@@ -90,7 +90,7 @@ class Fire {
 
   loadMessages(callback){
 
-    //this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + this.uid);
+   
     this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
     this.messagesRef.off();
@@ -107,8 +107,7 @@ class Fire {
               _id: message.user._id,
               name: message.user.name,
               avatar:message.user.avatar
-              //avatar:require('./assets/icono2.png')
-                           
+                                         
           }
 
       })

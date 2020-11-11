@@ -69,7 +69,7 @@ export const Calendario = ({ navigation }) => {
 
   fecha = date
   //fecha2 = date.setTime(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
-   console.log('date fuera de funcion 2:  ', fecha)
+  // console.log('date fuera de funcion 2:  ', fecha)
   //fecha = new Date(currentDate)
   
   

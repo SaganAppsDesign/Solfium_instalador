@@ -9,6 +9,7 @@ import {
   Image,ScrollView, Button
 
 } from 'react-native';
+import DialogInput from 'react-native-dialog-input';
 
 import { Card, CardItem, Text, Body, Icon, Right } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
@@ -20,9 +21,10 @@ import {fecha} from './calendario';
 import {viabilidad} from './viabilidad';
 import {potenciaSistema} from './viabilidad';
 import {nombreFire} from '../../fire';
+import {consumoMensual} from './consumo_mensual';
 
 
-console.log(Math.round(potenciaSistema))
+console.log("usuarios", consumoMensual)
 
 export class Usuarios extends React.Component {
 
@@ -43,6 +45,9 @@ export class Usuarios extends React.Component {
         global.idCliente = key;
         this.props.navigation.navigate('Chat');
       }
+
+
+
 
      cita(key) {
 
@@ -98,9 +103,9 @@ export class Usuarios extends React.Component {
 
       
       
-      evaluando(key) {
+      consumo(key) {
         db.ref('/Usuarios/' + key).update({
-          Viabilidad: 'evaluando'
+          consumoMensual: consumoMensual
           
         });
            
@@ -108,22 +113,22 @@ export class Usuarios extends React.Component {
       }
     
     
-      viabilidad(key) {
+    /*   viabilidad(key) {
         db.ref('/Usuarios/' + key).update({
 
           Viabilidad: viabilidad
         });
         
-      }
+      } */
 
-
+/* 
       chat(key) {
         db.ref('/Usuarios/' + key).update({
 
           Viabilidad: viabilidad
         });
         
-      }
+      } */
  
 
   render() {
@@ -131,8 +136,6 @@ export class Usuarios extends React.Component {
  
 
     //console.log("nombre USUARIOS", nombreFire)
-
-
 
 
     return (
@@ -219,7 +222,7 @@ export class Usuarios extends React.Component {
                             </View>
 
 
-                          {/*Viabilidad*/}
+                          {/*PotenciaContratada*/}
                          
                            <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.8, height:'2%', marginTop:'0%'}}>
                            
@@ -239,11 +242,18 @@ export class Usuarios extends React.Component {
                             
                               
                             
-                           {/*  <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
-                                    <Button  title='Eval' color='grey' onPress={() => this.evaluando(item.key)}> 
+                           <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
+                                    <Button  title='Consu' color='pink' onPress={() => this.props.navigation.navigate('Consumo mensual')}> 
                                       
                                     </Button>
-                            </View> */}
+                            </View> 
+                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
+                                    <Button  title='EnvCo' color='grey' onPress={() => this.consumo(item.key)}> 
+                                      
+                                    </Button>
+                            </View> 
+
+
                             <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
                          
                                 <Button  title='Chat' color='#1E3EDE' onPress={() => this.goToChat(item.key)}></Button>
@@ -310,6 +320,15 @@ export class Usuarios extends React.Component {
 
                      </View>
 
+                     <View style={{height:hp('0.5%'), width:wp('100%'), marginTop:hp('0%'), marginBottom:hp('0%'), flex:0.5, justifyContent:'center',alignItems:'center', borderColor:'grey', borderWidth:1}}> 
+                      
+                        <Text>
+                            <Text style={{fontWeight:'bold', fontSize:hp('1.5%')}}>Consumo promedio mensual en kWh:</Text> 
+                            <Text style={{ fontSize:hp('1.5%')}}> {item.consumoMensual} </Text> 
+                        </Text> 
+
+                     </View>
+
 
                     <View style={{height:hp('3%'), width:wp('100%'), marginTop:hp('1%'), marginBottom:hp('2%'), flex:0.7,alignItems:'center'}}> 
                       
@@ -369,7 +388,8 @@ export class Usuarios extends React.Component {
                   comentarios:child.val().comentarios,
                   CalculoPotenciaSistema:child.val().CalculoPotenciaSistema,
                   Sistema:child.val().Sistema,
-                  potenciaContratada:child.val().potenciaContratada
+                  potenciaContratada:child.val().potenciaContratada,
+                  consumoMensual:child.val().consumoMensual
 
           
         })

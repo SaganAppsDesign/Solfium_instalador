@@ -8,8 +8,9 @@ import { Usuarios } from './src/Componentes/usuarios';
 import { Calendario } from './src/Componentes/calendario'; 
 import { Viabilidad } from './src/Componentes/viabilidad'; 
 import {SplashScreen } from './src/Componentes/splash_screen'; 
+import {ConsumoMensual } from './src/Componentes/consumo_mensual'; 
 import 'react-native-gesture-handler';
-import Fire, {db} from './fire';
+
 
 
 const Stack = createStackNavigator();
@@ -41,6 +42,7 @@ class MyStack extends Component {
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen  name="Potencia Kw" component={Viabilidad}  />
+      <Stack.Screen  name="Consumo mensual" component={ConsumoMensual}  />
 
 
     </Stack.Navigator>
