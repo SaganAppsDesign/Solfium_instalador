@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   LogBox,
   View,
-  Image,ScrollView, Button
+  Image,ScrollView, Button, Text
 
 } from 'react-native';
 import DialogInput from 'react-native-dialog-input';
 
-import { Card, CardItem, Text, Body, Icon, Right } from 'native-base';
+import { Card, CardItem,  Body, Icon, Right } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
@@ -24,7 +24,7 @@ import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
 
 
-console.log("usuarios", consumoMensual)
+//console.log("usuarios", consumoMensual)
 
 export class Usuarios extends React.Component {
 
@@ -83,7 +83,7 @@ export class Usuarios extends React.Component {
 
         potenciaContratada: potenciaSistema
 
-        });
+        })
     
     }
 
@@ -96,18 +96,16 @@ export class Usuarios extends React.Component {
 
         visita: "En curso"
 
-         });
+         })
   
    
    }
 
-      
-      
       consumo(key) {
         db.ref('/Usuarios/' + key).update({
           consumoMensual: consumoMensual
           
-        });
+        })
            
         
       }
@@ -132,10 +130,6 @@ export class Usuarios extends React.Component {
  
 
   render() {
-
- 
-
-    //console.log("nombre USUARIOS", nombreFire)
 
 
     return (
@@ -196,25 +190,25 @@ export class Usuarios extends React.Component {
                                 </View>    
                                
 
-                                <View style={{backgroundColor:'#EEEBEB', flex:1.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                                <View style={{backgroundColor:'#ADD6FC', flex:1.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
                                     <Button  title='Calen' color='black' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
                                 </View>
                                 
-                                <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                                <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Cita' color='#EA9529' onPress={() => this.cita(item.key)}></Button>
+                                <Button  title='Cita' color='black' onPress={() => this.cita(item.key)}></Button>
                                </View>
 
 
-                               <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                               <View style={{width:wp('0.1%') , backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.2%'), borderColor:'grey', borderWidth:1}}>
                          
-                               <Button  title='Visit' color='red' onPress={() => this.visita(item.key)}></Button>
+                               <Button  title='Visit' color='black' onPress={() => this.visita(item.key)}></Button>
                                </View> 
 
-                               <View style={{backgroundColor:'#EEEBEB', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                               <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Inst' color='#29EA72' onPress={() => this.insta(item.key)}></Button>
+                                <Button  title='Inst' color='black' onPress={() => this.insta(item.key)}></Button>
                                </View>
 
                                
@@ -224,41 +218,132 @@ export class Usuarios extends React.Component {
 
                           {/*PotenciaContratada*/}
                          
-                           <View style={{backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.8, height:'2%', marginTop:'0%'}}>
+                           <View style={{alignItems:'center', backgroundColor:'#EEEBEB', flexDirection:'row', flex:0.8, height:'2%', marginTop:'0%'}}>
+                            {/*botón*/}
+                              <View style={{backgroundColor:'#F5D3AF',alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
+                                                         
+                                <TouchableOpacity
+                          
+                                onPress={() => this.props.navigation.navigate('Potencia Kw')} 
+                                                    
+                                >
+                                                                       
+                                      <Text style={{
+                                        marginTop:hp('1%'),
+                                        color: 'black',
+                                        textAlign:'center',
+                                        fontWeight:'bold',
+                                        fontSize:hp('1.5%'),
+                          
+                                      }}>Potencia</Text>
+                                    
+                                </TouchableOpacity>
+                                  
                            
-                              <View style={{flex:1, borderColor:'grey', borderWidth:1}}>
-                         
-                                <Button  title='Potencia' color='green' onPress={() => this.props.navigation.navigate('Potencia Kw')}> 
-                                  
-                                </Button>
                             </View>
+                            {/*fin botón*/}
 
-                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1, borderColor:'grey', borderWidth:1}}>
-                         
-                                 <Button  title='EnvPoten' color='#29CDEA' onPress={() => this.potenciaContratada(item.key)}> 
-                                  
-                                </Button>
+                            {/*botón*/}
+                            <View style={{backgroundColor:'#F5D3AF',alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
+                                                         
+                                                <TouchableOpacity
+                                          
+                                                onPress={() => this.potenciaContratada(item.key)}
+                                                                    
+                                                >
+                                                                                  
+                                                      <Text style={{
+                                                        marginTop:hp('0.5%'),
+                                                        color: 'black',
+                                                        textAlign:'center',
+                                                        fontWeight:'bold',
+                                                        fontSize:hp('1.5%'),
+                                                        width:hp('7%')
+                                          
+                                                      }}>Envío Potencia</Text>
+                                                    
+                                                </TouchableOpacity>
+                                             
                             </View>
+                            {/*fin botón*/}
+                          
+
+                            {/*botón*/}
+                            <View style={{backgroundColor:'#F5D3AF', alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
+                                                         
+                                  <TouchableOpacity
                             
-                              
+                                  onPress={() => this.props.navigation.navigate('Consumo mensual')}
+                                                      
+                                  >
+                                                                    
+                                        <Text style={{
+                                          marginTop:hp('1.1%'),
+                                          color: 'black',
+                                          textAlign:'center',
+                                          fontWeight:'bold',
+                                          fontSize:hp('1.5%'),
+                                          width:hp('100%')
                             
-                           <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
-                                    <Button  title='Consu' color='pink' onPress={() => this.props.navigation.navigate('Consumo mensual')}> 
+                                        }}>Consumo</Text>
                                       
-                                    </Button>
-                            </View> 
-                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
-                                    <Button  title='EnvCo' color='grey' onPress={() => this.consumo(item.key)}> 
-                                      
-                                    </Button>
-                            </View> 
+                                  </TouchableOpacity>
+                                                      
+                            </View>
+                            {/*fin botón*/}
+                            {/*botón*/}
+                            <View style={{backgroundColor:'#F5D3AF',alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
+                                                         
+                                <TouchableOpacity
+                          
+                                onPress={() => this.consumo(item.key)}
+                                                    
+                                >
+                                                                  
+                                      <Text style={{
+                                        marginTop:hp('0.5%'),
+                                        color: 'black',
+                                        textAlign:'center',
+                                        fontWeight:'bold',
+                                        fontSize:hp('1.5%'),
+                                        width:hp('7%')
+                          
+                                      }}>Envío Consumo</Text>
+                                    
+                                </TouchableOpacity>
+                                                    
+                          </View>
+                          {/*fin botón*/}
+
+                          {/*botón*/}
+                          <View style={{backgroundColor:'white',  alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
+                                                         
+                              <TouchableOpacity
+                        
+                                     onPress={() => this.goToChat(item.key)}
+                                                  
+                              >
+                                                                
+                                    <Text style={{
+                                      marginTop:hp('1%'),
+                                      color: '#1E3EDE',
+                                      textAlign:'center',
+                                      fontWeight:'bold',
+                                      fontSize:hp('2%'),
+                                      width:wp('20%'),
+                                      height:hp('100%')
+
+                        
+                                    }}>CHAT</Text>
+                                  
+                              </TouchableOpacity>
+                                                  
+                        </View>
+                        {/*fin botón*/}
 
 
-                            <View style={{backgroundColor:'#EEEBEB', flex:1, borderColor:'grey', borderWidth:1}}>
-                         
-                                <Button  title='Chat' color='#1E3EDE' onPress={() => this.goToChat(item.key)}></Button>
-                                                       
-                           </View>
+
+                            
                             
                             
                       </View>

@@ -2,13 +2,9 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  KeyboardAvoidingView,
-  TouchableOpacity,
-  ScrollView,
   View,
-  Button,TextInput
+  Button,TextInput, Alert
 } from 'react-native';
-import Fire, {db} from '../../fire';
 import fondo from '../../assets/fondo5.jpg'; 
 
 
@@ -18,6 +14,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 export var viabilidad ="Viabilidad por concretar"
 export var potenciaSistema ="Por concretar"
 export var consumoMensual ="Por concretar"
+
+
+
 
 
 export class ConsumoMensual extends React.Component {
@@ -30,26 +29,55 @@ export class ConsumoMensual extends React.Component {
 
   }
   
-  onPress = () =>
+    onPress = () =>
   
     this.props.navigation.navigate('Usuarios');
+   
 
-    onChangeText = consumoMensual => this.setState({ consumoMensual }, () => {
+    onChangeText = consumoMensual => { 
+
+      this.setState({ consumoMensual }, () => {
+
       if (this.state.consumoMensual == "," || this.state.consumoMensual == ".") {
         
-        alert("Por favor, introduce número");
+        alert("Por favor, introduce número")
         this.setState({ potenciaEstado: "" })
       }
-    })
-    
 
+    })}
+
+
+    showalert() {
+          Alert.alert(
+            "Atención",
+            "Por favor, introduce consumo entre 250 y 2,500 KWh",
+            [
+              { text: "Prueba de nuevo", onPress: () => console.log("hola")}
+            ],
+            { cancelable: false }
+          )}
+
+    onEndEditing () {
+      
+        if (consumoMensual<250 || consumoMensual >2500){
+
+          Alert.alert(
+            "Atención",
+            "Por favor, introduce consumo entre 250 y 2,500 KWh",
+            [
+              { text: "Prueba de nuevo", onPress: () => console.log("hola")}
+            ],
+            { cancelable: false }
+          )}
+       
+      }
+ 
+  
     render() {
 
         potenciaSistema= this.state.potenciaSistema
         consumoMensual=this.state.consumoMensual
-        
-       console.log(this.state.consumoMensual)
-     
+          
       return (
         <ImageOverlay 
   
@@ -61,7 +89,11 @@ export class ConsumoMensual extends React.Component {
         >
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
-        <View style={{justifyContent:'center', alignItems:'center', width:wp('100%'), height:hp('13%'), flex:0.8,marginTop:hp('0%')}}>
+
+        <View style={{flex:0.1, alignItems:'center', justifyContent:'center', marginTop:hp('5%')}}>
+          <Text style={{fontWeight:'bold', fontSize:hp('2%'),  textAlign:'center'}}>Introduce consumo entre 250 y 2,500 KWh</Text> 
+        </View> 
+        <View style={{justifyContent:'center', alignItems:'center', width:wp('100%'), height:hp('13%'), flex:0.2,marginTop:hp('0%')}}>
                             
                             <TextInput
                                 style={{
@@ -69,7 +101,7 @@ export class ConsumoMensual extends React.Component {
                                   marginBottom:hp('2%'),
                                   width:wp('80%'),
                                   backgroundColor: '#5B5A58',
-                                  fontSize: hp('2%'),
+                                  fontSize: hp('2.5%'),
                                   fontWeight: 'bold',
                                   borderRadius: 30,
                                   textAlign:'center',
@@ -80,19 +112,21 @@ export class ConsumoMensual extends React.Component {
                                 placeholderTextColor = "white"
                                 keyboardType='numeric'
                                 onChangeText={this.onChangeText}
+                                onEndEditing={this.onEndEditing}
                                 value={this.state.consumoMensual}
                                 returnKeyType={ 'done' }
+                                maxLength={4} 
                             
                                 
                             />
 
 
-                <View style={{borderRadius:10, alignItems:'center', textAlign:'center',  marginTop:hp('2%'), width:wp('50%'), height:hp('0.3%'),backgroundColor:'orange', flex:0.08, fontSize:hp('0.6%'), borderColor:'white', borderWidth:2}}>
+                <View style={{borderRadius:10, alignItems:'center', textAlign:'center',  marginTop:hp('2%'), width:wp('50%'), height:hp('0.3%'),backgroundColor:'orange', flex:0.8, fontSize:hp('0.6%'), borderColor:'white', borderWidth:2}}>
                          
                          <Button  title='Volver atrás' color='black' onPress={() => this.props.navigation.navigate('Usuarios')}></Button>
                 </View>
 
-                            </View>
+            </View>
       
       
                
