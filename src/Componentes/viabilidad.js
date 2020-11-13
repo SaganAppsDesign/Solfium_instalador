@@ -18,15 +18,23 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 export var viabilidad ="Viabilidad por concretar"
 export var potenciaSistema ="Por concretar"
 
+var opacity = 1
+var opacity2 = 1
+var opacity3 = 1
+var opacity4 = 1
+var opacity5 = 1
 
 export class Viabilidad extends React.Component {
  
   state = {
 
     viabilidad: '',
-    potenciaSistema:''
+    potenciaSistema:'',
+    opacity:1
 
   }
+
+  
   
   onPress = () =>
   
@@ -38,25 +46,38 @@ export class Viabilidad extends React.Component {
  
   
   funcionPotencia(potenciaSistema) {
-    this.setState({ potenciaSistema })
-    //console.log(this.state.potenciaSistema)
     
+    this.setState({ potenciaSistema })
+
+    alert("Has elegido " + potenciaSistema + "Kw de potencia. Envía este dato al servidor, en la pantalla de 'Usuarios'")
+    
+    if(potenciaSistema==3){
+      
+      this.setState({ opacity :0.5 })
+      
+    } else if (potenciaSistema==5) {
+      this.setState({ opacity2 :0.5 })
+    } else if (potenciaSistema==7) {
+      this.setState({ opacity3 :0.5 })
+    } else if(potenciaSistema==10){
+      this.setState({ opacity4 :0.5 })
+        
+  }
+}
+
+  funcionPotencia2(potenciaSistema) {
+    this.setState({ potenciaSistema })
+
+    alert("Has elegido " + potenciaSistema + " Envía este dato al servidor, en la pantalla de 'Usuarios'")
+    this.setState({ opacity5 :0.5 })
     
   }
 
 
 
-  
-  viabilidad = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
-    viabilidad: this.state.viabilidad
-     
-    })
-
-   
-
-  
-
     render() {
+
+      
 
         viabilidad = this.state.viabilidad
         potenciaSistema= this.state.potenciaSistema
@@ -76,40 +97,125 @@ export class Viabilidad extends React.Component {
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
   
-      
-      
-                <View style={{marginTop:hp('10%'),   width:wp('70%'), height:hp('0.5%'),backgroundColor:'#E0E62C', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                         <Button  title='3Kw' color='black' onPress={() => this.funcionPotencia(3)}></Button>
-                </View>
-
-                <View style={{marginTop:hp('5%'),   width:wp('70%'), alignItems:'center', width:wp('70%'), backgroundColor:'#E3557C', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                         <Button  title='5Kw' color='black' onPress={() => this.funcionPotencia(5)}></Button>
-                </View>
-
-                <View style={{marginTop:hp('5%'),   width:wp('70%'), backgroundColor:'#7CA4D9', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                         <Button  title='7Kw' color='black' onPress={() => this.funcionPotencia(7)}></Button>
-                </View>
-
-                <View style={{marginTop:hp('5%'),   width:wp('70%'), backgroundColor:'#63BA6A', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                         <Button  title='10Kw' color='black' onPress={() => this.funcionPotencia(10)}></Button>
-                </View>
-
-                <View style={{marginTop:hp('5%'), marginBottom:hp('5%'),  width:wp('70%'), backgroundColor:'red', flex:0.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                         <Button  title='No viable' color='white' onPress={() => this.funcionPotencia("No viable")}></Button>
-                </View>
-
-              
-
+                 {/*botón*/}
+                 <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                        <TouchableOpacity
+                  
+                        onPress={() => this.funcionPotencia(3)}
+                                            
+                        >
+                                                          
+                              <Text style={{
+                                marginTop:hp('1.1%'),
+                                color: 'black',
+                                textAlign:'center',
+                                fontWeight:'bold',
+                                fontSize:hp('1.5%'),
+                                width:hp('100%')
+                  
+                              }}>3Kw</Text>
+                            
+                        </TouchableOpacity>
+                                            
+                  </View>
+                  {/*fin botón*/}
+                   {/*botón*/}
+                 <View style={{opacity:this.state.opacity2, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#9BCA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                      <TouchableOpacity
                 
+                      onPress={() => this.funcionPotencia(5)}
+                                          
+                      >
+                                                        
+                            <Text style={{
+                              marginTop:hp('1.1%'),
+                              color: 'black',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              fontSize:hp('1.5%'),
+                              width:hp('100%')
+                
+                            }}>5Kw</Text>
+                          
+                      </TouchableOpacity>
+                                          
+                </View>
+                {/*fin botón*/}
 
-            
-  
-        
+                                                    {/*botón*/}
+                 <View style={{opacity:this.state.opacity3, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CACA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                      <TouchableOpacity
+                
+                      onPress={() => this.funcionPotencia(7)}
+                                          
+                      >
+                                                        
+                            <Text style={{
+                              marginTop:hp('1.1%'),
+                              color: 'black',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              fontSize:hp('1.5%'),
+                              width:hp('100%')
+                
+                            }}>7Kw</Text>
+                          
+                      </TouchableOpacity>
+                                          
+                </View>
+                {/*fin botón*/}
+
+
+                  {/*botón*/}
+                 <View style={{opacity:this.state.opacity4, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CA9B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                    <TouchableOpacity
+              
+                    onPress={() => this.funcionPotencia(10)}
+                                        
+                    >
+                                                      
+                          <Text style={{
+                            marginTop:hp('1.1%'),
+                            color: 'black',
+                            textAlign:'center',
+                            fontWeight:'bold',
+                            fontSize:hp('1.5%'),
+                            width:hp('100%')
+              
+                          }}>10Kw</Text>
+                        
+                    </TouchableOpacity>
+                                        
+              </View>
+              {/*fin botón*/}
+
+             {/*botón*/}
+                 <View style={{opacity:this.state.opacity5, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CA6B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                    <TouchableOpacity
+              
+                    onPress={() => this.funcionPotencia2("No viable")}
+                                        
+                    >
+                                                      
+                          <Text style={{
+                            marginTop:hp('1.1%'),
+                            color: 'black',
+                            textAlign:'center',
+                            fontWeight:'bold',
+                            fontSize:hp('1.5%'),
+                            width:hp('100%')
+              
+                          }}>NO VIABLE</Text>
+                        
+                    </TouchableOpacity>
+                                        
+              </View>
+              {/*fin botón*/}
         </View>
   
       

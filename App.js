@@ -42,7 +42,7 @@ class MyStack extends Component {
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen  name="Potencia Kw" component={Viabilidad}  />
-      <Stack.Screen  name="Consumo mensual" component={ConsumoMensual}  />
+      <Stack.Screen options={{headerShown: false}} name="Consumo mensual" component={ConsumoMensual}  />
 
 
     </Stack.Navigator>

@@ -110,28 +110,12 @@ export class Usuarios extends React.Component {
         
       }
     
-    
-    /*   viabilidad(key) {
-        db.ref('/Usuarios/' + key).update({
-
-          Viabilidad: viabilidad
-        });
-        
-      } */
-
-/* 
-      chat(key) {
-        db.ref('/Usuarios/' + key).update({
-
-          Viabilidad: viabilidad
-        });
-        
-      } */
+  
  
 
   render() {
 
-
+    //console.log('key',this.state.list.key)
     return (
 
 
@@ -179,6 +163,7 @@ export class Usuarios extends React.Component {
                         
                                   data={this.state.list} 
                                   renderItem={({ item }) => 
+                                 
                           
                         <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('45%'),width:wp('84%'), flex:1}}> 
                        
@@ -283,7 +268,7 @@ export class Usuarios extends React.Component {
                                           textAlign:'center',
                                           fontWeight:'bold',
                                           fontSize:hp('1.5%'),
-                                          width:hp('100%')
+                                          width:hp('8%')
                             
                                         }}>Consumo</Text>
                                       
