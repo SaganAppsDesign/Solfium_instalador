@@ -15,6 +15,7 @@ import { Card, CardItem,  Body, Icon, Right } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
+import chat from '../../assets/chat.png'; 
 import Fire, {db} from '../../fire';
 import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
@@ -24,7 +25,9 @@ import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
 
 
-//console.log("usuarios", consumoMensual)
+var nuevoMensaje = false
+
+
 
 export class Usuarios extends React.Component {
 
@@ -33,8 +36,11 @@ export class Usuarios extends React.Component {
         super(props)
         this.state = {
           list: [],
-         
-          nombre:''
+          nombre:'',
+          nuevoMensaje:false,
+          clickVisit:true,
+          clickCita:true,
+          clickInsta:true
                    
         }
         
@@ -49,33 +55,70 @@ export class Usuarios extends React.Component {
 
 
 
-     cita(key) {
-
+      cita(key) {
+        if (this.state.clickCita==true){
+          db.ref('/Usuarios/' + key).update({
+            cita: fecha,
+            nombre_instalador: this.state.nombre
+             })
+  
     
-        
-        db.ref('/Usuarios/' + key).update({
-
-          cita: fecha,
-          nombre_instalador: this.state.nombre
-
-           });
-    
+             this.setState({
+               clickCita: false
+  
+          })
+  
+        } else{
+  
+          db.ref('/Usuarios/' + key).update({
      
+            cita: "",
+            nombre_instalador: this.state.nombre
+   
+             })
+              this.setState({
+              clickCita: true
+  
+          })
+   
+        }
+        console.log("this.state.clickCita",this.state.clickCita)
+    
+       }
+
+       insta(key) {
+
+        if (this.state.clickInsta==true){
+       
+          this.setState({
+  
+            clickInsta: false
+  
+        })
+      
+        db.ref('/Usuarios/' + key).update({
+           fechaInstalacion: fecha
+      
+           })
+      
+          } else {
+  
+            db.ref('/Usuarios/' + key).update({
+     
+              fechaInstalacion: ""
+          
+               })
+  
+               this.setState({
+               clickInsta: true
+  
+            })
+    
+          }
+          
      }
-
-     insta(key) {
-
-    
-        
-      db.ref('/Usuarios/' + key).update({
-
-        fechaInstalacion: fecha
-
-         });
-    
-   }
-
-
+  
+   
     potenciaContratada(key) {
 
               
@@ -88,18 +131,36 @@ export class Usuarios extends React.Component {
     }
 
 
-     visita(key) {
+    visita(key) {
 
-    
-        
-      db.ref('/Usuarios/' + key).update({
-
-        visita: "En curso"
-
-         })
-  
+      if (this.state.clickVisit==true){
+ 
+       db.ref('/Usuarios/' + key).update({
    
-   }
+         visita: "En curso"
+   
+          })
+  
+          this.setState({
+            clickVisit: false
+        })
+ 
+      } else {
+   
+       db.ref('/Usuarios/' + key).update({
+ 
+         visita: ""
+ 
+          })
+ 
+          this.setState({
+          clickVisit: true
+ 
+       })
+ 
+      }  
+ 
+    }
 
       consumo(key) {
         db.ref('/Usuarios/' + key).update({
@@ -116,6 +177,7 @@ export class Usuarios extends React.Component {
   render() {
 
     //console.log('key',this.state.list.key)
+    //console.log("nuevoMensaje RENDER", this.state.nuevoMensaje)
     return (
 
 
@@ -308,28 +370,20 @@ export class Usuarios extends React.Component {
                                      onPress={() => this.goToChat(item.key)}
                                                   
                               >
-                                                                
-                                    <Text style={{
-                                      marginTop:hp('1%'),
-                                      color: '#1E3EDE',
-                                      textAlign:'center',
-                                      fontWeight:'bold',
-                                      fontSize:hp('2%'),
-                                      width:wp('20%'),
-                                      height:hp('100%')
-
-                        
-                                    }}>CHAT</Text>
+                                <Image 
+                                
+                                source={chat}
+                                style={{aspectRatio:1, height:hp('4.6%'), marginTop:hp('0.1%')}}
+                                
+                                >    
+                                </Image>                           
+                                   
                                   
                               </TouchableOpacity>
                                                   
                         </View>
                         {/*fin botón*/}
-
-
-
-                            
-                            
+                           
                             
                       </View>
 
@@ -470,6 +524,17 @@ export class Usuarios extends React.Component {
   
   
   })
+
+    // Retrieve new posts as they are added to our database
+    db.ref('/Chat/').child(global.idCliente + '-Instalador1').on("child_added", function(snapshot, prevChildKey) {
+      var newMessage = snapshot.val()
+      console.log("Author: " + newMessage.text)
+          
+    })
+
+    this.setState({nuevoMensaje:true})
+    console.log("nuevoMensaje ComponentDidmount: " + this.state.nuevoMensaje)
+
  }
 
 
