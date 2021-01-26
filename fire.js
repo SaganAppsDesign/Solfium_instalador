@@ -1,4 +1,5 @@
 import firebase from 'firebase'; 
+import {codigo_instalador} from './src/Componentes/pantalla_inicial'
 
 
 const firebaseConfig = {
@@ -26,27 +27,26 @@ class Fire {
 
      
   constructor ()  {
-
-
-    //Nuevo código
+ 
      
    //Nuevo código
-   const ref = db.ref('Instaladores/Instalador1/');
+   const ref = db.ref('Instaladores/');
  
    this.listener = ref.on("value",  (snapshot) =>{
          
              
-         //snapshot.forEach((child)=>{
+         snapshot.forEach((child)=>{
        
-           //key = child.key
+           key = child.key
            nombreFire = snapshot.child("name").val()
            
            //name2 = name.name
                
        
-      // })
+      })
        
-        console.log("NAME FIREBASE", nombreFire)
+        //console.log("NAME FIREBASE", nombreFire)
+        //console.log("key", key)
 
      })
 
@@ -91,7 +91,7 @@ class Fire {
   loadMessages(callback){
 
    
-    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
+    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + codigo_instalador);
 
     this.messagesRef.off();
 

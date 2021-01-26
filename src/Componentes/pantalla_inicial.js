@@ -16,12 +16,14 @@ import logo from '../../assets/logo.png';
 
 
 export var nombre
+export var codigo_instalador
 
 export class PantallaInicial extends React.Component {
  
   state = {
 
     name: '',
+    codigo_instalador:''
 
   }
 
@@ -38,8 +40,10 @@ export class PantallaInicial extends React.Component {
     );
 
   onChangeText = name => this.setState({ name });
-
+  instalCode = codigo_instalador => this.setState({ codigo_instalador});
   
+
+/* 
   user = () =>  db.ref('/Instaladores/Instalador1/').update({
    
     name: this.state.name
@@ -48,23 +52,24 @@ export class PantallaInicial extends React.Component {
    
     //fecha: fecha,
   
-    })
-
-    /* OLD CODE user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
+    })*/
    
-      name: this.state.name
-  
-     
+     user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
+   
+      name: this.state.name,
+      codigo_instalador:this.state.codigo_instalador
+       
      
       //fecha: fecha,
     
-      }) */
+      }) 
 
  
 
     render() {
 
       nombre = this.state.name
+      codigo_instalador = this.state.codigo_instalador
           
       return (
         <ImageOverlay 
@@ -107,7 +112,7 @@ export class PantallaInicial extends React.Component {
       
          <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
          
-                <View style={{marginTop:'30%', height:'100%', width:'100%', flex:6,  alignItems:'center'}}>
+            <View style={{marginTop:'30%', height:'100%', width:'100%', flex:6,  alignItems:'center'}}>
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -115,13 +120,25 @@ export class PantallaInicial extends React.Component {
                     value={this.state.name}
                     returnKeyType={ 'done' }
                     theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                  
                     
-  
+                  />
+
+                  <TextInput
+                    style={styles.nameInput}
+                    label="Código"
+                    onChangeText={this.instalCode}
+                    value={this.state.codigo_instalador}
+                    returnKeyType={ 'done' }
+                    theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
+                  
                     
                   />
 
 
-                <View style={{marginTop:hp('0%'), height:hp('20%'), width:wp('100%'), flex:1, alignItems:'center'}}>
+
+
+              <View style={{marginTop:hp('0%'), height:hp('20%'), width:wp('100%'), flex:1, alignItems:'center'}}>
                   <TouchableOpacity onPress={
                     () => { this.onPress(); this.user()}
                   }
@@ -131,10 +148,7 @@ export class PantallaInicial extends React.Component {
 
               </View>
 
-
-
-  
-                </View>
+            </View>
             
   
            </ScrollView>

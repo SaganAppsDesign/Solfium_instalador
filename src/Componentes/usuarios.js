@@ -1,31 +1,26 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Dimensions,
   FlatList,
   TouchableOpacity,
-  LogBox,
   View,
-  Image,ScrollView, Button, Text
+  Image,Button, Text
 
 } from 'react-native';
-import DialogInput from 'react-native-dialog-input';
 
-import { Card, CardItem,  Body, Icon, Right } from 'native-base';
+import { Card } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
 import chat from '../../assets/chat.png'; 
-import Fire, {db} from '../../fire';
+
 import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
-import {viabilidad} from './viabilidad';
 import {potenciaSistema} from './viabilidad';
 import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
+import {codigo_instalador} from './pantalla_inicial'
+import Fire, {db} from '../../fire';
 
-
-var nuevoMensaje = false
 
 
 
@@ -40,14 +35,16 @@ export class Usuarios extends React.Component {
           nuevoMensaje:false,
           clickVisit:true,
           clickCita:true,
-          clickInsta:true
+          clickInsta:true,
+          name:'',
+          codigo_instalador:''
                    
         }
         
       }
 
 
-      goToChat(key,name) {
+      goToChat(key) {
         global.idCliente = key;
         this.props.navigation.navigate('Chat');
       }
@@ -82,7 +79,7 @@ export class Usuarios extends React.Component {
           })
    
         }
-        console.log("this.state.clickCita",this.state.clickCita)
+        //console.log("this.state.clickCita",this.state.clickCita)
     
        }
 
@@ -176,8 +173,7 @@ export class Usuarios extends React.Component {
 
   render() {
 
-    //console.log('key',this.state.list.key)
-    //console.log("nuevoMensaje RENDER", this.state.nuevoMensaje)
+
     return (
 
 
@@ -191,7 +187,7 @@ export class Usuarios extends React.Component {
 
           
                     <View style={{flex:1.5}}>
-                          <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{nombreFire}, bienvenido/a a su sesión</Text> 
+                          <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{this.state.name}, bienvenido/a a su sesión</Text> 
                    </View>    
 
                    <View style={{marginTop:  hp('0%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
@@ -223,10 +219,21 @@ export class Usuarios extends React.Component {
                             
                         <FlatList style={{height:hp('100%'), marginBottom: hp('15%') }}
                         
-                                  data={this.state.list} 
-                                  renderItem={({ item }) => 
-                                 
-                          
+                        data={this.state.list} 
+                        renderItem={({ item }) => {
+                         
+                      
+                       //console.log('item.codigo_instalador', this.state.list) 
+                       
+                       console.log('codigo_instalador', codigo_instalador) 
+                         
+                        if (codigo_instalador == item.codigo_instalador) {
+
+                                                      
+                          return (       
+                            
+                           
+                         
                         <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('45%'),width:wp('84%'), flex:1}}> 
                        
                                                      
@@ -473,6 +480,7 @@ export class Usuarios extends React.Component {
                       
                    
                     </Card> 
+                    )}}
 
                    
                     } />
@@ -480,7 +488,7 @@ export class Usuarios extends React.Component {
             
                     </View>
                  
-                    </View>
+                    </View> 
 
           
  
@@ -513,7 +521,8 @@ export class Usuarios extends React.Component {
                   CalculoPotenciaSistema:child.val().CalculoPotenciaSistema,
                   Sistema:child.val().Sistema,
                   potenciaContratada:child.val().potenciaContratada,
-                  consumoMensual:child.val().consumoMensual
+                  consumoMensual:child.val().consumoMensual,
+                  codigo_instalador:child.val().codigo_instalador
 
           
         })
@@ -526,18 +535,31 @@ export class Usuarios extends React.Component {
   })
 
     // Retrieve new posts as they are added to our database
-    db.ref('/Chat/').child(global.idCliente + '-Instalador1').on("child_added", function(snapshot, prevChildKey) {
+    db.ref('/Chat/').child(global.idCliente + codigo_instalador).on("child_added", function(snapshot) {
       var newMessage = snapshot.val()
-      console.log("Author: " + newMessage.text)
+      //console.log("Author: " + newMessage.text)
           
     })
 
     this.setState({nuevoMensaje:true})
-    console.log("nuevoMensaje ComponentDidmount: " + this.state.nuevoMensaje)
 
- }
+    const ref = db.ref('/Instaladores/' +  codigo_instalador);
+
+    this.listener = ref.on("value", snapshot => {
+
+    this.setState({ name: snapshot.child("name").val() || ''  
+  
+    }) 
+    
+    //console.log("nuevoMensaje ComponentDidmount: " + this.state.nuevoMensaje)
+
+ 
+  }
+  )
 
 
+
+}
 
 }
 

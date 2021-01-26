@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
 import Fire, {db} from '../../fire';
-import { StyleSheet, View, Button, ActivityIndicator, Text} from 'react-native';
+import { StyleSheet, View, ActivityIndicator} from 'react-native';
 //import { IconButton } from 'react-native-paper';
-import {nombre} from './pantalla_inicial';
-import {name} from '../../fire';
+import {codigo_instalador} from './pantalla_inicial'
 
 
 
 
 var nombreChat, nombreCliente
+//console.log("codigo_instalador",codigo_instalador)
 
-
-data = () => db.ref('/Instaladores/Instalador1/').on('value', (snapshot) => {
+data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
   
   nombreChat =  snapshot.child("name").val()
  
@@ -68,6 +67,7 @@ state = {
           placeholder={"Chatea aquí " + nombreChat}
           user={{
             _id: Fire.getUid(),
+            //_id: codigo_instalador,
             name: nombreChat,
             avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono2.png?alt=media&token=b0b5e696-f8ce-47e0-b53f-4675af3222f0'
             //avatar:require('../../assets/icono2.png')
@@ -145,13 +145,6 @@ const styles = StyleSheet.create({
 
 
 
-function renderSend(props) {
-  return (
-    <Send {...props}>
-      <Send {...props} wrapperStyle={{ textStyle: { color: 'red' } }} > </Send>
-    </Send>
-  );
-}
 
 
 function renderBubble(props) {

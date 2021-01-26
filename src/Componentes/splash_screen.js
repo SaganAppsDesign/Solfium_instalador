@@ -20,31 +20,29 @@ export class SplashScreen extends React.Component {
   state = {
 
     name: '',
+    codigo_instalador:''
    
   }
 
-    
+
   
 
  render() {
 
-  
-
   var name = this.state.name
-
+  var codigo_instalador = this.state.codigo_instalador
 
   //console.log("NOMBREEEEE RENDER name: ", name)
 
   
-  if (name==""){
+  if (name){
 
-    
-     screen = 'Home'
-    
+    screen = 'Usuarios'  
+       
          
     } else {
      
-      screen = 'Usuarios'     
+      screen = 'Home'  
       
     }
 
@@ -125,14 +123,21 @@ export class SplashScreen extends React.Component {
     }
     ) */
 
-    const ref = db.ref('/Instaladores/Instalador1/');
+    //const ref = db.ref('/Instaladores/Instalador1/');
+
+    const ref = db.ref('/Instaladores/' +  Fire.getUid()+"/");
 
     this.listener = ref.on("value", snapshot => {
 
-    this.setState({ name: snapshot.child("name").val() || '' }) 
+    this.setState({ name: snapshot.child("name").val() || ''  
+  
+  }) 
+
+
                   
-    console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
-    //console.log("Fire.getUid(): ", Fire.getUid())
+    //console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+    ///console.log("Fire.getUid(): ", Fire.getUid())
+    //console.log("codigo_instalador: ", this.state.codigo_instalador)
   
   }
   )
