@@ -7,7 +7,7 @@ import {
   ScrollView,
   View, Image
 } from 'react-native';
-import Fire, {db} from '../../fire';
+import  {db} from '../../fire';
 import fondo from '../../assets/fondo5.jpg'; 
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
@@ -75,7 +75,7 @@ export class PantallaInicial extends React.Component {
         <ImageOverlay 
   
         source={fondo}
-        height={"100%"}
+        height={700}
         overlayAlpha={0}
           
   
@@ -83,10 +83,9 @@ export class PantallaInicial extends React.Component {
         //style={styles.fondo} 
         >
       
-        <View style={{height:'100%', width:'100%', alignItems:'center', flex:1}}>
+        <View style={{height:'100%', width:'100%', alignItems:'center', flex:2}}>
 
-        <View style={{flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
-                          
+        <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
       }}> 
 
                <Image 
@@ -106,13 +105,14 @@ export class PantallaInicial extends React.Component {
                </Image>
      
    </View> 
-  
+   <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
+      }}> 
+
      <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
-        style={{height:'100%', width:'100%', flex:5}}>
+        style={{ height:'50%', width:'100%', flex:1}}>
       
-         <ScrollView style={{marginTop:'0%', height:'100%', width:'100%'}}> 
-         
-            <View style={{marginTop:'30%', height:'100%', width:'100%', flex:6,  alignItems:'center'}}>
+            
+            <View style={{marginTop:'0%', height:'10%', width:'100%', flex:1,  alignItems:'center'}}>
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -138,7 +138,7 @@ export class PantallaInicial extends React.Component {
 
 
 
-              <View style={{marginTop:hp('0%'), height:hp('20%'), width:wp('100%'), flex:1, alignItems:'center'}}>
+              <View style={{borderRadius:10,  marginTop:hp('5%'), height:hp('100%'), width:wp('100%'), flex:0.5, alignItems:'center'}}>
                   <TouchableOpacity onPress={
                     () => { this.onPress(); this.user()}
                   }
@@ -149,10 +149,11 @@ export class PantallaInicial extends React.Component {
               </View>
 
             </View>
-            
-  
-           </ScrollView>
+     
           </KeyboardAvoidingView>
+
+               
+          </View> 
         </View>
   
       
@@ -167,11 +168,11 @@ export class PantallaInicial extends React.Component {
   const styles = StyleSheet.create({
    
     nameInput: {
-      height: '40%',
+      height:hp('8%'),
       marginLeft: '0%',
       marginTop:'5%',
       marginBottom:'5%',
-      width:'80%',
+      width:hp('30%'),
       paddingHorizontal: '25%',
       backgroundColor: 'white',
       fontSize:20,
@@ -187,9 +188,9 @@ export class PantallaInicial extends React.Component {
       marginBottom:'5%',
       fontWeight:'bold',
       backgroundColor: '#DD650C',
-      width:'40%',
-      height:'50%',
-      borderRadius: 10,
+      width:wp('80%'),
+      height:hp('6%'),
+      borderRadius: 20,
       textAlign:'center',
       padding:'3%'
    
