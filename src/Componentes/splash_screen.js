@@ -1,13 +1,12 @@
 import * as React from 'react';
-import {Text, View, Dimensions, ScrollView, Image, ImageBackground, TouchableOpacity, StyleSheet, ToastAndroid} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
 import logo from '../../assets/logo_blanco.png'; 
-import loading from '../../assets/loader.gif'; 
 import Fire, {db} from '../../fire';
-import {name} from  '../../fire';
+import {nombre} from './pantalla_inicial'
 
-
+console.log("nombre splash screen", nombre)
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
@@ -30,19 +29,16 @@ export class SplashScreen extends React.Component {
  render() {
 
   var name = this.state.name
-  var codigo_instalador = this.state.codigo_instalador
-
-  //console.log("NOMBREEEEE RENDER name: ", name)
 
   
   if (name){
-
-    screen = 'Usuarios'  
-       
+    
+     screen = 'Usuarios' 
+          
          
     } else {
-     
-      screen = 'Home'  
+      
+      screen = 'Home' 
       
     }
 
@@ -125,7 +121,7 @@ export class SplashScreen extends React.Component {
 
     //const ref = db.ref('/Instaladores/Instalador1/');
 
-    const ref = db.ref('/Instaladores/' +  Fire.getUid()+"/");
+    const ref = db.ref('/Instaladores/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {
 
@@ -135,7 +131,7 @@ export class SplashScreen extends React.Component {
 
 
                   
-    //console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
+    
     ///console.log("Fire.getUid(): ", Fire.getUid())
     //console.log("codigo_instalador: ", this.state.codigo_instalador)
   

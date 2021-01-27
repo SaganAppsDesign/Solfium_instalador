@@ -2,9 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  KeyboardAvoidingView,
   TouchableOpacity,
-  ScrollView,
   View, Image
 } from 'react-native';
 import  {db} from '../../fire';
@@ -17,6 +15,9 @@ import logo from '../../assets/logo.png';
 
 export var nombre
 export var codigo_instalador
+console.log('nombre fuera', nombre)
+
+
 
 export class PantallaInicial extends React.Component {
  
@@ -30,7 +31,7 @@ export class PantallaInicial extends React.Component {
  
 
   onPress = () =>
-  
+
     this.props.navigation.navigate('Usuarios', { 
         
         name: this.state.name 
@@ -39,30 +40,26 @@ export class PantallaInicial extends React.Component {
     
     );
 
-  onChangeText = name => this.setState({ name });
-  instalCode = codigo_instalador => this.setState({ codigo_instalador});
-  
-
-/* 
-  user = () =>  db.ref('/Instaladores/Instalador1/').update({
-   
-    name: this.state.name
-
-   
-   
-    //fecha: fecha,
-  
-    })*/
-   
-     user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
-   
-      name: this.state.name,
-      codigo_instalador:this.state.codigo_instalador
-       
+  onChangeText = name => {
      
-      //fecha: fecha,
-    
-      }) 
+    nombre = name
+    this.setState({ name })
+    console.log('nombre', nombre)
+    console.log('name', name)
+  
+  }
+
+
+
+  instalCode = codigo_instalador => this.setState({ codigo_instalador})
+  
+  user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
+
+  name: this.state.name,
+  codigo_instalador:this.state.codigo_instalador
+  
+
+  }) 
 
  
 
@@ -77,13 +74,10 @@ export class PantallaInicial extends React.Component {
         source={fondo}
         height={700}
         overlayAlpha={0}
-          
-  
-        //resizeMode="stretch"
-        //style={styles.fondo} 
+     
         >
       
-        <View style={{height:'100%', width:'100%', alignItems:'center', flex:2}}>
+        <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
 
         <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
       }}> 
@@ -105,14 +99,11 @@ export class PantallaInicial extends React.Component {
                </Image>
      
    </View> 
-   <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
+   <View style={{flex: 3, width:wp('100%'), height:hp('10%'), alignItems:'center', marginBottom: hp('1%'),  marginTop: hp('10%')                       
       }}> 
-
-     <KeyboardAvoidingView  enabled keyboardVerticalOffset={50}
-        style={{ height:'50%', width:'100%', flex:1}}>
-      
+     
             
-            <View style={{marginTop:'0%', height:'10%', width:'100%', flex:1,  alignItems:'center'}}>
+            <View style={{height:hp('10%'), width:wp('100%'), flex:1,  alignItems:'center'}}>
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -138,7 +129,7 @@ export class PantallaInicial extends React.Component {
 
 
 
-              <View style={{borderRadius:10,  marginTop:hp('5%'), height:hp('100%'), width:wp('100%'), flex:0.5, alignItems:'center'}}>
+              <View style={{borderRadius:160,  marginTop:hp('5%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
                   <TouchableOpacity onPress={
                     () => { this.onPress(); this.user()}
                   }
@@ -150,7 +141,7 @@ export class PantallaInicial extends React.Component {
 
             </View>
      
-          </KeyboardAvoidingView>
+   
 
                
           </View> 
@@ -168,31 +159,29 @@ export class PantallaInicial extends React.Component {
   const styles = StyleSheet.create({
    
     nameInput: {
-      height:hp('8%'),
+      height:hp('10%'),
       marginLeft: '0%',
-      marginTop:'5%',
-      marginBottom:'5%',
-      width:hp('30%'),
-      paddingHorizontal: '25%',
+      marginTop:hp('2%'),
+      marginBottom:hp('2%'),
+      width:hp('35%'),
+      paddingHorizontal: wp('2%'),
       backgroundColor: 'white',
-      fontSize:20,
+      fontSize:hp('3%'),
       fontWeight: 'bold',
       borderRadius: 2,
      
      
     },
     buttonText: {
-      marginLeft: '0%',
-      marginTop:'0%',
-      fontSize: 20,
-      marginBottom:'5%',
+     
+      fontSize: hp('3%'),
       fontWeight:'bold',
       backgroundColor: '#DD650C',
       width:wp('80%'),
-      height:hp('6%'),
+      height:hp('8%'),
       borderRadius: 20,
       textAlign:'center',
-      padding:'3%'
+      padding:hp('2%')
    
     },
   });

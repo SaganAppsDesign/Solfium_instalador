@@ -22,8 +22,6 @@ import {codigo_instalador} from './pantalla_inicial'
 import Fire, {db} from '../../fire';
 
 
-
-
 export class Usuarios extends React.Component {
 
  
@@ -56,7 +54,7 @@ export class Usuarios extends React.Component {
         if (this.state.clickCita==true){
           db.ref('/Usuarios/' + key).update({
             cita: fecha,
-            nombre_instalador: this.state.nombre
+            nombre_instalador: this.state.name
              })
   
     
@@ -70,7 +68,7 @@ export class Usuarios extends React.Component {
           db.ref('/Usuarios/' + key).update({
      
             cita: "",
-            nombre_instalador: this.state.nombre
+            nombre_instalador: this.state.name
    
              })
               this.setState({
@@ -174,6 +172,8 @@ export class Usuarios extends React.Component {
   render() {
 
 
+    console.log(this.state.list)
+
     return (
 
 
@@ -227,7 +227,7 @@ export class Usuarios extends React.Component {
                        
                        console.log('codigo_instalador', codigo_instalador) 
                          
-                        if (codigo_instalador == item.codigo_instalador) {
+                       if (codigo_instalador == item.codigo_instalador) {
 
                                                       
                           return (       
