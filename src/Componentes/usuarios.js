@@ -219,14 +219,11 @@ export class Usuarios extends React.Component {
                             
                         <FlatList style={{height:hp('100%'), marginBottom: hp('15%') }}
                         
-                        data={this.state.list} 
+                        data={this.state.list}
+                        initialNumToRender={100} 
                         renderItem={({ item }) => {
                          
-                      
-                       //console.log('item.codigo_instalador', this.state.list) 
-                       
-                       console.log('codigo_instalador', codigo_instalador) 
-                         
+                                               
                        if (codigo_instalador == item.codigo_instalador) {
 
                                                       
