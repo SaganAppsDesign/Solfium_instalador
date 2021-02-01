@@ -10,8 +10,16 @@ import {codigo_instalador} from './pantalla_inicial'
 
 var nombreChat, nombreCliente
 //console.log("codigo_instalador",codigo_instalador)
-
+/*
 data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
+  
+  nombreChat =  snapshot.child("name").val()
+ 
+
+});
+*/
+
+data = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
   
   nombreChat =  snapshot.child("name").val()
  

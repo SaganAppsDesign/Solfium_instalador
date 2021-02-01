@@ -91,7 +91,8 @@ class Fire {
   loadMessages(callback){
 
    
-    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + codigo_instalador);
+   // this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + codigo_instalador);
+    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
     this.messagesRef.off();
 

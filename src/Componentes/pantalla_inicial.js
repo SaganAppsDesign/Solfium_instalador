@@ -15,7 +15,7 @@ import logo from '../../assets/logo.png';
 
 export var nombre
 export var codigo_instalador
-console.log('nombre fuera', nombre)
+//console.log('nombre fuera', nombre)
 
 
 
@@ -44,14 +44,12 @@ export class PantallaInicial extends React.Component {
      
     nombre = name
     this.setState({ name })
-    console.log('nombre', nombre)
-    console.log('name', name)
-  
+   
   }
 
 
 
-  instalCode = codigo_instalador => this.setState({ codigo_instalador})
+  //instalCode = codigo_instalador => this.setState({ codigo_instalador})
   
   user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
 
@@ -114,7 +112,7 @@ export class PantallaInicial extends React.Component {
                   
                     
                   />
-
+                  {/*Código Instalador
                   <TextInput
                     style={styles.nameInput}
                     label="Código"
@@ -126,12 +124,12 @@ export class PantallaInicial extends React.Component {
                     
                   />
 
-
+                  */}
 
 
               <View style={{borderRadius:160,  marginTop:hp('5%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
                   <TouchableOpacity onPress={
-                    () => { this.onPress(); this.user()}
+                    () => { this.onPress()}
                   }
                   >
                    <Text style={styles.buttonText}>Ingrese en su sesión</Text>

@@ -19,16 +19,18 @@ export class SplashScreen extends React.Component {
   state = {
 
     name: '',
-    codigo_instalador:''
+    //codigo_instalador:'',
+    enabled:true,
+    opacity:0
    
   }
 
-
-  
+ 
 
  render() {
 
   var name = this.state.name
+  console.log("name en render", name)
 
   
   if (name){
@@ -42,9 +44,9 @@ export class SplashScreen extends React.Component {
       
     }
 
-
   return (
 
+  
 
     <ImageOverlay 
           source={fondo}
@@ -72,28 +74,31 @@ export class SplashScreen extends React.Component {
                 </Image>  
       
                </View> 
-                      
-                
-                <View  style={{opacity:0.5, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('20%')}}>
+
+              
+             
+                <View  style={{opacity:this.state.opacity, alignItems:'center', flex:0.3,  justifyContent:'center', marginBottom:hp('20%')}}>
                       <TouchableOpacity 
 
-                            disabled={false} 
-                                                                                  
+                            disabled={this.state.enabled} 
+                                                                         
                             onPress={() => this.props.navigation.navigate(screen)}
+
+                            
                               > 
-                           
-                             
+                                                        
                               <Text
-                                    
                                     style={{fontWeight:'bold', fontSize:hp('3%'),  textAlign:'center'}}
-                                    
+                                                                      
                                     > Entra a panel de USUARIOS   </Text>
 
                        </TouchableOpacity>
                   </View>
               
-       
+                
     </View>
+
+
                    
   </View>
 
@@ -105,6 +110,8 @@ export class SplashScreen extends React.Component {
 
 
     componentDidMount() {
+
+      this.setState({ enabled: false, opacity:1})
 
 
      /*  const ref = db.ref('/Instaladores/' +  Fire.getUid());
@@ -119,10 +126,10 @@ export class SplashScreen extends React.Component {
     }
     ) */
 
-    //const ref = db.ref('/Instaladores/Instalador1/');
+    
 
-    const ref = db.ref('/Instaladores/' +  Fire.getUid());
-
+    //const ref = db.ref('/Instaladores/' +  Fire.getUid());
+    const ref = db.ref('/Instaladores/Instalador1/');
     this.listener = ref.on("value", snapshot => {
 
     this.setState({ name: snapshot.child("name").val() || ''  
