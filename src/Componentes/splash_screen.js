@@ -19,7 +19,7 @@ export class SplashScreen extends React.Component {
   state = {
 
     name: '',
-    //codigo_instalador:'',
+    codigo_instalador:'',
     enabled:true,
     opacity:0
    
@@ -82,7 +82,7 @@ export class SplashScreen extends React.Component {
 
                             disabled={this.state.enabled} 
                                                                          
-                            onPress={() => this.props.navigation.navigate(screen)}
+                            onPress={() => this.props.navigation.navigate("Home")}
 
                             
                               > 

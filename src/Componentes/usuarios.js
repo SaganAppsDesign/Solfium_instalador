@@ -224,7 +224,7 @@ export class Usuarios extends React.Component {
                         renderItem={({ item }) => {
                          
                                                
-                      // if (codigo_instalador == item.codigo_instalador) {
+                       if (codigo_instalador == item.codigo_instalador) {
 
                                                       
                           return (       
@@ -478,7 +478,7 @@ export class Usuarios extends React.Component {
                    
                     </Card> 
                     )}}
-
+                                    }
                    
                    />
 
@@ -541,7 +541,7 @@ export class Usuarios extends React.Component {
     this.setState({nuevoMensaje:true})
 
     //const ref = db.ref('/Instaladores/' +  codigo_instalador);
-    const ref = db.ref('/Instaladores/Instalador1');
+    const ref = db.ref('/Instaladores/' +  codigo_instalador);
 
     this.listener = ref.on("value", snapshot => {
 

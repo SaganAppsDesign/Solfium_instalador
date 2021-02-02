@@ -19,7 +19,7 @@ data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot)
 });
 */
 
-data = () => db.ref('/Instaladores/Instalador1').on('value', (snapshot) => {
+data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
   
   nombreChat =  snapshot.child("name").val()
  
@@ -43,7 +43,8 @@ state = {
     nombre:nombreChat,
     list: [],
     //Nuevo código
-    nombreCliente: nombreCliente
+    nombreCliente: nombreCliente,
+    name:'',
     
 };
 
@@ -95,6 +96,8 @@ state = {
 }
 
 componentDidMount() {
+
+
 
   
     Fire.loadMessages((message) => {

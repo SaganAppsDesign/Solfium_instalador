@@ -15,7 +15,6 @@
 		0329BCC1253DD07A007F2F82 /* Solfium_instalador_tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329BCC0253DD07A007F2F82 /* Solfium_instalador_tvOSUITests.swift */; };
 		03F1C5132555427200A2D122 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		03F1C5142555427200A2D122 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		03F1C5162555427200A2D122 /* libPods-Solfium_instalador.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A2F45F610E208D65CFE8F /* libPods-Solfium_instalador.a */; };
 		03F1C5182555427200A2D122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		03F1C5192555427200A2D122 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		03F1C51A2555427200A2D122 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9C22FB70B4F198EB88111 /* Roboto_medium.ttf */; };
@@ -32,6 +31,7 @@
 		9FBB702BB3FFA6634834BE59 /* libPods-Solfium_instalador.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A2F45F610E208D65CFE8F /* libPods-Solfium_instalador.a */; };
 		DA4992561840471A9188D4DE /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6094B8FD7BD44F3AC3EFDFD /* Roboto.ttf */; };
 		EEFF088E51C01056B8AAAA93 /* libPods-Solfium_instalador-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB872ADA1F3A51A869BA1FF /* libPods-Solfium_instalador-tvOSTests.a */; };
+		F6A388323F99C1D07ED7F27F /* libPods-Solfium_instalador.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A2F45F610E208D65CFE8F /* libPods-Solfium_instalador.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +89,7 @@
 		2DB872ADA1F3A51A869BA1FF /* libPods-Solfium_instalador-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Solfium_instalador-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3903E87B4CFC4DDD9BE2CAD1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		485BBA4D7A4BF8DAA6E49B95 /* Pods-Solfium_instalador-Solfium_instaladorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador-Solfium_instaladorTests.release.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador-Solfium_instaladorTests/Pods-Solfium_instalador-Solfium_instaladorTests.release.xcconfig"; sourceTree = "<group>"; };
+		5D44CC338422F779991A650A /* Pods-Solfium_instalador.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador.debug.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador.debug.xcconfig"; sourceTree = "<group>"; };
 		69166935185F40519829356D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Solfium_instalador/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83875002FEC04883B7774715 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -101,14 +102,13 @@
 		96795FAAC3834D139D2DB784 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		982BACB8520CA314BE461BB6 /* Pods-Solfium_instalador-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador-tvOSTests/Pods-Solfium_instalador-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99D331321CCBF2A6102317FE /* libPods-Solfium_instalador-Solfium_instaladorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Solfium_instalador-Solfium_instaladorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A194EFF1518748713D40FC79 /* Pods-Solfium_instalador.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador.release.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador.release.xcconfig"; sourceTree = "<group>"; };
 		A24784FD4F2F4B58A083EEAE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		A5C692E9C8204DECB8FB5E70 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		A8DD0F44BD6F40F98839339E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		BA923D8E8746406CB5F9C4A1 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		BCA2BAE96792462C8541B62B /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		C6813C5D2A94753A54ACB44B /* Pods-Solfium_instalador.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador.release.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador.release.xcconfig"; sourceTree = "<group>"; };
 		D6094B8FD7BD44F3AC3EFDFD /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
-		DFD1FFC6292D8858D3137329 /* Pods-Solfium_instalador.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador.debug.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador.debug.xcconfig"; sourceTree = "<group>"; };
 		E0403D1BE3429623B9C69FD0 /* Pods-Solfium_instalador-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solfium_instalador-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Solfium_instalador-tvOSTests/Pods-Solfium_instalador-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5791215F13E4139B1970637 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		EA21C0226D754CA4A5D46FBC /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -155,7 +155,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03F1C5162555427200A2D122 /* libPods-Solfium_instalador.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB702BB3FFA6634834BE59 /* libPods-Solfium_instalador.a in Frameworks */,
+				F6A388323F99C1D07ED7F27F /* libPods-Solfium_instalador.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,14 +313,14 @@
 		96048DD2FABCA29B3AE6E83C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DFD1FFC6292D8858D3137329 /* Pods-Solfium_instalador.debug.xcconfig */,
-				A194EFF1518748713D40FC79 /* Pods-Solfium_instalador.release.xcconfig */,
 				87BA2943C9000531A198AC0B /* Pods-Solfium_instalador-Solfium_instaladorTests.debug.xcconfig */,
 				485BBA4D7A4BF8DAA6E49B95 /* Pods-Solfium_instalador-Solfium_instaladorTests.release.xcconfig */,
 				177EBA74811AF9C865E86ADA /* Pods-Solfium_instalador-tvOS.debug.xcconfig */,
 				162956EB748C5D8AE13835C9 /* Pods-Solfium_instalador-tvOS.release.xcconfig */,
 				982BACB8520CA314BE461BB6 /* Pods-Solfium_instalador-tvOSTests.debug.xcconfig */,
 				E0403D1BE3429623B9C69FD0 /* Pods-Solfium_instalador-tvOSTests.release.xcconfig */,
+				5D44CC338422F779991A650A /* Pods-Solfium_instalador.debug.xcconfig */,
+				C6813C5D2A94753A54ACB44B /* Pods-Solfium_instalador.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -408,13 +408,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03F1C51F2555427200A2D122 /* Build configuration list for PBXNativeTarget "Solfium_instalador copy" */;
 			buildPhases = (
-				03F1C5102555427200A2D122 /* [CP] Check Pods Manifest.lock */,
 				03F1C5112555427200A2D122 /* Start Packager */,
 				03F1C5122555427200A2D122 /* Sources */,
 				03F1C5152555427200A2D122 /* Frameworks */,
 				03F1C5172555427200A2D122 /* Resources */,
 				03F1C51D2555427200A2D122 /* Bundle React Native code and images */,
-				03F1C51E2555427200A2D122 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -588,28 +586,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
-		03F1C5102555427200A2D122 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Solfium_instalador-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		03F1C5112555427200A2D122 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -642,23 +618,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		03F1C51E2555427200A2D122 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Solfium_instalador/Pods-Solfium_instalador-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		158ADB93F968E33528D19F6D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1143,7 +1102,6 @@
 		};
 		03F1C5202555427200A2D122 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFD1FFC6292D8858D3137329 /* Pods-Solfium_instalador.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1174,7 +1132,6 @@
 		};
 		03F1C5212555427200A2D122 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A194EFF1518748713D40FC79 /* Pods-Solfium_instalador.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1203,7 +1160,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFD1FFC6292D8858D3137329 /* Pods-Solfium_instalador.debug.xcconfig */;
+			baseConfigurationReference = 5D44CC338422F779991A650A /* Pods-Solfium_instalador.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1234,7 +1191,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A194EFF1518748713D40FC79 /* Pods-Solfium_instalador.release.xcconfig */;
+			baseConfigurationReference = C6813C5D2A94753A54ACB44B /* Pods-Solfium_instalador.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

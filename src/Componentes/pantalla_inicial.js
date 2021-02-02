@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,6 +11,9 @@ import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
+import RNPickerSelect from "react-native-picker-select";
+
+
 
 
 export var nombre
@@ -18,17 +21,17 @@ export var codigo_instalador
 //console.log('nombre fuera', nombre)
 
 
-
 export class PantallaInicial extends React.Component {
  
   state = {
 
     name: '',
-    codigo_instalador:''
+    codigo_instalador:'',
+    value:''
+   
 
   }
-
- 
+  
 
   onPress = () =>
 
@@ -49,7 +52,7 @@ export class PantallaInicial extends React.Component {
 
 
 
-  //instalCode = codigo_instalador => this.setState({ codigo_instalador})
+  instalCode = codigo_instalador => this.setState({ codigo_instalador})
   
   user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
 
@@ -59,12 +62,17 @@ export class PantallaInicial extends React.Component {
 
   }) 
 
+  
+
  
 
     render() {
-
+      
       nombre = this.state.name
-      codigo_instalador = this.state.codigo_instalador
+      codigo_instalador = this.state.value
+      console.log("codigo_instalador", this.state.value)
+
+     
           
       return (
         <ImageOverlay 
@@ -76,9 +84,9 @@ export class PantallaInicial extends React.Component {
         >
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
-
+       {/*Layer logo*/} 
         <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
-      }}> 
+        }}> 
 
                <Image 
 
@@ -96,12 +104,35 @@ export class PantallaInicial extends React.Component {
                  
                </Image>
      
-   </View> 
-   <View style={{flex: 3, width:wp('100%'), height:hp('10%'), alignItems:'center', marginBottom: hp('1%'),  marginTop: hp('10%')                       
-      }}> 
-     
-            
-            <View style={{height:hp('10%'), width:wp('100%'), flex:1,  alignItems:'center'}}>
+       </View> 
+        
+       {/*Layer picker*/} 
+       <View style={{backgroundColor : "",
+                alignItems: "center",
+                justifyContent  : "center",
+                width:wp('90%'),
+                height:hp('30%'),
+                fontSize:hp('2%'),
+                flex:1}
+                                         
+                }>
+          
+             <RNPickerSelect
+                 onValueChange={(value) => this.setState({ value})}
+                 placeholder={{ label: "Seleccione Instalador...", value: null }}
+                 style={customPickerStyles}
+                 items={[
+                     { label: "Instalador1", value: "Instalador1" },
+                     { label: "Instalador2", value: "Instalador2" },
+                     { label: "Instalador3", value: "Instalador3" },
+                     { label: "Instalador4", value: "Instalador4" },
+                     { label: "Instalador5", value: "Instalador5" },
+                     { label: "Instalador1", value: "Instalador6" },
+                 ]}
+             />
+
+        </View>
+              {/*Resultados
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -112,7 +143,7 @@ export class PantallaInicial extends React.Component {
                   
                     
                   />
-                  {/*Código Instalador
+                  
                   <TextInput
                     style={styles.nameInput}
                     label="Código"
@@ -126,33 +157,55 @@ export class PantallaInicial extends React.Component {
 
                   */}
 
-
-              <View style={{borderRadius:160,  marginTop:hp('5%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
-                  <TouchableOpacity onPress={
-                    () => { this.onPress()}
-                  }
-                  >
-                   <Text style={styles.buttonText}>Ingrese en su sesión</Text>
-                  </TouchableOpacity>
-
-              </View>
-
-            </View>
-     
-   
-
-               
-          </View> 
-        </View>
-  
       
-        </ImageOverlay>
+
+     {/*Layer logo*/} 
+        <View style={{borderRadius:160,  marginTop:hp('0%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
+              <TouchableOpacity onPress={
+                () => { this.onPress()}
+              }
+              >
+                <Text style={styles.buttonText}>Ingrese en su sesión</Text>
+              </TouchableOpacity>
+
+          </View>
+
+       
+    </View>
+
+  
+    </ImageOverlay>
       );
     }
   }
   
   
   
+  const customPickerStyles = StyleSheet.create({
+    inputIOS: {
+      fontSize: hp('3%'),
+      fontWeight:'bold',
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+      borderWidth: 1.5,
+      borderColor: 'yellow',
+      borderRadius: 8,
+      color: 'black',
+      paddingRight: 30,
+      backgroundColor:'orange',
+      opacity:1
+    },
+    inputAndroid: {
+      fontSize: 14,
+      paddingHorizontal: 10,
+      paddingVertical: 8,
+      borderWidth: 1,
+      borderColor: 'blue',
+      borderRadius: 8,
+      color: 'black',
+      paddingRight: 30, // to ensure the text is never behind the icon
+    },
+  });
   
   const styles = StyleSheet.create({
    
@@ -174,7 +227,7 @@ export class PantallaInicial extends React.Component {
      
       fontSize: hp('3%'),
       fontWeight:'bold',
-      backgroundColor: '#DD650C',
+     
       width:wp('80%'),
       height:hp('8%'),
       borderRadius: 20,
@@ -182,6 +235,12 @@ export class PantallaInicial extends React.Component {
       padding:hp('2%')
    
     },
+    container : {
+      flex            : 1,
+      backgroundColor : "#fff",
+      alignItems      : "center",
+      justifyContent  : "center",
+  },
   });
   
   
