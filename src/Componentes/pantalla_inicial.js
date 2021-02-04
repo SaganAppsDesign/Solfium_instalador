@@ -5,13 +5,14 @@ import {
   TouchableOpacity,
   View, Image
 } from 'react-native';
-import  {db} from '../../fire';
+
 import fondo from '../../assets/fondo5.jpg'; 
 import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
-import RNPickerSelect from "react-native-picker-select";
+import Fire, {db} from '../../fire';
+//import RNPickerSelect from "react-native-picker-select";
 
 
 
@@ -45,19 +46,19 @@ export class PantallaInicial extends React.Component {
 
   onChangeText = name => {
      
-    nombre = name
+    //nombre = name
     this.setState({ name })
    
   }
 
 
 
-  instalCode = codigo_instalador => this.setState({ codigo_instalador})
+  //instalCode = codigo_instalador => this.setState({ codigo_instalador})
   
-  user = () =>  db.ref('/Instaladores/' +  this.state.codigo_instalador).update({
+  user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
 
-  name: this.state.name,
-  codigo_instalador:this.state.codigo_instalador
+  name: nombre_min,
+  //codigo_instalador:this.state.codigo_instalador
   
 
   }) 
@@ -69,8 +70,10 @@ export class PantallaInicial extends React.Component {
     render() {
       
       nombre = this.state.name
-      codigo_instalador = this.state.value
-      console.log("codigo_instalador", this.state.value)
+      nombre_min = nombre.toLowerCase() 
+      //codigo_instalador = this.state.value
+      //console.log("codigo_instalador", this.state.value)
+      console.log("name", nombre)
 
      
           
@@ -85,7 +88,7 @@ export class PantallaInicial extends React.Component {
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
        {/*Layer logo*/} 
-        <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
+        <View style={{flex: 0.7, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('1%')                       
         }}> 
 
                <Image 
@@ -106,7 +109,7 @@ export class PantallaInicial extends React.Component {
      
        </View> 
         
-       {/*Layer picker*/} 
+       {/*Layer picker
        <View style={{backgroundColor : "",
                 alignItems: "center",
                 justifyContent  : "center",
@@ -131,8 +134,12 @@ export class PantallaInicial extends React.Component {
                  ]}
              />
 
-        </View>
-              {/*Resultados
+        </View> */} 
+
+       
+              {/*Introduce nombre */}
+              <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('-10%') }}>                     
+       
                   <TextInput
                     style={styles.nameInput}
                     label="Nombre"
@@ -144,6 +151,8 @@ export class PantallaInicial extends React.Component {
                     
                   />
                   
+               </View>
+                 {/*Resultados
                   <TextInput
                     style={styles.nameInput}
                     label="Código"
@@ -154,15 +163,14 @@ export class PantallaInicial extends React.Component {
                   
                     
                   />
-
-                  */}
-
+ */} 
+                 
       
 
-     {/*Layer logo*/} 
+     {/*Ingrese en sesión*/} 
         <View style={{borderRadius:160,  marginTop:hp('0%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
               <TouchableOpacity onPress={
-                () => { this.onPress()}
+                () => { this.onPress();this.user()}
               }
               >
                 <Text style={styles.buttonText}>Ingrese en su sesión</Text>
@@ -175,8 +183,16 @@ export class PantallaInicial extends React.Component {
 
   
     </ImageOverlay>
-      );
+      )
+
+      
     }
+
+
+
+
+  
+
   }
   
   
@@ -225,14 +241,15 @@ export class PantallaInicial extends React.Component {
     },
     buttonText: {
      
-      fontSize: hp('3%'),
+      fontSize: hp('4%'),
       fontWeight:'bold',
-     
+      color:'white',
       width:wp('80%'),
       height:hp('8%'),
       borderRadius: 20,
       textAlign:'center',
-      padding:hp('2%')
+      padding:hp('2%'),
+      marginTop:hp('2%')
    
     },
     container : {

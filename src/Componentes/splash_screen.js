@@ -6,7 +6,7 @@ import logo from '../../assets/logo_blanco.png';
 import Fire, {db} from '../../fire';
 import {nombre} from './pantalla_inicial'
 
-console.log("nombre splash screen", nombre)
+//console.log("nombre splash screen", nombre)
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
@@ -30,7 +30,7 @@ export class SplashScreen extends React.Component {
  render() {
 
   var name = this.state.name
-  console.log("name en render", name)
+  console.log("name en render spalsh screen", name)
 
   
   if (name){
@@ -82,7 +82,7 @@ export class SplashScreen extends React.Component {
 
                             disabled={this.state.enabled} 
                                                                          
-                            onPress={() => this.props.navigation.navigate("Home")}
+                            onPress={() => this.props.navigation.navigate(screen)}
 
                             
                               > 
@@ -129,20 +129,25 @@ export class SplashScreen extends React.Component {
     
 
     //const ref = db.ref('/Instaladores/' +  Fire.getUid());
-    const ref = db.ref('/Instaladores/Instalador1/');
+    const ref = db.ref('/Instaladores/' +  Fire.getUid());
+
     this.listener = ref.on("value", snapshot => {
 
     this.setState({ name: snapshot.child("name").val() || ''  
   
-  }) 
+    }) 
+    
+  
 
+ 
+  }
 
                   
     
     ///console.log("Fire.getUid(): ", Fire.getUid())
     //console.log("codigo_instalador: ", this.state.codigo_instalador)
   
-  }
+ 
   )
 
 

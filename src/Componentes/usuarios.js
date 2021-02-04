@@ -18,7 +18,7 @@ import {fecha} from './calendario';
 import {potenciaSistema} from './viabilidad';
 import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
-import {codigo_instalador} from './pantalla_inicial'
+import {nombre} from './pantalla_inicial'
 import Fire, {db} from '../../fire';
 
 
@@ -172,7 +172,7 @@ export class Usuarios extends React.Component {
   render() {
 
 
-    //console.log(this.state.list)
+    console.log("nombre usuarios", this.state.name)
 
     return (
 
@@ -222,9 +222,11 @@ export class Usuarios extends React.Component {
                         data={this.state.list}
                         initialNumToRender={100} 
                         renderItem={({ item }) => {
-                         
+                        
+                          console.log("this.state.name flatlist",this.state.name)
+                          console.log("item",item)
                                                
-                       if (codigo_instalador == item.codigo_instalador) {
+                       if (this.state.name == item.codigo_instalador) {
 
                                                       
                           return (       
@@ -532,7 +534,8 @@ export class Usuarios extends React.Component {
   })
 
     // Retrieve new posts as they are added to our database
-    db.ref('/Chat/').child(global.idCliente + codigo_instalador).on("child_added", function(snapshot) {
+    //db.ref('/Chat/').child(global.idCliente + codigo_instalador).on("child_added", function(snapshot) {
+    db.ref('/Chat/').child(global.idCliente + nombre).on("child_added", function(snapshot) {
       var newMessage = snapshot.val()
       //console.log("Author: " + newMessage.text)
           
@@ -541,7 +544,7 @@ export class Usuarios extends React.Component {
     this.setState({nuevoMensaje:true})
 
     //const ref = db.ref('/Instaladores/' +  codigo_instalador);
-    const ref = db.ref('/Instaladores/' +  codigo_instalador);
+    const ref = db.ref('/Instaladores/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {
 
@@ -549,7 +552,7 @@ export class Usuarios extends React.Component {
   
     }) 
     
-    //console.log("nuevoMensaje ComponentDidmount: " + this.state.nuevoMensaje)
+  
 
  
   }
