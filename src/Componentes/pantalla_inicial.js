@@ -17,7 +17,7 @@ import Fire, {db} from '../../fire';
 
 
 
-export var nombre
+export var nombre, nombre_min
 export var codigo_instalador
 //console.log('nombre fuera', nombre)
 
@@ -63,17 +63,19 @@ export class PantallaInicial extends React.Component {
 
   }) 
 
-  
-
+ 
  
 
     render() {
-      
+
       nombre = this.state.name
       nombre_min = nombre.toLowerCase() 
+    
+      
+      
       //codigo_instalador = this.state.value
       //console.log("codigo_instalador", this.state.value)
-      console.log("name", nombre)
+      //console.log("name", nombre)
 
      
           

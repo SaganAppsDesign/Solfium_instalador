@@ -1,8 +1,8 @@
 import firebase from 'firebase'; 
-import {codigo_instalador} from './src/Componentes/pantalla_inicial'
+import {nombre_min} from './src/Componentes/pantalla_inicial'
 
 
-console.log("codigo_instaladorxxx" , codigo_instalador)
+console.log("codigo_instaladorxxx" , nombre_min)
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
@@ -93,7 +93,7 @@ class Fire {
   loadMessages(callback){
 
    
-   this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + codigo_instalador);
+   this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + nombre_min);
     //this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
     this.messagesRef.off();

@@ -19,7 +19,7 @@ data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot)
 });
 */
 
-data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
+data = () => db.ref('/Instaladores/' + Fire.getUid()).on('value', (snapshot) => {
   
   nombreChat =  snapshot.child("name").val()
  

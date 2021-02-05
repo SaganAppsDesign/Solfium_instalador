@@ -172,7 +172,7 @@ export class Usuarios extends React.Component {
   render() {
 
 
-    console.log("nombre usuarios", this.state.name)
+    //console.log("nombre usuarios", this.state.name)
 
     return (
 
@@ -234,8 +234,8 @@ export class Usuarios extends React.Component {
                         initialNumToRender={100} 
                         renderItem={({ item }) => {
                         
-                          console.log("this.state.name flatlist",this.state.name)
-                          console.log("item",item)
+                          //console.log("this.state.name flatlist",this.state.name)
+                          //console.log("item",item)
                                                
                        if (this.state.name == item.codigo_instalador) {
 
