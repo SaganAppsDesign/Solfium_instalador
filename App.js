@@ -8,7 +8,8 @@ import { Usuarios } from './src/Componentes/usuarios';
 import { Calendario } from './src/Componentes/calendario'; 
 import { Viabilidad } from './src/Componentes/viabilidad'; 
 import {SplashScreen } from './src/Componentes/splash_screen'; 
-import {ConsumoMensual } from './src/Componentes/consumo_mensual'; 
+import {ConsumoMensual } from './src/Componentes/consumo_mensual';
+import {VideoInfo } from './src/Componentes/video_informativo';  
 import 'react-native-gesture-handler';
 
 
@@ -42,6 +43,7 @@ class MyStack extends Component {
       <Stack.Screen name="Chat" component={Chat}  />
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen  name="Potencia Kw" component={Viabilidad}  />
+      <Stack.Screen  name="Video informativo" component={VideoInfo}  />
       <Stack.Screen options={{headerShown: false}} name="Consumo mensual" component={ConsumoMensual}  />
 
 

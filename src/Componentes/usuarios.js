@@ -12,7 +12,6 @@ import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
 import chat from '../../assets/chat.png'; 
-
 import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
 import {potenciaSistema} from './viabilidad';
@@ -20,6 +19,7 @@ import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
 import {nombre} from './pantalla_inicial'
 import Fire, {db} from '../../fire';
+import YoutubePlayer from "react-native-youtube-iframe";
 
 
 export class Usuarios extends React.Component {
@@ -185,7 +185,18 @@ export class Usuarios extends React.Component {
        >
           <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'rgba(0,0,0,0)', width:wp('100%'), height:hp('100%'), marginTop:hp('0%')}}>
 
-          
+          { /* ¿Quieres saber cómo funciona Solfium? Click aquí*/}
+
+                  <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('0%')}}>
+                    <Text 
+                        style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
+                                color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('1%'), padding:hp('1%')}} 
+                      
+                        onPress={() => this.props.navigation.navigate("Video informativo")}>¿Quieres saber cómo funciona Solfium? Click aquí
+                        
+                    </Text>
+                    
+                  </View> 
                     <View style={{flex:1.5}}>
                           <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{this.state.name}, bienvenido/a a su sesión</Text> 
                    </View>    
