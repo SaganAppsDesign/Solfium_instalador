@@ -243,7 +243,7 @@ export class PantallaInicial extends React.Component {
     },
     buttonText: {
      
-      fontSize: hp('4%'),
+      fontSize: hp('3%'),
       fontWeight:'bold',
       color:'white',
       width:wp('80%'),

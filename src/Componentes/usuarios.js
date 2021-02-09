@@ -172,8 +172,6 @@ export class Usuarios extends React.Component {
   render() {
 
 
-    //console.log("nombre usuarios", this.state.name)
-
     return (
 
 
@@ -187,10 +185,10 @@ export class Usuarios extends React.Component {
 
           { /* ¿Quieres saber cómo funciona Solfium? Click aquí*/}
 
-                  <View  style={{borderRadius:10, alignItems:'center', flex:0.5, marginTop:hp('0%')}}>
+                  <View  style={{borderRadius:10, alignItems:'center', flex:0.4, marginTop:hp('1%')}}>
                     <Text 
-                        style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('100%'), 
-                                color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('1%'), padding:hp('1%')}} 
+                        style={{textAlign:'center',  fontSize:hp('1.7%'), width:wp('100%'), height: hp('10%'), 
+                                color: 'black', marginBottom: hp('0%'),  marginLeft: "0%", marginTop:hp('0%'), padding:hp('1%')}} 
                       
                         onPress={() => this.props.navigation.navigate("Video informativo")}>¿Quieres saber cómo funciona Solfium? Click aquí
                         
@@ -201,7 +199,7 @@ export class Usuarios extends React.Component {
                           <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{this.state.name}, bienvenido/a a su sesión</Text> 
                    </View>    
 
-                   <View style={{marginTop:  hp('0%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('1%')
+                   <View style={{marginTop:  hp('0%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('0%')
                           
                          }}> 
 
