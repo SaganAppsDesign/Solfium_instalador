@@ -28,8 +28,6 @@ export class SplashScreen extends React.Component {
  render() {
 
   var name = this.state.name
-  console.log("name en render spalsh screen", name)
-
   
   if (name){
     
