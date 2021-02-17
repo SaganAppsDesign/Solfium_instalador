@@ -4,14 +4,12 @@ import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
 import logo from '../../assets/logo_blanco.png'; 
 import Fire, {db} from '../../fire';
-import {nombre} from './pantalla_inicial'
 
-//console.log("nombre splash screen", nombre)
+
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 var screen
-
 
 
 export class SplashScreen extends React.Component {
@@ -113,49 +111,21 @@ export class SplashScreen extends React.Component {
 
       this.setState({ enabled: false, opacity:1})
 
-
-     /*  const ref = db.ref('/Instaladores/' +  Fire.getUid());
+      const ref = db.ref('/Instaladores/' +  Fire.getUid());
 
       this.listener = ref.on("value", snapshot => {
 
-      this.setState({ name: snapshot.child("name").val() || '' }) 
-                    
-      console.log("NOMBREEEEE DIDMOUNT: ", this.state.name)
-      console.log("Fire.getUid(): ", Fire.getUid())
+      this.setState({ name: snapshot.child("name").val() || ''  
     
-    }
-    ) */
-
+      }) 
     
 
-    //const ref = db.ref('/Instaladores/' +  Fire.getUid());
-    const ref = db.ref('/Instaladores/' +  Fire.getUid());
-
-    this.listener = ref.on("value", snapshot => {
-
-    this.setState({ name: snapshot.child("name").val() || ''  
-  
-    }) 
     
-  
+      }
 
- 
-  }
-
-                  
+          
     
-    ///console.log("Fire.getUid(): ", Fire.getUid())
-    //console.log("codigo_instalador: ", this.state.codigo_instalador)
-  
- 
-  )
-
-
-
-
-
-
-
+      )
 
 
     }

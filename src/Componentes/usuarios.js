@@ -15,11 +15,8 @@ import chat from '../../assets/chat.png';
 import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
 import {potenciaSistema} from './viabilidad';
-import {nombreFire} from '../../fire';
 import {consumoMensual} from './consumo_mensual';
-import {nombre} from './pantalla_inicial'
 import Fire, {db} from '../../fire';
-import YoutubePlayer from "react-native-youtube-iframe";
 
 
 export class Usuarios extends React.Component {
@@ -77,7 +74,6 @@ export class Usuarios extends React.Component {
           })
    
         }
-        //console.log("this.state.clickCita",this.state.clickCita)
     
        }
 
@@ -232,9 +228,7 @@ export class Usuarios extends React.Component {
                         initialNumToRender={100} 
                         renderItem={({ item }) => {
                         
-                          //console.log("this.state.name flatlist",this.state.name)
-                          //console.log("item",item)
-                                               
+                                                               
                        if (this.state.name == item.codigo_instalador) {
 
                                                       
@@ -498,13 +492,10 @@ export class Usuarios extends React.Component {
                  
                     </View> 
 
-          
- 
-  
- 
+       
   </ImageOverlay>
       
-    );
+    )
 
    
   }
@@ -542,17 +533,11 @@ export class Usuarios extends React.Component {
   
   })
 
-    // Retrieve new posts as they are added to our database
-    //db.ref('/Chat/').child(global.idCliente + codigo_instalador).on("child_added", function(snapshot) {
-    db.ref('/Chat/').child(global.idCliente + nombre).on("child_added", function(snapshot) {
-      var newMessage = snapshot.val()
-      //console.log("Author: " + newMessage.text)
-          
-    })
+ 
 
     this.setState({nuevoMensaje:true})
 
-    //const ref = db.ref('/Instaladores/' +  codigo_instalador);
+
     const ref = db.ref('/Instaladores/' +  Fire.getUid());
 
     this.listener = ref.on("value", snapshot => {

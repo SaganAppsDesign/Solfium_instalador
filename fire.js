@@ -2,8 +2,6 @@ import firebase from 'firebase';
 import {nombre_min} from './src/Componentes/pantalla_inicial'
 
 
-console.log("codigo_instaladorxxx" , nombre_min)
-
 const firebaseConfig = {
   apiKey: 'AIzaSyCmFh0zidLXHhW9x2o-xVVLMEtNjVueP6g',
   authDomain: 'solfium.firebaseapp.com',
@@ -14,7 +12,7 @@ const firebaseConfig = {
 
 };
 
-//export var nombreFire
+
 
 const app = firebase.initializeApp(firebaseConfig);
 export const db = app.database();
@@ -29,9 +27,7 @@ class Fire {
 
      
   constructor ()  {
- 
-     
-   //Nuevo código
+
    const ref = db.ref('Instaladores/');
  
    this.listener = ref.on("value",  (snapshot) =>{
@@ -41,15 +37,10 @@ class Fire {
        
            key = child.key
            nombreFire = snapshot.child("name").val()
-           
-           //name2 = name.name
                
        
       })
        
-        //console.log("NAME FIREBASE", nombreFire)
-        //console.log("key", key)
-
      })
 
       
@@ -94,7 +85,6 @@ class Fire {
 
    
    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + nombre_min);
-    //this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-Instalador1');
 
     this.messagesRef.off();
 

@@ -1,23 +1,9 @@
 import * as React from 'react';
-import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import Fire, {db} from '../../fire';
 import { StyleSheet, View, ActivityIndicator} from 'react-native';
-//import { IconButton } from 'react-native-paper';
-import {codigo_instalador} from './pantalla_inicial'
-
-
-
 
 var nombreChat, nombreCliente
-//console.log("codigo_instalador",codigo_instalador)
-/*
-data = () => db.ref('/Instaladores/' + codigo_instalador).on('value', (snapshot) => {
-  
-  nombreChat =  snapshot.child("name").val()
- 
-
-});
-*/
 
 data = () => db.ref('/Instaladores/' + Fire.getUid()).on('value', (snapshot) => {
   
@@ -26,7 +12,6 @@ data = () => db.ref('/Instaladores/' + Fire.getUid()).on('value', (snapshot) => 
 
 });
 
-//Nuevo código
 data2 = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
   
   nombreCliente =  snapshot.child("name").val()
@@ -42,7 +27,6 @@ state = {
     messages: [],
     nombre:nombreChat,
     list: [],
-    //Nuevo código
     nombreCliente: nombreCliente,
     name:'',
     
@@ -51,7 +35,6 @@ state = {
 
   render() {
     data()
-    //Nuevo código
     data2()
    
     return (
@@ -63,8 +46,6 @@ state = {
         <GiftedChat
           messages={this.state.messages}
           onSend={(message) => Fire.sendMessage(message)}
-         // renderBubble = {this.renderBubble.bind(this) }
-          //renderSend={renderSend}
           renderBubble={renderBubble}
           renderLoading={renderLoading}
           showUserAvatar
@@ -76,11 +57,9 @@ state = {
           placeholder={"Chatea aquí " + nombreChat}
           user={{
             _id: Fire.getUid(),
-            //_id: codigo_instalador,
             name: nombreChat,
             avatar: 'https://firebasestorage.googleapis.com/v0/b/solfium.appspot.com/o/icono2.png?alt=media&token=b0b5e696-f8ce-47e0-b53f-4675af3222f0'
-            //avatar:require('../../assets/icono2.png')
-           
+             
            
         }}
       />
@@ -129,7 +108,7 @@ componentWillUnmount() {
 
 }
 
-// Later on in your styles..
+
 const styles = StyleSheet.create({
   
 
@@ -151,11 +130,6 @@ const styles = StyleSheet.create({
  
   
 });
-
-
-
-
-
 
 
 function renderBubble(props) {

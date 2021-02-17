@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Button, Platform, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {View, Platform, TouchableOpacity, Text} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo5.jpg'; 
@@ -8,15 +8,13 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 export var fecha = '', currentDate
 var opacity = 0.5
-var bool = true
 
 export const Calendario = ({ navigation }) => {
 
 
   useEffect(function () {
-    //console.log('render!')
+  
     opacity = 0.5
-    bool = true
   })
  
 
@@ -25,27 +23,18 @@ export const Calendario = ({ navigation }) => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
-  const [showTime, setShowTime] = useState(false);
+  const [] = useState(false);
 
  
 
   const onChange = (event, selectedDate) => {
 
-    //selectedDate = date.setTime(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
     currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
     opacity = 1
-    bool = false
-    console.log('currentDate:  ', currentDate)
-    //console.log('date dentro de funcion:  ', date) 
-    //console.log('fecha:  ', fecha)
-    
-    //console.log(event.actualDuration = '10')
-    //var fecha = new Date();
-  //var fecha2 = currentDate.setTime(currentDate.getTime() - currentDate.getTimezoneOffset() * 60 * 1000);
-  //console.log('fecha222222:  ', new Date(fecha2))
-  };
+
+  }
 
  
 
@@ -60,19 +49,9 @@ export const Calendario = ({ navigation }) => {
     
   };
 
-  const showTimepicker = () => {
-    showMode('time');
-    opacity = 0.5
-    bool = true
-    
-  };
 
   fecha = date
-  //fecha2 = date.setTime(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
-  // console.log('date fuera de funcion 2:  ', fecha)
-  //fecha = new Date(currentDate)
-  
-  
+ 
 
   return (
 
@@ -126,7 +105,6 @@ export const Calendario = ({ navigation }) => {
         <View style={{
             
             justifyContent: 'center',
-            //backgroundColor:'#000',        
             textAlign:'center',
             flex:8,
             width:wp('85%'),

@@ -256,7 +256,7 @@ export class Viabilidad extends React.Component {
       textAlign:'center',
       flex:1
     },
-  });
+  })
   
   
   

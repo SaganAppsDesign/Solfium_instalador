@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,15 +12,10 @@ import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
 import Fire, {db} from '../../fire';
-//import RNPickerSelect from "react-native-picker-select";
-
-
 
 
 export var nombre, nombre_min
 export var codigo_instalador
-//console.log('nombre fuera', nombre)
-
 
 export class PantallaInicial extends React.Component {
  
@@ -45,21 +40,15 @@ export class PantallaInicial extends React.Component {
     );
 
   onChangeText = name => {
-     
-    //nombre = name
+
     this.setState({ name })
    
   }
-
-
-
-  //instalCode = codigo_instalador => this.setState({ codigo_instalador})
-  
+ 
   user = () =>  db.ref('/Instaladores/' +  Fire.getUid()).update({
 
   name: nombre_min,
-  //codigo_instalador:this.state.codigo_instalador
-  
+ 
 
   }) 
 
@@ -70,13 +59,6 @@ export class PantallaInicial extends React.Component {
 
       nombre = this.state.name
       nombre_min = nombre.toLowerCase() 
-    
-      
-      
-      //codigo_instalador = this.state.value
-      //console.log("codigo_instalador", this.state.value)
-      //console.log("name", nombre)
-
      
           
       return (
@@ -110,65 +92,23 @@ export class PantallaInicial extends React.Component {
                </Image>
      
        </View> 
-        
-       {/*Layer picker
-       <View style={{backgroundColor : "",
-                alignItems: "center",
-                justifyContent  : "center",
-                width:wp('90%'),
-                height:hp('30%'),
-                fontSize:hp('2%'),
-                flex:1}
-                                         
-                }>
+            
+      {/*Introduce nombre */}
+      <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('-10%') }}>                     
+
+          <TextInput
+            style={styles.nameInput}
+            label="Nombre"
+            onChangeText={this.onChangeText}
+            value={this.state.name}
+            returnKeyType={ 'done' }
+            theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
           
-             <RNPickerSelect
-                 onValueChange={(value) => this.setState({ value})}
-                 placeholder={{ label: "Seleccione Instalador...", value: null }}
-                 style={customPickerStyles}
-                 items={[
-                     { label: "Instalador1", value: "Instalador1" },
-                     { label: "Instalador2", value: "Instalador2" },
-                     { label: "Instalador3", value: "Instalador3" },
-                     { label: "Instalador4", value: "Instalador4" },
-                     { label: "Instalador5", value: "Instalador5" },
-                     { label: "Instalador1", value: "Instalador6" },
-                 ]}
-             />
-
-        </View> */} 
-
-       
-              {/*Introduce nombre */}
-              <View style={{flex: 1, width:wp('100%'), height:wp('20%'), alignItems:'center', marginBottom: hp('-10%') }}>                     
-       
-                  <TextInput
-                    style={styles.nameInput}
-                    label="Nombre"
-                    onChangeText={this.onChangeText}
-                    value={this.state.name}
-                    returnKeyType={ 'done' }
-                    theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                  
-                    
-                  />
-                  
-               </View>
-                 {/*Resultados
-                  <TextInput
-                    style={styles.nameInput}
-                    label="Código"
-                    onChangeText={this.instalCode}
-                    value={this.state.codigo_instalador}
-                    returnKeyType={ 'done' }
-                    theme={{ colors: { primary: 'orange',underlineColor:'transparent'}}}
-                  
-                    
-                  />
- */} 
-                 
-      
-
+            
+          />
+          
+        </View>
+                
      {/*Ingrese en sesión*/} 
         <View style={{borderRadius:160,  marginTop:hp('0%'), height:hp('80%'), width:wp('10%'), flex:1, alignItems:'center'}}>
               <TouchableOpacity onPress={
@@ -190,40 +130,10 @@ export class PantallaInicial extends React.Component {
       
     }
 
-
-
-
-  
-
   }
   
   
   
-  const customPickerStyles = StyleSheet.create({
-    inputIOS: {
-      fontSize: hp('3%'),
-      fontWeight:'bold',
-      paddingVertical: 10,
-      paddingHorizontal: 12,
-      borderWidth: 1.5,
-      borderColor: 'yellow',
-      borderRadius: 8,
-      color: 'black',
-      paddingRight: 30,
-      backgroundColor:'orange',
-      opacity:1
-    },
-    inputAndroid: {
-      fontSize: 14,
-      paddingHorizontal: 10,
-      paddingVertical: 8,
-      borderWidth: 1,
-      borderColor: 'blue',
-      borderRadius: 8,
-      color: 'black',
-      paddingRight: 30, // to ensure the text is never behind the icon
-    },
-  });
   
   const styles = StyleSheet.create({
    
