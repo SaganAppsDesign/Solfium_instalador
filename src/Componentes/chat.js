@@ -30,18 +30,26 @@ state = {
     nombreCliente: nombreCliente,
     name:'',
     
-};
-
+}
 
   render() {
+
+    var mensajes = this.state.messages
+
+    console.log('this.state.messages2', mensajes.length)
+    for (i in mensajes.user) {
+         mensajes.user[i].name
+         console.log('mensajes.user[i].name rrrrrr', mensajes.user[i].name)
+    }
+    
+   
+ 
     data()
     data2()
    
     return (
      
-    
-   
-     
+ 
     <View style={styles.container}>	
         <GiftedChat
           messages={this.state.messages}
@@ -52,6 +60,7 @@ state = {
           renderAvatarOnTop={true}
           alwaysShowSend
           scrollToBottom
+          //keyboardShouldPersistTaps={"never"}
           showAvatarForEveryMessage = {true}
           renderUsernameOnMessage  = {true}
           placeholder={"Chatea aquí " + nombreChat}
@@ -68,15 +77,12 @@ state = {
     </View>
 
 
-
     
 )
 
 }
 
 componentDidMount() {
-
-
 
   
     Fire.loadMessages((message) => {
@@ -87,7 +93,9 @@ componentDidMount() {
 
             messages: GiftedChat.append(previousState.messages, message)
             
+            
           }
+       
 
         })
       
@@ -95,7 +103,7 @@ componentDidMount() {
        
     )
 
-
+   
   
 
 }

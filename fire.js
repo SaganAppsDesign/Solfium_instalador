@@ -86,7 +86,7 @@ class Fire {
    
    this.messagesRef = firebase.database().ref('/Chat/').child(global.idCliente + '-' + nombre_min);
 
-    this.messagesRef.off();
+    this.messagesRef.off()
 
     const onReceive = (data) => {
       
@@ -102,19 +102,20 @@ class Fire {
               avatar:message.user.avatar
                                          
           }
-
+          
       })
-      
+      console.log( 'messages en fire', data.key)
+      console.log( 'message.user.name', message.user.name)
     }
    
-
+   
     this.messagesRef.limitToLast(10).on('child_added', onReceive)
     
   }
 
   sendMessage(message){
       for (let i=0; i < message.length; i++){
-          this.messagesRef.push({
+          this.messagesRef.push ({
             text: message[i].text,
             user: message[i].user,
             createdAt: firebase.database.ServerValue.TIMESTAMP,
