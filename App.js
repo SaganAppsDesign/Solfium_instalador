@@ -11,14 +11,28 @@ import {SplashScreen } from './src/Componentes/splash_screen';
 import {ConsumoMensual } from './src/Componentes/consumo_mensual';
 import {VideoInfo } from './src/Componentes/video_informativo';  
 import 'react-native-gesture-handler';
+import {
+  Button
+} from 'react-native';
+import Fire, {db} from './fire';
 
 
 
 const Stack = createStackNavigator();
+
+
+  const navigationOptions = ({ navigate, navigation }) => ({
+    
+    headerLeft: <Button title="Usuarios3" onPress={()=>{ navigation.navigate('Usuarios'); db.ref('Usuarios/' +  global.idCliente).update({
+        
+      envioMensaje:  "false"
+            
+      }) }} />,
+  })
 console.disableYellowBox = true;
 
-
 class MyStack extends Component {
+
  
  
   render(){ 
@@ -39,8 +53,31 @@ class MyStack extends Component {
 
       <Stack.Screen  options={{headerShown: false}} name="Atrás" component={SplashScreen}/>
       <Stack.Screen  name="Home" component={PantallaInicial}  />
-      <Stack.Screen name="Usuarios" component={Usuarios}  />
-      <Stack.Screen name="Chat" component={Chat}  />
+      <Stack.Screen name="Usuarios" component={Usuarios}/>
+       <Stack.Screen name="Chat" component={Chat}    
+       
+       
+     
+       options={({ navigation }) => ({headerLeft: () => (
+        <Button
+          onPress={() => {navigation.navigate('Usuarios');    db.ref('Usuarios/' +  global.idCliente).update({
+        
+            envioMensaje:  "false"
+                  
+            })         }}
+          title="Clientes"
+          color="#fff"
+        />
+      )})}
+
+     
+
+      
+                
+                
+                
+          />
+
       <Stack.Screen name="Calendario" component={Calendario}  />
       <Stack.Screen  name="Potencia Kw" component={Viabilidad}  />
       <Stack.Screen  name="Video informativo" component={VideoInfo}  />

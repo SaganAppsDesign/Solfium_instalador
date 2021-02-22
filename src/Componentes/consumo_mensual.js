@@ -158,7 +158,7 @@ export class ConsumoMensual extends React.Component {
                               textAlign:'center',
                               fontWeight:'bold',
                               fontSize:hp('1.9%'),
-                              width:hp('100%'),
+                              width:wp('100%'),
                               opacity:opacity
                 
                             }}>Volver a "Usuarios" y enviar valor</Text>

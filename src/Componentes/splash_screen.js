@@ -4,13 +4,13 @@ import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo2.jpg'; 
 import logo from '../../assets/logo_blanco.png'; 
 import Fire, {db} from '../../fire';
-
+import {usuarioUltimoMensaje} from './chat'
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 var screen
-
+console.log('usuarioUltimoMensaje splash', usuarioUltimoMensaje)
 
 export class SplashScreen extends React.Component {
 
@@ -19,7 +19,8 @@ export class SplashScreen extends React.Component {
     name: '',
     codigo_instalador:'',
     enabled:true,
-    opacity:0
+    opacity:0,
+
    
   }
 
@@ -28,6 +29,8 @@ export class SplashScreen extends React.Component {
  render() {
 
   var name = this.state.name
+
+
   
   if (name){
     
@@ -124,7 +127,6 @@ export class SplashScreen extends React.Component {
           
     
       )
-
 
     }
 

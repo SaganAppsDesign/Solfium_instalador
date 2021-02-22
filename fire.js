@@ -104,8 +104,8 @@ class Fire {
           }
           
       })
-      console.log( 'messages en fire', data.key)
-      console.log( 'message.user.name', message.user.name)
+      //console.log( 'messages en fire', data.key)
+      //console.log( 'message.user.name', message.user.name)
     }
    
    

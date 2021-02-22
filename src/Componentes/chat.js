@@ -1,22 +1,34 @@
 import * as React from 'react';
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import Fire, {db} from '../../fire';
-import { StyleSheet, View, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, ActivityIndicator,  Keyboard , TouchableOpacity, Text} from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-var nombreChat, nombreCliente
+var nombreChat, nombreCliente, envioMensaje
+Keyboard.dismiss();
+
+send = () => db.ref('Usuarios/' +  global.idCliente).update({
+        
+  envioMensaje:  "false"
+        
+  })
 
 data = () => db.ref('/Instaladores/' + Fire.getUid()).on('value', (snapshot) => {
   
   nombreChat =  snapshot.child("name").val()
  
 
-});
+})
 
-data2 = () => db.ref('/Usuarios/' +  Fire.getUid()).on('value', (snapshot) => {
+data2 = () => db.ref('/Usuarios/' +  global.idCliente).on('value', (snapshot) => {
   
   nombreCliente =  snapshot.child("name").val()
+  envioMensaje =  snapshot.child("envioMensaje").val()
+  console.log("envioMensaje dentro de data2 en CHAT", envioMensaje)
   
-});
+}
+
+)
 
 
 export class Chat extends React.Component {
@@ -29,37 +41,33 @@ state = {
     list: [],
     nombreCliente: nombreCliente,
     name:'',
+    id:'',
+  
     
 }
 
   render() {
 
-    var mensajes = this.state.messages
-
-    console.log('this.state.messages2', mensajes.length)
-    for (i in mensajes.user) {
-         mensajes.user[i].name
-         console.log('mensajes.user[i].name rrrrrr', mensajes.user[i].name)
-    }
-    
-   
  
     data()
     data2()
    
     return (
+
+      
      
  
     <View style={styles.container}>	
         <GiftedChat
           messages={this.state.messages}
-          onSend={(message) => Fire.sendMessage(message)}
+          onSend={  (message) => {Fire.sendMessage(message);send()}   }
           renderBubble={renderBubble}
           renderLoading={renderLoading}
           showUserAvatar
           renderAvatarOnTop={true}
           alwaysShowSend
           scrollToBottom
+          isTyping = {true}
           //keyboardShouldPersistTaps={"never"}
           showAvatarForEveryMessage = {true}
           renderUsernameOnMessage  = {true}
@@ -72,19 +80,19 @@ state = {
            
         }}
       />
-
-     
+             
     </View>
-
-
     
+   
 )
 
 }
 
 componentDidMount() {
 
-  
+ 
+
+
     Fire.loadMessages((message) => {
         
         this.setState(previousState => {
@@ -100,10 +108,12 @@ componentDidMount() {
         })
       
     }
+
+    
        
     )
 
-   
+    
   
 
 }

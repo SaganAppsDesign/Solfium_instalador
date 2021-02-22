@@ -11,13 +11,17 @@ import { Card } from 'native-base';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
-import chat from '../../assets/chat.png'; 
 import fondo from '../../assets/fondo5.jpg'; 
 import {fecha} from './calendario';
 import {potenciaSistema} from './viabilidad';
 import {consumoMensual} from './consumo_mensual';
 import Fire, {db} from '../../fire';
+import ImageChat from './imageChat'
+import { GiftedChat } from 'react-native-gifted-chat';
 
+
+//var backgroundcolor
+var mensajes
 
 export class Usuarios extends React.Component {
 
@@ -32,16 +36,30 @@ export class Usuarios extends React.Component {
           clickCita:true,
           clickInsta:true,
           name:'',
-          codigo_instalador:''
+          codigo_instalador:'',
+          messages: [],
+          envioMensaje:false,
+          backgroundcolor:'white'
                    
         }
         
       }
 
+      
+
+     
 
       goToChat(key) {
         global.idCliente = key;
-        this.props.navigation.navigate('Chat');
+        this.props.navigation.navigate('Chat')
+        //this.setState({backgroundcolor:"white"})
+        db.ref('Usuarios/' +  global.idCliente).update({
+        
+          envioMensaje:  "false"
+                
+          })
+        
+        
       }
 
 
@@ -162,10 +180,16 @@ export class Usuarios extends React.Component {
         
       }
     
-  
- 
+   
 
   render() {
+
+    mensajes = this.state.messages
+ 
+
+    //console.log('mensajes de HOY', mensajes )   
+    //console.log('mensajes usuarios js', numMensajes )   
+
 
 
     return (
@@ -229,13 +253,12 @@ export class Usuarios extends React.Component {
                         renderItem={({ item }) => {
                         
                                                                
-                       if (this.state.name == item.codigo_instalador) {
+                       if (this.state.name == item.codigo_instalador) 
 
-                                                      
+                                                                                      
                           return (       
                             
-                           
-                         
+                                               
                         <Card style={{textAlign: 'center', alignItems:'center', backgroundColor:"white", borderRadius:10, height:hp('45%'),width:wp('84%'), flex:1}}> 
                        
                                                      
@@ -372,27 +395,42 @@ export class Usuarios extends React.Component {
                           {/*fin botón*/}
 
                           {/*botón*/}
-                          <View style={{backgroundColor:'white',  alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
+
+                          {/*Componente importado*/}   
+                        
+
+                          <View style={{backgroundColor:'white',  alignItems:'center', textAlign:'center', flex:1,width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
                                                          
                               <TouchableOpacity
                         
-                                     onPress={() => this.goToChat(item.key)}
+                                  onPress={() => this.goToChat(item.key)}
                                                   
                               >
+    
+                              
+                              <Text style={{alignItems:'center', textAlign:'center', flex:2, width:wp('15%'), height:hp('15%'), alignContent:'center'  }}
+                              
+                              
+                              > {ImageChat(item.envioMensaje)}</Text>
+                                
+                                 {/*Resultados
                                 <Image 
                                 
+
+                                onLoad={() => this.chatColor(item.envioMensaje)}
+                                
                                 source={chat}
-                                style={{aspectRatio:1, height:hp('4.6%'), marginTop:hp('0.1%')}}
+                                style={{backgroundColor:backgroundcolor,  aspectRatio:1, height:hp('4.6%'), marginTop:hp('0.1%')}}
                                 
                                 >    
                                 </Image>                           
                                    
-                                  
+                            */}
                               </TouchableOpacity>
                                                   
-                        </View>
-                        {/*fin botón*/}
-                           
+                          </View>
+                  
+                          
                             
                       </View>
 
@@ -483,7 +521,7 @@ export class Usuarios extends React.Component {
                    
                     </Card> 
                     )}}
-                                    }
+                                    
                    
                    />
 
@@ -502,6 +540,8 @@ export class Usuarios extends React.Component {
 
 
   componentDidMount(){
+
+ 
            
 
     db.ref('/Usuarios/').on('value', (snapshot) =>{
@@ -521,7 +561,8 @@ export class Usuarios extends React.Component {
                   Sistema:child.val().Sistema,
                   potenciaContratada:child.val().potenciaContratada,
                   consumoMensual:child.val().consumoMensual,
-                  codigo_instalador:child.val().codigo_instalador
+                  codigo_instalador:child.val().codigo_instalador,
+                  envioMensaje:child.val().envioMensaje,
 
           
         })
@@ -551,6 +592,28 @@ export class Usuarios extends React.Component {
  
   }
   )
+
+  Fire.loadMessages((message) => {
+        
+    this.setState(previousState => {
+
+      return {
+
+        messages: GiftedChat.append(previousState.messages, message)
+
+      
+        
+        
+      }
+   
+
+    })
+
+  
+  
+}
+   
+)
 
 
 
