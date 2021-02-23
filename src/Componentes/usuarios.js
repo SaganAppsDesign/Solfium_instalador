@@ -255,24 +255,68 @@ export class Usuarios extends React.Component {
                                 </View>    
                                
 
-                                <View style={{backgroundColor:'#ADD6FC', flex:1.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                                    <Button  title='Cita' color='black' onPress={() => this.cita(item.key)}></Button>
+                                <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.2%'), borderColor:'grey', borderWidth:1}}>
+                                      <TouchableOpacity
+                          
+                                      onPress={() => this.cita(item.key) } 
+                                                          
+                                      >
+                                      
+                                            <Text style={{
+                                              marginTop:hp('1%'),
+                                              color: 'black',
+                                              textAlign:'center',
+                                              fontWeight:'bold',
+                                              fontSize:hp('2%'),
+                                
+                                            }}>Cita Eval</Text>
+                                          
+                                      </TouchableOpacity>
+                                                             
                                 </View>
                
 
-                               <View style={{width:wp('0.1%') , backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.2%'), borderColor:'grey', borderWidth:1}}>
-                         
-                               <Button  title='Visit' color='black' onPress={() => this.visita(item.key)}></Button>
+                               <View style={{width:wp('0.1%') , backgroundColor:'#ADD6FC', flex:0.7, fontSize:hp('0.2%'), borderColor:'grey', borderWidth:1}}>
+                                   <TouchableOpacity
+                                
+                                        onPress={() => this.visita(item.key)} 
+                                                            
+                                        >
+                                
+                                      <Text style={{
+                                        marginTop:hp('1%'),
+                                        color: 'black',
+                                        textAlign:'center',
+                                        fontWeight:'bold',
+                                        fontSize:hp('2%'),
+                          
+                                      }}>Visita</Text>
+                                    
+                                </TouchableOpacity>
+                           
                                </View> 
 
-                               <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
+                               <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.1%'), borderColor:'grey', borderWidth:1, width:wp('5%')}}>
+                                  <TouchableOpacity
+                                        
+                                        onPress={() => this.insta(item.key)} 
+                                                            
+                                        >
+                                
+                                      <Text style={{
+                                        marginTop:hp('1%'),
+                                        color: 'black',
+                                        textAlign:'center',
+                                        fontWeight:'bold',
+                                        fontSize:hp('2%'),
+                                        width:wp('20%'),
+                                        height: hp('8%')                        
+                                      }}>Cita Instal</Text>
+                                    
+                                </TouchableOpacity>
                          
-                                <Button  title='Instal' color='black' onPress={() => this.insta(item.key)}></Button>
                                </View>
-
-                               
-
+                              
                             </View>
 
 
@@ -347,20 +391,7 @@ export class Usuarios extends React.Component {
                               
                               
                               > {ImageChat(item.envioMensaje)}</Text>
-                                
-                                 {/*Resultados
-                                <Image 
-                                
-
-                                onLoad={() => this.chatColor(item.envioMensaje)}
-                                
-                                source={chat}
-                                style={{backgroundColor:backgroundcolor,  aspectRatio:1, height:hp('4.6%'), marginTop:hp('0.1%')}}
-                                
-                                >    
-                                </Image>                           
-                                   
-                            */}
+                         
                               </TouchableOpacity>
                                                   
                           </View>
