@@ -4,12 +4,17 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import ImageOverlay from "react-native-image-overlay";
 import fondo from '../../assets/fondo5.jpg'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import Fire, {db} from '../../fire';
 
 export var fecha = '', currentDate
 var opacity = 0.5
 
-export const Calendario = ({ navigation }) => {
+
+
+export const FechaInstalacion = ({ navigation, route }) => {
+  
+  const { key } = route.params;
+  console.log("key route params",key)
 
 
   useEffect(function () {
@@ -51,6 +56,42 @@ export const Calendario = ({ navigation }) => {
 
 
   fecha = date
+  var clickCita = true
+  
+  
+  const instalacion = (key) => {
+    
+
+    if (clickCita==true){
+      db.ref('/Usuarios/' + key).update({
+        fechaInstalacion: fecha,
+        //nombre_instalador: this.state.name
+         })
+
+
+    
+           clickCita= false
+           console.log("clickcita",clickCita)
+           console.log("key calendario",key)
+
+     
+
+    } else{
+
+      db.ref('/Usuarios/' + key).update({
+ 
+        fechaInstalacion: "",
+        //nombre_instalador: this.state.name
+
+         })
+      
+          clickCita=true
+          console.log("clickcita",clickCita)
+     
+
+    }
+
+   }
  
 
   return (
@@ -146,7 +187,7 @@ export const Calendario = ({ navigation }) => {
           }}>
 
             <TouchableOpacity
-            onPress={() => navigation.navigate('Usuarios')}
+            onPress={() => { navigation.navigate('Usuarios');instalacion(key)}}
             >
 
             <Text style={{fontSize: 18,

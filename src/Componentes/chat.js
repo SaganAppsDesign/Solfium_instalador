@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import Fire, {db} from '../../fire';
-import { StyleSheet, View, ActivityIndicator,  Keyboard , TouchableOpacity, Text} from 'react-native';
+import { StyleSheet, View, ActivityIndicator,  TouchableOpacity, Text} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var nombreChat, nombreCliente, envioMensaje
-Keyboard.dismiss();
+
 
 send = () => db.ref('Usuarios/' +  global.idCliente).update({
         

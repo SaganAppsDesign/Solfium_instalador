@@ -6,6 +6,7 @@ import {
   Button,TextInput, Alert,TouchableOpacity
 } from 'react-native';
 import fondo from '../../assets/fondo5.jpg'; 
+import {db} from '../../fire';
 
 
 import ImageOverlay from "react-native-image-overlay";
@@ -28,9 +29,13 @@ export class ConsumoMensual extends React.Component {
 
   }
   
-    onPress = () =>
+    onPress = (key) => {
   
-    this.props.navigation.navigate('Usuarios');
+    this.props.navigation.navigate('Usuarios')
+    db.ref('/Usuarios/' + key).update({
+      consumoMensual: consumoMensual
+      
+    })}
    
 
     onChangeText = consumoMensual => { 
@@ -61,11 +66,10 @@ export class ConsumoMensual extends React.Component {
            else {
 
             opacity=1
-            console.log("opacity de onediting" ,opacity)
-                             
+                                       
           Alert.alert(
             "Valor correcto",
-            "Envía valor en pantalla 'Usuarios'",
+           
             [
               { text: "Ok"}
             ],
@@ -77,14 +81,16 @@ export class ConsumoMensual extends React.Component {
       }
  
   
+    
     render() {
+      const { route } = this.props;
+      const { key } = route.params;
 
       var opacity=0.5
       var bool=true
 
-      potenciaSistema= this.state.potenciaSistema
       consumoMensual=this.state.consumoMensual
-      console.log(consumoMensual)
+      
 
       if (consumoMensual<250 || consumoMensual >2500|| consumoMensual=="." || consumoMensual==","){
 
@@ -148,7 +154,7 @@ export class ConsumoMensual extends React.Component {
                       <TouchableOpacity
 
                       disabled={bool}
-                      onPress={() => this.props.navigation.navigate('Usuarios')}
+                      onPress={() => this.onPress(key)}
                                           
                       >
                                                         
@@ -161,7 +167,7 @@ export class ConsumoMensual extends React.Component {
                               width:wp('100%'),
                               opacity:opacity
                 
-                            }}>Volver a "Usuarios" y enviar valor</Text>
+                            }}>Volver a "Clientes" </Text>
                           
                       </TouchableOpacity>
                                           

@@ -2,29 +2,20 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  KeyboardAvoidingView,
   TouchableOpacity,
-  ScrollView,
-  View,
-  Button
-} from 'react-native';
-import Fire, {db} from '../../fire';
+  View} from 'react-native';
+import {db} from '../../fire';
 import fondo from '../../assets/fondo5.jpg'; 
 
-import { TextInput } from 'react-native-paper';
 import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export var viabilidad ="Viabilidad por concretar"
 export var potenciaSistema ="Por concretar"
 
-var opacity = 1
-var opacity2 = 1
-var opacity3 = 1
-var opacity4 = 1
-var opacity5 = 1
 
 export class Viabilidad extends React.Component {
+
  
   state = {
 
@@ -35,50 +26,26 @@ export class Viabilidad extends React.Component {
   }
 
   
-  
-  onPress = () =>
-  
-    this.props.navigation.navigate('Usuarios');
-
-  onChangeText = viabilidad => this.setState({ viabilidad });
-
-
- 
-  
-  funcionPotencia(potenciaSistema) {
+  funcionPotencia(potenciaSistema, key) {
     
-    this.setState({ potenciaSistema })
-
-    alert("Has elegido " + potenciaSistema + "Kw de potencia. Envía este dato al servidor, en la pantalla de 'Usuarios'")
     
-    if(potenciaSistema==3){
-      
-      this.setState({ opacity :0.5 })
-      
-    } else if (potenciaSistema==5) {
-      this.setState({ opacity2 :0.5 })
-    } else if (potenciaSistema==7) {
-      this.setState({ opacity3 :0.5 })
-    } else if(potenciaSistema==10){
-      this.setState({ opacity4 :0.5 })
+    //alert("Has elegido " + potenciaSistema + "Kw de potencia")
         
-  }
+    db.ref('/Usuarios/' + key).update({
+
+      potenciaContratada: potenciaSistema
+
+      })
+
+      this.props.navigation.navigate('Usuarios')
+
 }
 
-  funcionPotencia2(potenciaSistema) {
-    this.setState({ potenciaSistema })
-
-    alert("Has elegido " + potenciaSistema + " Envía este dato al servidor, en la pantalla de 'Usuarios'")
-    this.setState({ opacity5 :0.5 })
-    
-  }
-
-
-
+ 
     render() {
-
-      
-
+      const { route } = this.props;
+      const { key } = route.params;
+     
         viabilidad = this.state.viabilidad
         potenciaSistema= this.state.potenciaSistema
         
@@ -102,7 +69,7 @@ export class Viabilidad extends React.Component {
                                                          
                         <TouchableOpacity
                   
-                        onPress={() => this.funcionPotencia(3)}
+                        onPress={() => this.funcionPotencia(3, key)}
                                             
                         >
                                                           
@@ -125,7 +92,7 @@ export class Viabilidad extends React.Component {
                                                          
                       <TouchableOpacity
                 
-                      onPress={() => this.funcionPotencia(5)}
+                      onPress={() => this.funcionPotencia(5, key)}
                                           
                       >
                                                         
@@ -149,7 +116,7 @@ export class Viabilidad extends React.Component {
                                                          
                       <TouchableOpacity
                 
-                      onPress={() => this.funcionPotencia(7)}
+                      onPress={() => this.funcionPotencia(7, key)}
                                           
                       >
                                                         
@@ -174,7 +141,7 @@ export class Viabilidad extends React.Component {
                                                          
                     <TouchableOpacity
               
-                    onPress={() => this.funcionPotencia(10)}
+                    onPress={() => this.funcionPotencia(10, key)}
                                         
                     >
                                                       
@@ -198,7 +165,7 @@ export class Viabilidad extends React.Component {
                                                          
                     <TouchableOpacity
               
-                    onPress={() => this.funcionPotencia2("No viable")}
+                    onPress={() => this.funcionPotencia("No viable", key)}
                                         
                     >
                                                       
@@ -227,36 +194,6 @@ export class Viabilidad extends React.Component {
   
   
   
-  const styles = StyleSheet.create({
-   
-    nameInput: {
-      height: 70,
-      marginLeft: '10%',
-      marginTop:'5%',
-      marginBottom:'5%',
-      width:'80%',
-      paddingHorizontal: '25%',
-      backgroundColor: 'white',
-      fontSize:20,
-      fontWeight: 'bold',
-      borderRadius: 2,
-     
-     
-    },
-    buttonText: {
-      marginLeft: '10%',
-      marginTop:'0%',
-      fontSize: 20,
-      marginBottom:'5%',
-      fontWeight:'bold',
-      backgroundColor: '#DD650C',
-      width:'40%',
-      height:'100%',
-      borderRadius: 10,
-      textAlign:'center',
-      flex:1
-    },
-  })
   
   
   

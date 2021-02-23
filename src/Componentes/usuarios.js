@@ -12,7 +12,7 @@ import ImageOverlay from "react-native-image-overlay";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import logo from '../../assets/logo.png'; 
 import fondo from '../../assets/fondo5.jpg'; 
-import {fecha} from './calendario';
+import {fecha} from './cita';
 import {potenciaSistema} from './viabilidad';
 import {consumoMensual} from './consumo_mensual';
 import Fire, {db} from '../../fire';
@@ -95,52 +95,51 @@ export class Usuarios extends React.Component {
     
        }
 
-       insta(key) {
+    insta(key){
 
-        if (this.state.clickInsta==true){
-       
-          this.setState({
-  
-            clickInsta: false
-  
-        })
+    this.props.navigation.navigate('Fecha Instalacion', {
+      key : key
       
-        db.ref('/Usuarios/' + key).update({
-           fechaInstalacion: fecha
-      
-           })
-      
-          } else {
-  
-            db.ref('/Usuarios/' + key).update({
-     
-              fechaInstalacion: ""
-          
-               })
-  
-               this.setState({
-               clickInsta: true
-  
-            })
+    })
     
-          }
-          
-     }
-  
-   
-    potenciaContratada(key) {
+    console.log("key dentro de insta funcion usuario",key)
 
-              
-      db.ref('/Usuarios/' + key).update({
+  }
 
-        potenciaContratada: potenciaSistema
+    cita(key){
 
-        })
-    
+      this.props.navigation.navigate('Cita', {
+        key : key
+        
+      })
+      
+      console.log("key dentro de cita funcion usuario",key)
+
     }
 
 
-    visita(key) {
+    potenciaContratada(key) {
+
+      this.props.navigation.navigate('Potencia Kw', {
+        key : key
+        
+      })
+
+      
+    }
+
+    consumo(key) {
+
+      this.props.navigation.navigate('Consumo mensual', {
+        key : key
+        
+      })
+
+
+    }
+
+   
+      visita(key) {
 
       if (this.state.clickVisit==true){
  
@@ -171,14 +170,7 @@ export class Usuarios extends React.Component {
  
     }
 
-      consumo(key) {
-        db.ref('/Usuarios/' + key).update({
-          consumoMensual: consumoMensual
-          
-        })
-           
-        
-      }
+      
     
    
 
@@ -186,12 +178,6 @@ export class Usuarios extends React.Component {
 
     mensajes = this.state.messages
  
-
-    //console.log('mensajes de HOY', mensajes )   
-    //console.log('mensajes usuarios js', numMensajes )   
-
-
-
     return (
 
 
@@ -271,14 +257,9 @@ export class Usuarios extends React.Component {
 
                                 <View style={{backgroundColor:'#ADD6FC', flex:1.1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                    <Button  title='Calen' color='black' onPress={() => this.props.navigation.navigate('Calendario')}></Button>
+                                    <Button  title='Cita' color='black' onPress={() => this.cita(item.key)}></Button>
                                 </View>
-                                
-                                <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
-                         
-                                <Button  title='Cita' color='black' onPress={() => this.cita(item.key)}></Button>
-                               </View>
-
+               
 
                                <View style={{width:wp('0.1%') , backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.2%'), borderColor:'grey', borderWidth:1}}>
                          
@@ -287,7 +268,7 @@ export class Usuarios extends React.Component {
 
                                <View style={{backgroundColor:'#ADD6FC', flex:1, fontSize:hp('0.5%'), borderColor:'grey', borderWidth:1}}>
                          
-                                <Button  title='Inst' color='black' onPress={() => this.insta(item.key)}></Button>
+                                <Button  title='Instal' color='black' onPress={() => this.insta(item.key)}></Button>
                                </View>
 
                                
@@ -303,7 +284,7 @@ export class Usuarios extends React.Component {
                                                          
                                 <TouchableOpacity
                           
-                                onPress={() => this.props.navigation.navigate('Potencia Kw')} 
+                                onPress={() => this.potenciaContratada(item.key) } 
                                                     
                                 >
                                                                        
@@ -312,7 +293,7 @@ export class Usuarios extends React.Component {
                                         color: 'black',
                                         textAlign:'center',
                                         fontWeight:'bold',
-                                        fontSize:hp('1.5%'),
+                                        fontSize:hp('2%'),
                           
                                       }}>Potencia</Text>
                                     
@@ -321,38 +302,14 @@ export class Usuarios extends React.Component {
                            
                             </View>
                             {/*fin botón*/}
-
-                            {/*botón*/}
-                            <View style={{backgroundColor:'#F5D3AF',alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
-                                                         
-                                                <TouchableOpacity
-                                          
-                                                onPress={() => this.potenciaContratada(item.key)}
-                                                                    
-                                                >
-                                                                                  
-                                                      <Text style={{
-                                                        marginTop:hp('0.5%'),
-                                                        color: 'black',
-                                                        textAlign:'center',
-                                                        fontWeight:'bold',
-                                                        fontSize:hp('1.5%'),
-                                                        width:hp('7%')
-                                          
-                                                      }}>Envío Potencia</Text>
-                                                    
-                                                </TouchableOpacity>
-                                             
-                            </View>
-                            {/*fin botón*/}
-                          
+                         
 
                             {/*botón*/}
                             <View style={{backgroundColor:'#F5D3AF', alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
                                                          
                                   <TouchableOpacity
                             
-                                  onPress={() => this.props.navigation.navigate('Consumo mensual')}
+                                  onPress={() => this.consumo(item.key)}
                                                       
                                   >
                                                                     
@@ -361,8 +318,8 @@ export class Usuarios extends React.Component {
                                           color: 'black',
                                           textAlign:'center',
                                           fontWeight:'bold',
-                                          fontSize:hp('1.5%'),
-                                          width:hp('8%')
+                                          fontSize:hp('2%'),
+                                          width:hp('10%')
                             
                                         }}>Consumo</Text>
                                       
@@ -370,36 +327,14 @@ export class Usuarios extends React.Component {
                                                       
                             </View>
                             {/*fin botón*/}
-                            {/*botón*/}
-                            <View style={{backgroundColor:'#F5D3AF',alignItems:'center', textAlign:'center', flex:1, borderWidth:1, width:wp('100%'), height:hp('5%')  }}>
-                                                         
-                                <TouchableOpacity
-                          
-                                onPress={() => this.consumo(item.key)}
-                                                    
-                                >
-                                                                  
-                                      <Text style={{
-                                        marginTop:hp('0.5%'),
-                                        color: 'black',
-                                        textAlign:'center',
-                                        fontWeight:'bold',
-                                        fontSize:hp('1.5%'),
-                                        width:hp('7%')
-                          
-                                      }}>Envío Consumo</Text>
-                                    
-                                </TouchableOpacity>
-                                                    
-                          </View>
-                          {/*fin botón*/}
+                           
 
                           {/*botón*/}
 
                           {/*Componente importado*/}   
                         
 
-                          <View style={{backgroundColor:'white',  alignItems:'center', textAlign:'center', flex:1,width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
+                          <View style={{backgroundColor:'white',  alignItems:'center', textAlign:'center', flex:0.5, width:wp('100%'), height:hp('5%'), alignContent:'center'  }}>
                                                          
                               <TouchableOpacity
                         

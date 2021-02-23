@@ -5,11 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Chat } from './src/Componentes/chat'; 
 import { PantallaInicial } from './src/Componentes/pantalla_inicial'; 
 import { Usuarios } from './src/Componentes/usuarios'; 
-import { Calendario } from './src/Componentes/calendario'; 
+import { Cita } from './src/Componentes/cita'; 
+import { FechaInstalacion } from './src/Componentes/fechaInstalacion'; 
 import { Viabilidad } from './src/Componentes/viabilidad'; 
 import {SplashScreen } from './src/Componentes/splash_screen'; 
 import {ConsumoMensual } from './src/Componentes/consumo_mensual';
 import {VideoInfo } from './src/Componentes/video_informativo';  
+
 import 'react-native-gesture-handler';
 import {
   Button
@@ -20,15 +22,7 @@ import Fire, {db} from './fire';
 
 const Stack = createStackNavigator();
 
-
-  const navigationOptions = ({ navigate, navigation }) => ({
-    
-    headerLeft: <Button title="Usuarios3" onPress={()=>{ navigation.navigate('Usuarios'); db.ref('Usuarios/' +  global.idCliente).update({
-        
-      envioMensaje:  "false"
-            
-      }) }} />,
-  })
+ 
 console.disableYellowBox = true;
 
 class MyStack extends Component {
@@ -69,20 +63,14 @@ class MyStack extends Component {
           color="#fff"
         />
       )})}
-
-     
-
-      
-                
-                
-                
+                    
           />
 
-      <Stack.Screen name="Calendario" component={Calendario}  />
+      <Stack.Screen name="Cita" component={Cita}  />
+      <Stack.Screen name="Fecha Instalacion" component={FechaInstalacion}  />
       <Stack.Screen  name="Potencia Kw" component={Viabilidad}  />
       <Stack.Screen  name="Video informativo" component={VideoInfo}  />
       <Stack.Screen options={{headerShown: false}} name="Consumo mensual" component={ConsumoMensual}  />
-
 
     </Stack.Navigator>
   )};

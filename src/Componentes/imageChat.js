@@ -20,7 +20,7 @@ export default function ImageChat(envioMensaje) {
             <Image 
                     
             source={chat2}
-            style={{width:wp('11%'), height:hp('5%'),  marginTop:hp('-1%')}}
+            style={{width:wp('8.8%'), height:hp('5%'),  marginTop:hp('-2%')}}
             
             >    
             </Image>  
@@ -35,7 +35,7 @@ export default function ImageChat(envioMensaje) {
             <Image 
        
             source={chat}
-            style={{width:wp('11%'), height:hp('5%'),  marginTop:hp('-1%')}}
+            style={{width:wp('8.8%'), height:hp('5%'),  marginTop:hp('-2%')}}
             
             >    
             </Image>  
