@@ -304,11 +304,11 @@ export class Usuarios extends React.Component {
                                         >
                                 
                                       <Text style={{
-                                        marginTop:hp('1%'),
+                                        marginTop:hp('1.2%'),
                                         color: 'black',
                                         textAlign:'center',
                                         fontWeight:'bold',
-                                        fontSize:hp('2%'),
+                                        fontSize:hp('1.7%'),
                                         width:wp('20%'),
                                         height: hp('8%')                        
                                       }}>Cita Instal</Text>
@@ -387,7 +387,7 @@ export class Usuarios extends React.Component {
                               >
     
                               
-                              <Text style={{alignItems:'center', textAlign:'center', flex:2, width:wp('15%'), height:hp('15%'), alignContent:'center'  }}
+                              <Text style={{alignItems:'center', textAlign:'center', flex:2, width:wp('17%'), height:hp('15%'), alignContent:'center'  }}
                               
                               
                               > {ImageChat(item.envioMensaje)}</Text>

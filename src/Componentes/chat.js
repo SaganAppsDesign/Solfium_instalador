@@ -24,8 +24,7 @@ data2 = () => db.ref('/Usuarios/' +  global.idCliente).on('value', (snapshot) =>
   
   nombreCliente =  snapshot.child("name").val()
   envioMensaje =  snapshot.child("envioMensaje").val()
-  console.log("envioMensaje dentro de data2 en CHAT", envioMensaje)
-  
+    
 }
 
 )

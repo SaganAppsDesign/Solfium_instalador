@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   TextInput, Alert,TouchableOpacity
@@ -23,7 +22,7 @@ export class ConsumoMensual extends React.Component {
  
   state = {
 
-    consumoMensual:0,
+    consumoMensual:'',
     opacity:0.5,
     bool:true
 
@@ -125,7 +124,7 @@ export class ConsumoMensual extends React.Component {
                                 keyboardType='numeric'
                                 onChangeText={this.onChangeText}
                                 onEndEditing={this.onEndEditing}
-                                value={this.state.consumoMensual}
+                                value={this.state.consumoMensual.toString()}
                                 returnKeyType={ 'done' }
                                 maxLength={4} 
                              
@@ -169,6 +168,13 @@ export class ConsumoMensual extends React.Component {
         </ImageOverlay>
       )
     }
+
+    componentWillUnmount() {
+      // fix Warning: Can't perform a React state update on an unmounted component
+      this.setState = (state,callback)=>{
+          return;
+      };
+  }
   }
   
   
