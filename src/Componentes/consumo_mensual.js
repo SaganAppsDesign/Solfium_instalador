@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,TextInput, Alert,TouchableOpacity
+  TextInput, Alert,TouchableOpacity
 } from 'react-native';
 import fondo from '../../assets/fondo5.jpg'; 
 import {db} from '../../fire';
@@ -44,7 +44,6 @@ export class ConsumoMensual extends React.Component {
 
       if (this.state.consumoMensual == "," || this.state.consumoMensual == ".") {
         
-        //alert("Por favor, introduce número")
         this.setState({ potenciaEstado: "" })
       }
 
@@ -63,21 +62,7 @@ export class ConsumoMensual extends React.Component {
             ],
             { cancelable: false }
           )}
-           else {
-
-            opacity=1
-                                       
-          Alert.alert(
-            "Valor correcto",
-           
-            [
-              { text: "Ok"}
-            ],
-            { cancelable: false }
-          )
-          }   
-
-       
+                  
       }
  
   
@@ -167,7 +152,7 @@ export class ConsumoMensual extends React.Component {
                               width:wp('100%'),
                               opacity:opacity
                 
-                            }}>Volver a "Clientes" </Text>
+                            }}>Aceptar</Text>
                           
                       </TouchableOpacity>
                                           
@@ -189,36 +174,6 @@ export class ConsumoMensual extends React.Component {
   
   
   
-  const styles = StyleSheet.create({
-   
-    nameInput: {
-      height: 70,
-      marginLeft: '10%',
-      marginTop:'5%',
-      marginBottom:'5%',
-      width:'80%',
-      paddingHorizontal: '25%',
-      backgroundColor: 'white',
-      fontSize:20,
-      fontWeight: 'bold',
-      borderRadius: 2,
-     
-     
-    },
-    buttonText: {
-      marginLeft: '10%',
-      marginTop:'0%',
-      fontSize: 20,
-      marginBottom:'5%',
-      fontWeight:'bold',
-      backgroundColor: '#DD650C',
-      width:'40%',
-      height:'100%',
-      borderRadius: 10,
-      textAlign:'center',
-      flex:1
-    },
-  });
   
   
   
