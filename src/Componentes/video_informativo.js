@@ -18,7 +18,7 @@ export class VideoInfo extends React.Component {
   <View style={styles.container}>	
   
    <View style={{marginTop:'5%', marginBottom:'5%', marginLeft:'0%', marginRight:'0%',  width:'90%', height:'90%', flex:1}}>	
-   <YoutubePlayer height={250} videoId={"cCfcoDhIe64"} />
+   <YoutubePlayer height={250} videoId={"isEALBfnu1I"} />
     </View>
            
            {/*Botón*/}     
