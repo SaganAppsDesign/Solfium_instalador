@@ -63,7 +63,31 @@ export class Viabilidad extends React.Component {
         >
       
         <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
-  
+
+                {/*botón*/}
+                <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                                                         
+                      <TouchableOpacity
+                
+                      onPress={() => this.funcionPotencia(1.5, key)}
+                                          
+                      >
+                                                        
+                            <Text style={{
+                              marginTop:hp('1.1%'),
+                              color: 'black',
+                              textAlign:'center',
+                              fontWeight:'bold',
+                              fontSize:hp('1.5%'),
+                              width:hp('100%')
+                
+                            }}>1.5Kw</Text>
+                          
+                      </TouchableOpacity>
+                                          
+                </View>
+                {/*fin botón*/}
+
                  {/*botón*/}
                  <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
