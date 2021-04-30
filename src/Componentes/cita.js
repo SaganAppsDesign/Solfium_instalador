@@ -57,6 +57,16 @@ export const Cita = ({ navigation, route }) => {
 
   fecha = date
   var clickCita = true
+
+  const borrarFecha = (key) => {
+
+     
+    db.ref('/Usuarios/' + key).update({
+      cita: "",
+      //nombre_instalador: this.state.name
+       })
+
+}
   
   
   const cita = (key) => {
@@ -150,7 +160,7 @@ export const Cita = ({ navigation, route }) => {
             flex:8,
             width:wp('85%'),
             height:hp('100%'),
-            marginBottom:hp('10%'), marginTop:hp('5%'),
+            marginBottom:hp('0%'), marginTop:hp('5%'),
             borderRadius:30
                         
           }}>
@@ -182,7 +192,7 @@ export const Cita = ({ navigation, route }) => {
             flex:1,
             width:wp('30%'),
             height:hp('5%'),
-            marginBottom:hp('25%'), marginTop:hp('0%')
+            marginBottom:hp('5%'), marginTop:hp('0%')
                         
           }}>
 
@@ -197,6 +207,31 @@ export const Cita = ({ navigation, route }) => {
 
             </TouchableOpacity>
         </View>
+        <View style={{
+            
+            justifyContent: 'center',
+            borderRadius: 15,
+            backgroundColor: 'green',
+            textAlign:'center',
+            flex:1,
+            width:wp('50%'),
+            height:hp('8%'),
+            marginBottom:hp('25%'), marginTop:hp('0%')
+                        
+          }}>
+
+            <TouchableOpacity
+            onPress={() => {navigation.navigate('Usuarios');borrarFecha(key)}}
+            >
+
+            <Text style={{fontSize: 18,
+                          color: '#FAFAFA',
+                          textAlign:'center',
+                          fontWeight: 'bold'}}>BORRAR FECHA</Text>
+
+            </TouchableOpacity>
+
+          </View>
       
     </View>
 

@@ -202,7 +202,7 @@ export class Usuarios extends React.Component {
                     
                   </View> 
                     <View style={{flex:1.5}}>
-                          <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{this.state.name}, bienvenido/a a su sesión</Text> 
+                          <Text style={{ marginTop:  hp('3%'), color:'white', fontSize:hp('2.3%')}}>{this.state.name.toUpperCase()}, bienvenido/a a su sesión</Text> 
                    </View>    
 
                    <View style={{marginTop:  hp('0%'), flex: 1, width:wp('100%'), height:wp('10%'), alignItems:'center', marginBottom: hp('0%')

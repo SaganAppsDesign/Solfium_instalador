@@ -49,9 +49,6 @@ export class Viabilidad extends React.Component {
         viabilidad = this.state.viabilidad
         potenciaSistema= this.state.potenciaSistema
         
-    
-
-     
       return (
         <ImageOverlay 
   
@@ -62,10 +59,11 @@ export class Viabilidad extends React.Component {
   
         >
       
-        <View style={{height:hp('100%'), width:wp('100%'), alignItems:'center', flex:1}}>
+        <View style={{height:hp('80%'), width:wp('100%'), alignItems:'center', flex:1}}>
 
                 {/*botón*/}
-                <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', 
+                alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('100%')  }}>
                                                          
                       <TouchableOpacity
                 
@@ -79,9 +77,9 @@ export class Viabilidad extends React.Component {
                               textAlign:'center',
                               fontWeight:'bold',
                               fontSize:hp('1.5%'),
-                              width:hp('100%')
-                
-                            }}>1.5Kw</Text>
+                              width:hp('100%'),
+                              height:hp('4%'),
+                              }}>1.5Kw</Text>
                           
                       </TouchableOpacity>
                                           
@@ -89,7 +87,7 @@ export class Viabilidad extends React.Component {
                 {/*fin botón*/}
 
                  {/*botón*/}
-                 <View style={{opacity:this.state.opacity,  marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                 <View style={{opacity:this.state.opacity,  marginTop:hp('6%'),  borderRadius:30,  backgroundColor:'#6BCA9B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
                         <TouchableOpacity
                   
@@ -103,7 +101,8 @@ export class Viabilidad extends React.Component {
                                 textAlign:'center',
                                 fontWeight:'bold',
                                 fontSize:hp('1.5%'),
-                                width:hp('100%')
+                                width:hp('100%'),
+                                height:hp('4%'),
                   
                               }}>3Kw</Text>
                             
@@ -112,7 +111,7 @@ export class Viabilidad extends React.Component {
                   </View>
                   {/*fin botón*/}
                    {/*botón*/}
-                 <View style={{opacity:this.state.opacity2, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#9BCA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                 <View style={{opacity:this.state.opacity2, marginTop:hp('6%'),  borderRadius:30,  backgroundColor:'#9BCA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
                       <TouchableOpacity
                 
@@ -126,7 +125,8 @@ export class Viabilidad extends React.Component {
                               textAlign:'center',
                               fontWeight:'bold',
                               fontSize:hp('1.5%'),
-                              width:hp('100%')
+                              width:hp('100%'),
+                              height:hp('4%'),
                 
                             }}>5Kw</Text>
                           
@@ -135,8 +135,8 @@ export class Viabilidad extends React.Component {
                 </View>
                 {/*fin botón*/}
 
-                                                    {/*botón*/}
-                 <View style={{opacity:this.state.opacity3, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CACA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                {/*botón*/}
+                 <View style={{opacity:this.state.opacity3, marginTop:hp('6%'),  borderRadius:30,  backgroundColor:'#CACA6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
                       <TouchableOpacity
                 
@@ -150,7 +150,8 @@ export class Viabilidad extends React.Component {
                               textAlign:'center',
                               fontWeight:'bold',
                               fontSize:hp('1.5%'),
-                              width:hp('100%')
+                              width:hp('100%'),
+                              height:hp('4%')
                 
                             }}>7Kw</Text>
                           
@@ -161,7 +162,7 @@ export class Viabilidad extends React.Component {
 
 
                   {/*botón*/}
-                 <View style={{opacity:this.state.opacity4, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CA9B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                 <View style={{opacity:this.state.opacity4, marginTop:hp('6%'),  borderRadius:30,  backgroundColor:'#CA9B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
                     <TouchableOpacity
               
@@ -175,7 +176,8 @@ export class Viabilidad extends React.Component {
                             textAlign:'center',
                             fontWeight:'bold',
                             fontSize:hp('1.5%'),
-                            width:hp('100%')
+                            width:hp('100%'),
+                            height:hp('4%')
               
                           }}>10Kw</Text>
                         
@@ -185,7 +187,7 @@ export class Viabilidad extends React.Component {
               {/*fin botón*/}
 
              {/*botón*/}
-                 <View style={{opacity:this.state.opacity5, marginTop:hp('8%'),  borderRadius:30,  backgroundColor:'#CA6B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
+                 <View style={{opacity:this.state.opacity5, marginTop:hp('6%'),  borderRadius:30,  backgroundColor:'#CA6B6B', alignItems:'center', textAlign:'center', flex:0.1, borderWidth:1, width:wp('80%'), height:hp('5%')  }}>
                                                          
                     <TouchableOpacity
               
@@ -199,7 +201,8 @@ export class Viabilidad extends React.Component {
                             textAlign:'center',
                             fontWeight:'bold',
                             fontSize:hp('1.5%'),
-                            width:hp('100%')
+                            width:hp('100%'),
+                            height:hp('4%')
               
                           }}>NO VIABLE</Text>
                         

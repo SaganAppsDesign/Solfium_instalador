@@ -57,6 +57,16 @@ export const FechaInstalacion = ({ navigation, route }) => {
 
   fecha = date
   var clickCita = true
+
+  const borrarFecha = (key) => {
+
+     
+    db.ref('/Usuarios/' + key).update({
+      fechaInstalacion: "",
+      //nombre_instalador: this.state.name
+       })
+
+}
   
   
   const instalacion = (key) => {
@@ -182,7 +192,7 @@ export const FechaInstalacion = ({ navigation, route }) => {
             flex:1,
             width:wp('30%'),
             height:hp('5%'),
-            marginBottom:hp('25%'), marginTop:hp('0%')
+            marginBottom:hp('5%'), marginTop:hp('0%')
                         
           }}>
 
@@ -197,6 +207,31 @@ export const FechaInstalacion = ({ navigation, route }) => {
 
             </TouchableOpacity>
         </View>
+        <View style={{
+            
+            justifyContent: 'center',
+            borderRadius: 15,
+            backgroundColor: 'green',
+            textAlign:'center',
+            flex:1,
+            width:wp('50%'),
+            height:hp('8%'),
+            marginBottom:hp('25%'), marginTop:hp('0%')
+                        
+          }}>
+
+            <TouchableOpacity
+            onPress={() => {navigation.navigate('Usuarios');borrarFecha(key)}}
+            >
+
+            <Text style={{fontSize: 18,
+                          color: '#FAFAFA',
+                          textAlign:'center',
+                          fontWeight: 'bold'}}>BORRAR FECHA</Text>
+
+            </TouchableOpacity>
+
+          </View>
       
     </View>
 
