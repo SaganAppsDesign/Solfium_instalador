@@ -216,7 +216,8 @@ export const FechaInstalacion = ({ navigation, route }) => {
             flex:1,
             width:wp('50%'),
             height:hp('8%'),
-            marginBottom:hp('25%'), marginTop:hp('0%')
+            marginBottom:hp('25%'), 
+            marginTop:hp('0%')
                         
           }}>
 
